@@ -2,6 +2,8 @@
 
 Blender add-on (4.5+) : import et rechargement en direct des exports EmberGen et LiquiGen.
 
+**[Documentation (avec captures)](docs/index.md)**
+
 ## Installer avec mises à jour automatiques (recommandé)
 1. Blender > Edit > Preferences > Get Extensions > menu **Repositories** (en haut à droite) > **+** > **Add Remote Repository**.
 2. URL : `https://raw.githubusercontent.com/ThomasDM40-dev/jangafx-bridge-releases/main/index.json`

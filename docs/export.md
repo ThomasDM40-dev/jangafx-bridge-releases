@@ -82,6 +82,13 @@ Un effet exporté avant la version 0.15.0 n'a pas gardé ses réglages : ses exp
 projet, et les réglages de l'add-on (look, corrections d'Auto Match) reprennent leurs valeurs par défaut au prochain
 **Reload**. Un effet déjà importé dans la scène ne peut pas être rendu modifiable une deuxième fois.
 
+## Poser l'effet sur l'objet émetteur
+
+Si l'émetteur du projet a la forme d'un objet exporté depuis Blender (nœud **Import** branché sur **Shape**) :
+sélectionnez cet objet dans Blender, puis cliquez **Snap to Emitter Object** dans le panneau de l'export. Le parent
+« <projet> Root » est posé sur l'objet, avec son pivot sur l'émetteur : le décalage de l'Import dans EmberGen est
+corrigé, et déplacer, tourner ou mettre à l'échelle ce parent garde l'effet sur l'objet. Si l'objet bouge, recliquez.
+
 ## Animer le temps de l'effet
 
 Dans le panneau de l'export, sous **Starts at Frame**, cliquez **Animate Effect Time**. Une valeur **Effect Frame**

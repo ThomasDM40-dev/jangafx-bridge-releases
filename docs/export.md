@@ -81,6 +81,25 @@ Le projet et les fichiers d'export doivent toujours être sur le disque.
 Un effet exporté avant la version 0.15.0 ne garde pas ses réglages : exportez-le à nouveau depuis le fichier de
 travail. Un effet déjà importé dans la scène ne peut pas être rendu modifiable une deuxième fois.
 
+## Animer le temps de l'effet
+
+Dans le panneau de l'export, sous **Starts at Frame**, cliquez **Animate Effect Time**. Une valeur **Effect Frame**
+apparaît : c'est la frame de la simulation montrée (le numéro des fichiers exportés). Elle est posée sur le parent
+« <projet> Root » et pilote **en même temps** la fumée, les particules, l'âge des étincelles et le look animé.
+
+Au départ, elle suit la lecture normale (deux keyframes, prolongées en ligne droite). Mettez vos propres keyframes
+dessus (survolez la valeur, touche **I**) :
+
+- **déplacer** l'effet : décalez les keyframes dans la timeline ;
+- **ralentir / accélérer** : écartez ou rapprochez les keyframes ;
+- **figer** : deux keyframes avec la même valeur ;
+- **inverser** : une valeur qui descend.
+
+Hors des fichiers exportés, la fumée est cachée. Effect Frame est gardée à l'export en `.blend` (elle marche sans
+l'add-on). Le **X** revient à la lecture normale. Tant qu'elle est active, **Starts at Frame** et **Skip Invisible
+Frames** sont désactivés, et la visibilité (rendu / vue) de la fumée est pilotée par Effect Frame. Les braises et
+bulles ajoutées par l'assistant restent sur le temps de la scène.
+
 ## Déplacer l'effet
 
 Sélectionnez l'objet **« <projet> · Root »** (dans l'Outliner) et déplacez-le, tournez-le ou changez son échelle :

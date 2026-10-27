@@ -78,8 +78,9 @@ JangaFX. L'effet n'est plus figé : ses exports reviennent dans la liste de l'ad
 corrections d'Auto Match, frame de départ), et se règlent ou se rechargent comme un import fait dans ce fichier.
 Le projet et les fichiers d'export doivent toujours être sur le disque.
 
-Un effet exporté avant la version 0.15.0 ne garde pas ses réglages : exportez-le à nouveau depuis le fichier de
-travail. Un effet déjà importé dans la scène ne peut pas être rendu modifiable une deuxième fois.
+Un effet exporté avant la version 0.15.0 n'a pas gardé ses réglages : ses exports sont retrouvés dans le dossier du
+projet, et les réglages de l'add-on (look, corrections d'Auto Match) reprennent leurs valeurs par défaut au prochain
+**Reload**. Un effet déjà importé dans la scène ne peut pas être rendu modifiable une deuxième fois.
 
 ## Animer le temps de l'effet
 

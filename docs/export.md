@@ -86,8 +86,10 @@ projet, et les réglages de l'add-on (look, corrections d'Auto Match) reprennent
 
 Si l'émetteur du projet a la forme d'un objet exporté depuis Blender (nœud **Import** branché sur **Shape**) :
 sélectionnez cet objet dans Blender, puis cliquez **Snap to Emitter Object** dans le panneau de l'export. Le parent
-« <projet> Root » est posé sur l'objet, avec son pivot sur l'émetteur : le décalage de l'Import dans EmberGen est
-corrigé, et déplacer, tourner ou mettre à l'échelle ce parent garde l'effet sur l'objet. Si l'objet bouge, recliquez.
+« <projet> Root » est posé sur l'objet, et l'origine de chaque partie de l'effet (étincelles, fumée) est mise sur
+l'émetteur (modificateur « JangaFX Pivot », juste après le cache) : le décalage de l'Import dans EmberGen est corrigé,
+et déplacer, tourner ou mettre à l'échelle le parent ou une partie garde l'effet sur l'objet. Si l'objet bouge,
+recliquez : l'objet émetteur est retenu, pas besoin de le resélectionner.
 
 ## Animer le temps de l'effet
 

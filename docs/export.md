@@ -105,6 +105,15 @@ dessus (survolez la valeur, touche **I**) :
 - **figer** : deux keyframes avec la même valeur ;
 - **inverser** : une valeur qui descend.
 
+**Cadence différente** (projet EmberGen à 60 fps, scène à 30 fps) : une séquence VDB a un fichier par frame du
+projet, elle serait jouée deux fois trop lentement à côté des étincelles (l'Alembic, lui, est en secondes). Le
+bouton s'appelle alors **Convert 60 fps to 30 fps** : Effect Frame avance de deux fichiers par frame de la scène,
+la fumée et les étincelles restent ensemble en temps réel, sans changer la cadence de la scène.
+
+**Override Frame** (réglage du cache Alembic, onglet du modificateur Mesh Sequence Cache) : coché par Effect Frame,
+il fait lire au cache la frame donnée par son champ **Frame** (piloté) au lieu de la frame de la scène. N'y touchez
+pas : le **X** d'Effect Frame le décoche.
+
 Hors des fichiers exportés, la fumée est cachée. Effect Frame est gardée à l'export en `.blend` (elle marche sans
 l'add-on). Le **X** revient à la lecture normale. Tant qu'elle est active, **Starts at Frame** et **Skip Invisible
 Frames** sont désactivés, et la visibilité (rendu / vue) de la fumée est pilotée par Effect Frame. Les braises et

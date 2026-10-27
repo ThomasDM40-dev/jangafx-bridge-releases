@@ -46,7 +46,7 @@ Exemple : la voiture passe devant la caméra à l'image 120 et les étincelles d
 Le fichier écrit est **figé** : toutes les valeurs restent celles calculées depuis le projet à l'import (la largeur
 des étincelles, par exemple, a été calculée d'après la résolution de rendu de votre fichier de travail). Rien n'est
 recalculé d'après la résolution, la caméra, la cadence ou l'étalonnage du fichier qui le reçoit, et l'add-on de ce
-fichier ne le modifie jamais.
+fichier ne le modifie jamais, sauf si vous cliquez **Make Editable** (voir plus bas).
 
 Le fichier contient :
 
@@ -70,6 +70,16 @@ Ouvrez la scène qui doit recevoir l'effet (la voiture), puis au choix :
 choisissez cette bibliothèque, puis glissez l'effet dans la vue 3D.
 
 ![L'effet exporté dans l'Asset Browser](images/exp-03-asset-browser.png)
+
+## Modifier l'effet dans la scène qui le reçoit
+
+Sélectionnez un objet de l'effet, puis cliquez **Make Editable** dans la section **Export to .blend** du panneau
+JangaFX. L'effet n'est plus figé : ses exports reviennent dans la liste de l'add-on avec leurs réglages (look,
+corrections d'Auto Match, frame de départ), et se règlent ou se rechargent comme un import fait dans ce fichier.
+Le projet et les fichiers d'export doivent toujours être sur le disque.
+
+Un effet exporté avant la version 0.15.0 ne garde pas ses réglages : exportez-le à nouveau depuis le fichier de
+travail. Un effet déjà importé dans la scène ne peut pas être rendu modifiable une deuxième fois.
 
 ## Déplacer l'effet
 

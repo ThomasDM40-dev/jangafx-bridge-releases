@@ -1,3 +1,5 @@
+*[English version](en/export.md)*
+
 # Exporter l'effet en .blend
 
 Cas typique : vous avez réglé des étincelles EmberGen dans un fichier de travail, et vous voulez les ajouter à la

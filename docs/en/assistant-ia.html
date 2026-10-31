@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI assistant — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../assistant-ia.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html" aria-current="page">The AI assistant</a></li>
+<li><a href="depannage.html">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="the-ai-assistant">The AI assistant</h1>
+<p>The <strong>JangaFX AI</strong> tab of the sidebar (<strong>N</strong> key) contains an assistant that understands your requests in
+plain language, for example "make the smoke denser", and proposes the matching changes. It runs <strong>on
+your computer</strong> thanks to the free <strong>Ollama</strong> program: nothing is sent over the Internet. The add-on works
+very well without it.</p>
+<p>You need a graphics card with at least 8 GB of memory.</p>
+<h2 id="install-ollama-and-the-model">Install Ollama and the model</h2>
+<p>The tab guides you step by step. As long as Ollama does not respond, it shows:</p>
+<ol>
+<li><strong>Install Ollama (free)</strong>: the <strong>Install Ollama (ollama.com)</strong> button opens the official download page
+   (<a href="https://ollama.com/download">https://ollama.com/download</a>) in your browser. The add-on installs nothing itself:
+   download and install Ollama like any ordinary program.</li>
+<li><strong>Start Ollama, then click Refresh</strong> (the arrows button to the right of the status line).</li>
+</ol>
+<figure><a href="../images/ai-01-installer.png"><img alt="Ollama is not installed yet" src="../images/ai-01-installer.png" loading="lazy"></a><figcaption>Ollama is not installed yet</figcaption></figure>
+<p>When Ollama responds, the line says "Ollama … active". <strong>Last step</strong>: download the assistant's model
+with the <strong>Download model …</strong> button. The recommended model depends on your graphics card's memory. The
+download is several GB and only happens once; Blender stays usable meanwhile, a bar shows progress and
+<strong>Cancel download</strong> stops it.</p>
+<figure><a href="../images/ai-02-modele.png"><img alt="Ollama is active, the model remains to be downloaded" src="../images/ai-02-modele.png" loading="lazy"></a><figcaption>Ollama is active, the model remains to be downloaded</figcaption></figure>
+<p>The status line then tells you whether the model is <strong>loaded</strong> (with the graphics memory it occupies) or
+<strong>unloaded</strong> (installed but not in memory). The model is always unloaded before a render, a check or an
+Auto Match, to free the graphics card.</p>
+<h2 id="the-two-modes">The two modes</h2>
+<p>Under the status line, choose how the assistant applies its changes:</p>
+<ul>
+<li><strong>Before / after</strong> (default): the assistant prepares its changes without touching the scene. You see the
+  list of changes, and a before / after render next to the EmberGen reference, then you apply or
+  reject.</li>
+<li><strong>Direct</strong>: changes are applied immediately; <strong>Undo</strong> (or Ctrl+Z) removes them.</li>
+</ul>
+<p>The small window button at the end of the line opens the conversation in large view (see below).</p>
+<h2 id="ask-a-question">Ask a question</h2>
+<p>In the <strong>Request</strong> part:</p>
+<ol>
+<li>type your request in the <strong>Your request</strong> field (for example "make the smoke denser and hotter");</li>
+<li>press <strong>Enter</strong> or click <strong>Send</strong>.</li>
+</ol>
+<p><strong>Stop</strong> interrupts the response in progress (and the check or Auto Match it is waiting for).</p>
+<p>The <strong>quick requests</strong> send a ready-made sentence, as if you had typed it: <strong>More realistic</strong>, <strong>Faster
+to render</strong>, <strong>Brighter</strong>, <strong>Compare to EmberGen</strong> (runs a check and says what differs most).</p>
+<p>The <strong>Reply</strong> part shows your last question (in grey) and the assistant's reply; <strong>History</strong> keeps the
+previous exchanges.</p>
+<h2 id="apply-reject-undo">Apply, reject, undo</h2>
+<p>Each proposal arrives in the <strong>Changes</strong> part, as a <strong>batch</strong>: one line per setting, with
+the old and new value, and in small print the <strong>source</strong> of the value (your request, or a tool's measurement).</p>
+<figure><a href="../images/ai-03-conversation.png"><img alt="A batch of pending changes" src="../images/ai-03-conversation.png" loading="lazy"></a><figcaption>A batch of pending changes</figcaption></figure>
+<p>In <strong>Before / after</strong> mode:</p>
+<ul>
+<li><strong>See before / after</strong> opens the image (before | after | EmberGen reference) in a window, when the preview is
+  ready;</li>
+<li><strong>Apply</strong> writes the changes into the scene (you can undo it);</li>
+<li><strong>Reject</strong> abandons them: nothing was touched;</li>
+<li><strong>Check against EmberGen</strong> runs a <a href="verifier-et-auto-match.html#check-against-embergen">check</a> on this batch
+  in a background Blender (several minutes on a large project) and says whether the batch moves the render away from
+  EmberGen. Nothing is undone automatically: you decide.</li>
+</ul>
+<p>After applying:</p>
+<ul>
+<li><strong>Undo</strong> restores the values from before the last applied batch (settings, preset and added objects);
+  Blender's Ctrl+Z works too;</li>
+<li><strong>Revert to this state</strong>, on an older batch, returns to the state that batch left.</li>
+</ul>
+<p>In the <strong>Tools</strong> part:</p>
+<ul>
+<li><strong>Clear AI settings</strong> removes everything the assistant changed on the active import (undoable);</li>
+<li><strong>Clear conversation</strong> empties the message history; settings already applied stay.</li>
+</ul>
+<h2 id="open-in-large-view">Open in large view</h2>
+<p><strong>Open large</strong> (<strong>History</strong> or <strong>Tools</strong> part, or the window button at the top) opens a large window
+with the whole conversation, read-only. Its sidebar (<strong>N</strong> key, <strong>JangaFX AI</strong> tab) keeps the
+changes and the request field. If the window is already open, it is only updated. When a
+reply is too long for the panel, the <strong>… see all</strong> link also opens this window.</p>
+<h2 id="assistant-settings">Assistant settings</h2>
+<p>In <strong>Edit &gt; Preferences &gt; Add-ons &gt; JangaFX Bridge</strong>, the <strong>AI assistant (Ollama)</strong> block shows Ollama's status
+and the model download, plus three settings:</p>
+<ul>
+<li><strong>Forced model</strong>: the Ollama model to use (for example <code>qwen3.5:4b</code>). Empty: automatic choice among the
+  installed models, according to the free graphics memory.</li>
+<li><strong>Keep model loaded (min)</strong>: minutes during which Ollama keeps the model in memory after the last
+  message (0: unloaded straight away).</li>
+<li><strong>Ollama server</strong>: server address (default <code>http://127.0.0.1:11434</code>). Change nothing if Ollama runs
+  on this computer with its default settings.</li>
+</ul>
+<p>If the tab shows "AI assistant unavailable (see Blender's console)", the assistant could not load;
+the rest of the add-on works normally.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="export.html"><span>Previous</span>Export the effect to .blend</a>
+<a class="next" href="depannage.html"><span>Next</span>Troubleshooting</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#install-ollama-and-the-model">Install Ollama and the model</a></li>
+<li><a href="#the-two-modes">The two modes</a></li>
+<li><a href="#ask-a-question">Ask a question</a></li>
+<li><a href="#apply-reject-undo">Apply, reject, undo</a></li>
+<li><a href="#open-in-large-view">Open in large view</a></li>
+<li><a href="#assistant-settings">Assistant settings</a></li></ul></aside>
+</div>
+</body>
+</html>

@@ -1,3 +1,5 @@
+*[English version](en/installation.md)*
+
 # Installation
 
 JangaFX Bridge fonctionne avec **Blender 4.5 ou plus récent** (testé avec 4.5 et 5.2). Il y a deux façons de

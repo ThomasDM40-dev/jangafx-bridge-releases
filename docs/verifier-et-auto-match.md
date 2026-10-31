@@ -1,3 +1,5 @@
+*[English version](en/verifier-et-auto-match.md)*
+
 # Vérifier contre EmberGen et Auto Match
 
 Ces outils se trouvent dans la section **Look** du panneau, quand le préréglage est **EmberGen Look** et que le

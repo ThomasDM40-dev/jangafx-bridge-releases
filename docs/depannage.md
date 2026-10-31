@@ -1,3 +1,5 @@
+*[English version](en/depannage.md)*
+
 # Dépannage
 
 Les problèmes les plus courants et ce qu'il faut faire. Pensez aussi à lire le

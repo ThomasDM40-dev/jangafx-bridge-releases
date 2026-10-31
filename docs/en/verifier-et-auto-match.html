@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check against EmberGen and Auto Match — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../verifier-et-auto-match.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html" aria-current="page">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html">The AI assistant</a></li>
+<li><a href="depannage.html">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="check-against-embergen-and-auto-match">Check against EmberGen and Auto Match</h1>
+<p>These tools are in the <strong>Look</strong> section of the panel, when the preset is <strong>EmberGen Look</strong> and the
+<code>.ember</code> project is known.</p>
+<figure><a href="../images/ver-01-boutons.png"><img alt="The Auto Match, Check and Screenshot buttons" src="../images/ver-01-boutons.png" loading="lazy"></a><figcaption>The Auto Match, Check and Screenshot buttons</figcaption></figure>
+<p>Both work in a <strong>background Blender</strong>: your session stays usable and renders nothing
+itself. This background Blender renders with Cycles and uses the graphics card chosen in
+<strong>Preferences &gt; System</strong> (see <a href="depannage.html#the-graphics-card-is-not-used">Troubleshooting</a>). Only one job
+at a time: during a check or an Auto Match, the line "Checking in the background..." or "Auto Match
+in the background..." replaces the buttons, and the cross on the right (<strong>Cancel Check</strong>) stops it.</p>
+<h2 id="the-reference-what-embergen-rendered">The reference: what EmberGen rendered</h2>
+<p>To compare, you need an image from EmberGen:</p>
+<ul>
+<li><strong>the render saved in the project</strong>: EmberGen keeps a small movie of the simulation in the <code>.ember</code>; it is
+  used automatically when it shows frames that were exported;</li>
+<li><strong>or a screenshot</strong>: choose it in <strong>Screenshot</strong> (EmberGen's whole window or only its 3D
+  view) and enter in <strong>At Frame</strong> the EmberGen timeline frame it shows.</li>
+</ul>
+<p>If EmberGen only saved a thumbnail, the report says so ("EmberGen only saved a thumbnail in the
+project: no reference render to compare with") and suggests adding a screenshot. If the saved movie shows
+no exported frame, re-export from EmberGen the frame range you are looking at.</p>
+<h2 id="check-against-embergen">Check against EmberGen</h2>
+<p><strong>Check against EmberGen</strong> renders, in the background Blender, the exported frames that the reference shows,
+then compares them with EmberGen zone by zone (flame core, flames, lit smoke, smoke in shadow…). On a
+large project, allow several minutes (the job is stopped after 15 minutes).</p>
+<p>Before starting, the add-on checks the scene: if something is missing (for example a project light), it
+answers "Fix the scene first (… problem(s) in the project report)" and the report says what to fix.</p>
+<p>At the end:</p>
+<ul>
+<li>the <strong>EmberGen | Blender</strong> image appears under the button, side by side;</li>
+<li>the measured differences are added to the <a href="premiers-pas.html#the-project-report">project report</a>, for example
+  "The lit smoke is darker" or "The effect is less spread out than in EmberGen";</li>
+<li>if the colours are close everywhere: "Colours close to EmberGen in all measured zones";</li>
+<li>if an Auto Match can help, the report offers it with its button.</li>
+</ul>
+<p>When the render does not overlap the reference (another moment, another framing), only the colours are
+compared, and the report says so.</p>
+<h2 id="auto-match">Auto Match</h2>
+<p><strong>Auto Match to EmberGen</strong> matches Blender's look to the reference, with no intervention:</p>
+<ol>
+<li>it renders a few low-resolution frames in the background Blender (the add-on's ground is hidden, because
+   EmberGen does not draw one);</li>
+<li>it adjusts the look's corrections one by one, measuring the gap with EmberGen over several frames;</li>
+<li>it checks the result on <strong>other frames</strong>, never used during the search: the corrections are only
+   kept if they do better there than the starting look.</li>
+</ol>
+<p><strong>Duration</strong>: usually 1 to 5 minutes, up to 30 minutes on a heavy project (forced stop after
+40 minutes).</p>
+<p><strong>The result</strong> is shown under the button:</p>
+<ul>
+<li>tick: "Matched to the EmberGen render: gap 0.300 -&gt; 0.200" (the gap went down, the corrections are
+  applied);</li>
+<li>information icon: "<strong>No correction kept</strong>: none does better than the current look on frames
+  outside the search". This means the corrections found improved the search frames but not
+  the others: the current look is already the best, nothing was changed. This is not an error.</li>
+</ul>
+<p>The note "colours only: another moment" indicates that the reference did not overlap the render: only
+the colours were matched.</p>
+<p>What is learned is kept on the export and reused for your next projects. The cross to the right of the button
+(<strong>Reset Auto Match</strong>) forgets the corrections of this export and rebuilds the look from the project.</p>
+<h2 id="check-automatically-after-import">Check automatically after import</h2>
+<p>In the add-on preferences (<strong>Edit &gt; Preferences &gt; Add-ons &gt; JangaFX Bridge</strong>), the <strong>Check against
+EmberGen after import</strong> checkbox runs <strong>Check against EmberGen</strong> automatically after <strong>Open Project</strong> or <strong>Import</strong> of an
+EmberGen project, when a reference is usable (saved render showing exported frames, or a chosen
+screenshot).</p>
+<p>It is <strong>unticked by default</strong>: the background render shares the graphics card with your session. It does
+nothing for LiquiGen, nor during another check or an Auto Match.</p>
+<h2 id="check-a-liquigen-project">Check a LiquiGen project</h2>
+<p>LiquiGen saves no render in its project: you need a screenshot. In the <strong>Liquid</strong> section:</p>
+<ol>
+<li>take a screenshot in LiquiGen (a render, or the 3D view alone), <strong>seen through the project camera</strong>;</li>
+<li>choose it in <strong>LiquiGen Capture</strong>; <strong>At Frame</strong> takes the scene's current frame, correct it if needed
+   so that it matches the screenshot's frame;</li>
+<li>click <strong>Check against LiquiGen</strong>.</li>
+</ol>
+<p>The button stays greyed out as long as there is no screenshot; the reason is written below it. The comparison covers
+shape, brightness, colours and highlights, and the differences are added to the report. The thresholds of this
+comparison are <strong>provisional</strong> (not yet measured on LiquiGen screenshots); there is no Auto Match for
+LiquiGen.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="panneau.html"><span>Previous</span>The JangaFX panel</a>
+<a class="next" href="export.html"><span>Next</span>Export the effect to .blend</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#the-reference-what-embergen-rendered">The reference: what EmberGen rendered</a></li>
+<li><a href="#check-against-embergen">Check against EmberGen</a></li>
+<li><a href="#auto-match">Auto Match</a></li>
+<li><a href="#check-automatically-after-import">Check automatically after import</a></li>
+<li><a href="#check-a-liquigen-project">Check a LiquiGen project</a></li></ul></aside>
+</div>
+</body>
+</html>

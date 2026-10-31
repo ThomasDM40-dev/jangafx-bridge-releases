@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dépannage — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/depannage.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html" aria-current="page">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="dépannage">Dépannage</h1>
+<p>Les problèmes les plus courants et ce qu'il faut faire. Pensez aussi à lire le
+<a href="premiers-pas.html#le-rapport-du-projet">rapport du projet</a> : il signale beaucoup de ces cas et propose souvent le
+bon bouton.</p>
+<h2 id="les-vdb-sont-lents-à-lire">Les VDB sont lents à lire</h2>
+<p><strong>Ce que vous voyez</strong> : Blender met longtemps à changer d'image ; la section <strong>Export</strong> affiche « Slow to read: no
+grid index » et le rapport dit « Les VDB n'ont pas de table des grilles : lecture lente ».</p>
+<p><strong>Pourquoi</strong> : les VDB écrits par EmberGen n'ont pas de table des grilles. Blender relit tout le fichier pour
+chaque grille, à chaque image.</p>
+<p><strong>Que faire</strong> : cliquez sur <strong>Optimize VDB Files</strong> (section <strong>Export</strong>, ou directement dans le rapport). L'add-on
+écrit une copie indexée, sans perte (mêmes grilles, mêmes valeurs), dans un sous-dossier <code>JangaFX Optimized</code> à
+côté de l'export, puis l'utilise : la ligne devient « Optimized VDB copy in use ». Prévoyez la place sur le disque
+(la taille est indiquée sous le bouton). Échap pendant la conversion l'annule (les fichiers déjà convertis sont
+gardés).</p>
+<figure><a href="images/pan-02-export.png"><img alt="Optimize VDB Files dans la section Export" src="images/pan-02-export.png" loading="lazy"></a><figcaption>Optimize VDB Files dans la section Export</figcaption></figure>
+<h2 id="le-matériau-vient-dune-ancienne-version">Le matériau vient d'une ancienne version</h2>
+<p><strong>Ce que vous voyez</strong> : le rapport dit « Le matériau a été construit par une autre version du look EmberGen ».</p>
+<p><strong>Pourquoi</strong> : l'add-on a été mis à jour depuis l'import ; le matériau de votre fichier date de l'ancienne version.</p>
+<p><strong>Que faire</strong> : cliquez sur le bouton proposé dans le rapport, <strong>Rebuild Material (Reload)</strong>, ou sur <strong>Reload</strong>
+dans la section <strong>Export</strong>. Le matériau est reconstruit depuis le projet.</p>
+<h2 id="les-couleurs-changent-après-lajout">Les couleurs changent après l'ajout</h2>
+<p><strong>Ce que vous voyez</strong> : après avoir ajouté un effet exporté en <code>.blend</code> dans une autre scène, il n'a pas les
+mêmes couleurs ; la section <strong>Export to .blend</strong> affiche « colour settings differ from the source file, the effect
+may look different » ou « render settings differ from the source file ».</p>
+<p><strong>Pourquoi</strong> : l'étalonnage des couleurs, les réglages de rendu, le post-traitement et le monde restent ceux de la
+scène qui reçoit l'effet (voir <a href="export.html#ce-qui-reste-celui-de-la-scène-qui-reçoit">Ce qui reste celui de la scène qui reçoit</a>).
+L'add-on ne les change jamais à votre place.</p>
+<p><strong>Que faire</strong> :</p>
+<ul>
+<li>dans la scène qui reçoit, comparez <strong>Render Properties &gt; Color Management</strong> avec celui du fichier de travail ;
+  choisissez de garder celui de la scène (et retouchez l'effet) ou de le changer pour toute la scène ;</li>
+<li>la ligne des réglages de rendu dit lesquels diffèrent (pas du volume, rebonds, flou de mouvement,
+  post-traitement, monde) : alignez ceux qui comptent pour vous.</li>
+</ul>
+<h2 id="la-vitesse-nest-pas-la-bonne">La vitesse n'est pas la bonne</h2>
+<p><strong>Ce que vous voyez</strong> : l'effet joue trop vite ou trop lentement ; la section <strong>Export to .blend</strong> affiche
+« made at 60 fps, this scene plays it at another speed ».</p>
+<p><strong>Pourquoi</strong> : l'effet a été fait à une autre cadence que la scène qui le reçoit. Une séquence VDB a un fichier
+par image du projet.</p>
+<p><strong>Que faire</strong> : réglez la cadence de la scène (<strong>Output Properties &gt; Frame Rate</strong>) sur celle de l'effet, ou
+acceptez la différence. Dans un projet ouvert avec l'add-on, <strong>Frame Rate</strong> dans
+<a href="panneau.html#scène-du-projet">Scène du projet</a> règle la cadence de la scène sur celle du projet.</p>
+<h2 id="des-fichiers-manquent">Des fichiers manquent</h2>
+<p><strong>Ce que vous voyez</strong> : dans la liste, l'export a un triangle rouge (« Files missing »), ou la section <strong>Export</strong>
+affiche « … missing frame(s) » ; ou un effet ajouté depuis un <code>.blend</code> n'apparaît pas.</p>
+<p><strong>Pourquoi</strong> : des fichiers de l'export ont été déplacés, supprimés, ou l'export n'est pas terminé. Un effet
+exporté en <code>.blend</code> lit ses VDB et caches à leur chemin d'origine.</p>
+<p><strong>Que faire</strong> :</p>
+<ul>
+<li>relancez l'export depuis EmberGen ou LiquiGen, puis cliquez sur <strong>Rescan</strong> ou <strong>Reload</strong> ;</li>
+<li>si vous avez déplacé le dossier des exports, changez <strong>Export Folder</strong> dans <strong>Settings</strong> ;</li>
+<li>ne déplacez pas le dossier des exports d'un effet que vous avez ajouté en <code>.blend</code> ;</li>
+<li>si Open Project dit « No export of this project was found on disk », exportez d'abord depuis EmberGen.</li>
+</ul>
+<h2 id="la-carte-graphique-nest-pas-utilisée">La carte graphique n'est pas utilisée</h2>
+<p><strong>Ce que vous voyez</strong> : les vérifications et Auto Match sont très lents, ou l'assistant IA répond « Aucune carte
+graphique n'est activée pour Cycles ».</p>
+<p><strong>Pourquoi</strong> : le Blender d'arrière-plan utilise la carte graphique choisie pour Cycles dans les préférences de
+Blender. Si aucune n'est choisie, il rend avec le processeur.</p>
+<p><strong>Que faire</strong> :</p>
+<ol>
+<li>ouvrez <strong>Edit &gt; Preferences &gt; System</strong> ;</li>
+<li>dans <strong>Cycles Render Devices</strong>, choisissez <strong>CUDA</strong> ou <strong>OptiX</strong> (NVIDIA), <strong>HIP</strong> (AMD), <strong>oneAPI</strong> (Intel) ou
+   <strong>Metal</strong> (Mac), puis cochez votre carte ;</li>
+<li>dans les préférences de l'add-on, laissez <strong>GPU for Background Renders</strong> coché.</li>
+</ol>
+<figure><a href="images/dep-01-gpu.png"><img alt="Cycles Render Devices dans Preferences &gt; System" src="images/dep-01-gpu.png" loading="lazy"></a><figcaption>Cycles Render Devices dans Preferences &gt; System</figcaption></figure>
+<p>Le rendu d'arrière-plan partage la mémoire de la carte avec votre session : sur une petite carte, fermez les autres
+programmes gourmands pendant une vérification.</p>
+<h2 id="une-vérification-refuse-de-démarrer">Une vérification refuse de démarrer</h2>
+<ul>
+<li>« Fix the scene first (… problem(s) in the project report) » : corrigez d'abord ce que dit le rapport (par
+  exemple une lumière du projet manquante : <strong>Apply Project Scene</strong>).</li>
+<li>« A background check or Auto Match is already running » : attendez la fin du travail en cours, ou arrêtez-le
+  avec la croix.</li>
+<li>« Needs the EmberGen project (.ember) of this export » : l'export n'a pas de projet <code>.ember</code> à côté ; ouvrez-le
+  avec <strong>Open Project</strong>.</li>
+<li>« EmberGen n'a enregistré qu'une vignette dans le projet » : ajoutez une capture dans <strong>Screenshot</strong> (voir
+  <a href="verifier-et-auto-match.html#la-référence--ce-quembergen-a-rendu">La référence</a>).</li>
+</ul>
+</article>
+<nav class="pager">
+<a class="prev" href="assistant-ia.html"><span>Précédent</span>L&#x27;assistant IA</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#les-vdb-sont-lents-à-lire">Les VDB sont lents à lire</a></li>
+<li><a href="#le-matériau-vient-dune-ancienne-version">Le matériau vient d'une ancienne version</a></li>
+<li><a href="#les-couleurs-changent-après-lajout">Les couleurs changent après l'ajout</a></li>
+<li><a href="#la-vitesse-nest-pas-la-bonne">La vitesse n'est pas la bonne</a></li>
+<li><a href="#des-fichiers-manquent">Des fichiers manquent</a></li>
+<li><a href="#la-carte-graphique-nest-pas-utilisée">La carte graphique n'est pas utilisée</a></li>
+<li><a href="#une-vérification-refuse-de-démarrer">Une vérification refuse de démarrer</a></li></ul></aside>
+</div>
+</body>
+</html>

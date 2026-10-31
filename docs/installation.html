@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/installation.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html" aria-current="page">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="installation">Installation</h1>
+<p>JangaFX Bridge fonctionne avec <strong>Blender 4.5 ou plus récent</strong> (testé avec 4.5 et 5.2). Il y a deux façons de
+l'installer : depuis le dépôt en ligne (conseillé, les mises à jour arrivent toutes seules) ou depuis un fichier
+<code>.zip</code>.</p>
+<p>Les captures ci-dessous viennent de Blender 5.2 ; dans Blender 4.5 les fenêtres sont presque identiques.</p>
+<h2 id="installer-depuis-le-dépôt-en-ligne">Installer depuis le dépôt en ligne</h2>
+<p>C'est la méthode conseillée : Blender vérifie à chaque démarrage s'il existe une nouvelle version de l'add-on.</p>
+<h3 id="1-autoriser-laccès-à-internet">1. Autoriser l'accès à Internet</h3>
+<p>Ouvrez <strong>Edit &gt; Preferences</strong> (Édition &gt; Préférences), puis la section <strong>Get Extensions</strong>. Si Blender affiche
+le message ci-dessous, cliquez sur <strong>Allow Online Access</strong> (autoriser l'accès en ligne). Sans cela, Blender ne
+peut ni télécharger l'add-on ni ses mises à jour.</p>
+<figure><a href="images/inst-01-acces-en-ligne.png"><img alt="Get Extensions : autoriser l'accès en ligne" src="images/inst-01-acces-en-ligne.png" loading="lazy"></a><figcaption>Get Extensions : autoriser l'accès en ligne</figcaption></figure>
+<h3 id="2-ouvrir-la-liste-des-dépôts">2. Ouvrir la liste des dépôts</h3>
+<p>Toujours dans <strong>Get Extensions</strong>, cliquez sur le menu <strong>Repositories</strong> (en haut à droite). La liste des dépôts
+s'ouvre ; cliquez sur le bouton <strong>+</strong> à droite de la liste, puis choisissez <strong>Add Remote Repository</strong> (ajouter un
+dépôt distant).</p>
+<figure><a href="images/inst-02-depots.png"><img alt="La liste des dépôts et le bouton +" src="images/inst-02-depots.png" loading="lazy"></a><figcaption>La liste des dépôts et le bouton +</figcaption></figure>
+<h3 id="3-ajouter-le-dépôt-jangafx-bridge">3. Ajouter le dépôt JangaFX Bridge</h3>
+<p>Dans la fenêtre <strong>Add New Extension Repository</strong> :</p>
+<ol>
+<li>collez cette adresse dans le champ <strong>URL</strong> :</li>
+</ol>
+<p><code>https://raw.githubusercontent.com/ThomasDM40-dev/jangafx-bridge-releases/main/index.json</code></p>
+<ol start="2">
+<li>cochez <strong>Check for Updates on Startup</strong> (chercher les mises à jour au démarrage) ;</li>
+<li>laissez le reste tel quel et cliquez sur <strong>Create</strong>.</li>
+</ol>
+<figure><a href="images/inst-03-ajouter-depot.png"><img alt="Ajouter le dépôt JangaFX Bridge" src="images/inst-03-ajouter-depot.png" loading="lazy"></a><figcaption>Ajouter le dépôt JangaFX Bridge</figcaption></figure>
+<h3 id="4-installer-ladd-on">4. Installer l'add-on</h3>
+<p>Tapez <code>JangaFX</code> dans la barre de recherche de <strong>Get Extensions</strong> : <strong>JangaFX Bridge</strong> apparaît dans la partie
+<strong>Available</strong>. Cliquez sur <strong>Install</strong>.</p>
+<figure><a href="images/inst-04-installer.png"><img alt="JangaFX Bridge prêt à être installé" src="images/inst-04-installer.png" loading="lazy"></a><figcaption>JangaFX Bridge prêt à être installé</figcaption></figure>
+<p>Une fois installé, il passe dans la partie <strong>Installed</strong> et il est activé.</p>
+<figure><a href="images/inst-05-installe.png"><img alt="JangaFX Bridge installé" src="images/inst-05-installe.png" loading="lazy"></a><figcaption>JangaFX Bridge installé</figcaption></figure>
+<p>Si le bouton <strong>Save Preferences</strong> (en bas à gauche) affiche une étoile, cliquez dessus pour garder le dépôt la
+prochaine fois (sauf si l'enregistrement automatique des préférences est activé).</p>
+<h2 id="recevoir-les-mises-à-jour">Recevoir les mises à jour</h2>
+<p>Avec <strong>Check for Updates on Startup</strong> coché, Blender regarde au démarrage si une nouvelle version existe. Quand
+c'est le cas, la section <strong>Get Extensions</strong> propose de la mettre à jour (bouton <strong>Update</strong>, ou <strong>Install
+Available Updates</strong> dans le menu en haut à droite). Redémarrez Blender après une mise à jour.</p>
+<h2 id="installer-depuis-un-fichier-zip">Installer depuis un fichier zip</h2>
+<p>Sans Internet, ou pour installer une version précise :</p>
+<ol>
+<li>téléchargez le fichier <code>jangafx_bridge-&lt;version&gt;.zip</code> sur la page des versions :
+   <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases">https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases</a> (ne le décompressez pas) ;</li>
+<li>dans <strong>Edit &gt; Preferences &gt; Get Extensions</strong>, ouvrez le petit menu tout en haut à droite (la flèche <strong>v</strong>) ;</li>
+<li>choisissez <strong>Install from Disk...</strong> et sélectionnez le fichier <code>.zip</code>.</li>
+</ol>
+<figure><a href="images/inst-06-depuis-le-disque.png"><img alt="Le menu Install from Disk" src="images/inst-06-depuis-le-disque.png" loading="lazy"></a><figcaption>Le menu Install from Disk</figcaption></figure>
+<p>Avec cette méthode, les mises à jour ne sont pas automatiques : refaites la même chose avec le nouveau <code>.zip</code>.</p>
+<h2 id="vérifier-que-ladd-on-est-actif">Vérifier que l'add-on est actif</h2>
+<p>Dans <strong>Edit &gt; Preferences &gt; Add-ons</strong>, cherchez <code>JangaFX</code> : la case de <strong>JangaFX Bridge</strong> doit être cochée.
+Dépliez la ligne pour voir ses préférences :</p>
+<ul>
+<li><strong>French / English</strong> : langue du rapport de projet et des fenêtres d'aide ;</li>
+<li><strong>GPU for Background Renders</strong> : les vérifications et Auto Match utilisent la carte graphique choisie dans
+  <strong>Preferences &gt; System</strong> (voir <a href="depannage.html#la-carte-graphique-nest-pas-utilisée">Dépannage</a>) ;</li>
+<li><strong>Vérifier contre EmberGen après l'import</strong> : voir
+  <a href="verifier-et-auto-match.html#vérifier-tout-seul-après-limport">Vérifier tout seul après l'import</a> ;</li>
+<li><strong>Assistant IA (Ollama)</strong> : voir <a href="assistant-ia.html">L'assistant IA</a>.</li>
+</ul>
+<figure><a href="images/prefs-01-addon.png"><img alt="Les préférences de l'add-on" src="images/prefs-01-addon.png" loading="lazy"></a><figcaption>Les préférences de l'add-on</figcaption></figure>
+<p>Ensuite, passez aux <a href="premiers-pas.html">Premiers pas</a>.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="index.html"><span>Précédent</span>JangaFX Bridge — documentation</a>
+<a class="next" href="premiers-pas.html"><span>Suivant</span>Premiers pas</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#installer-depuis-le-dépôt-en-ligne">Installer depuis le dépôt en ligne</a></li>
+<li><a href="#recevoir-les-mises-à-jour">Recevoir les mises à jour</a></li>
+<li><a href="#installer-depuis-un-fichier-zip">Installer depuis un fichier zip</a></li>
+<li><a href="#vérifier-que-ladd-on-est-actif">Vérifier que l'add-on est actif</a></li></ul></aside>
+</div>
+</body>
+</html>

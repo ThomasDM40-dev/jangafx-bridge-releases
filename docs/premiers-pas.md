@@ -1,3 +1,5 @@
+*[English version](en/premiers-pas.md)*
+
 # Premiers pas
 
 Avant de commencer : exportez votre effet depuis EmberGen (VDB pour la fumée et le feu, Alembic pour les

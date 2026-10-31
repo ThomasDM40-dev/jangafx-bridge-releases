@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../premiers-pas.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html" aria-current="page">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html">The AI assistant</a></li>
+<li><a href="depannage.html">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="getting-started">Getting started</h1>
+<p>Before you begin: export your effect from EmberGen (VDB for smoke and fire, Alembic for
+particles) or from LiquiGen, and save the project (<code>.ember</code> or <code>.liquigen</code>).</p>
+<h2 id="open-the-jangafx-panel">Open the JangaFX panel</h2>
+<p>In the 3D viewport, press <strong>N</strong>: the sidebar opens. Click the <strong>JangaFX</strong> tab (on the right edge of the
+panel). As long as no project is open, it only shows the <strong>Open Project</strong> button, the <strong>Render</strong> section and the
+<strong>Settings</strong> section (collapsed).</p>
+<figure><a href="../images/pp-01-ouvrir-projet.png"><img alt="The JangaFX tab before opening a project" src="../images/pp-01-ouvrir-projet.png" loading="lazy"></a><figcaption>The JangaFX tab before opening a project</figcaption></figure>
+<h2 id="open-an-embergen-or-liquigen-project">Open an EmberGen or LiquiGen project</h2>
+<ol>
+<li>Click <strong>Open Project</strong>.</li>
+<li>Choose the <code>.ember</code> (EmberGen) or <code>.liquigen</code> (LiquiGen) file.</li>
+</ol>
+<p>You can also <strong>drag the project file</strong> from the file explorer straight into the 3D viewport.</p>
+<p>The add-on reads the project, finds the exports through the project's export nodes, imports them and sets up everything
+else automatically: materials, lights, camera, post-processing, frame rate (frames per second) and the scene's
+frame range. A heavy project can take a few seconds.</p>
+<p>If nothing is found, Blender shows "No export of this project was found on disk (export it from EmberGen
+first)": export from EmberGen or LiquiGen first.</p>
+<h2 id="what-appears-in-the-scene">What appears in the scene</h2>
+<p>After opening, the scene contains:</p>
+<ul>
+<li>a <strong>JangaFX Bridge</strong> collection with the effect: the volume (smoke, fire) and, if there are any, the sparks or the
+  liquid;</li>
+<li>the project's camera (if <strong>Camera</strong> is enabled in <a href="panneau.html#project-scene">Project scene</a>), the project's ground
+  and its lights (EmberGen's sun, for example);</li>
+<li>the scene's frame range set to match the export's.</li>
+</ul>
+<figure><a href="../images/pp-02-scene.png"><img alt="An open project, seen through the project camera" src="../images/pp-02-scene.png" loading="lazy"></a><figcaption>An open project, seen through the project camera</figcaption></figure>
+<p>To view the render in the 3D viewport, switch to the <strong>Material Preview</strong> or <strong>Rendered</strong> shading mode (top
+right of the 3D viewport). The final render is done with <strong>Cycles</strong>.</p>
+<h2 id="the-exports-folder">The exports folder</h2>
+<p>On opening, the add-on takes as the <strong>exports folder</strong> the folder where the project's export nodes write
+their files (the project folder if it finds none); it is shown under the project name. The <strong>Watching Exports</strong> button (eye) shows that this folder is watched: when you re-export from
+EmberGen, the list updates and the effects already imported are reloaded (if <strong>Auto Reload</strong> is ticked).</p>
+<p>To watch another folder, open the <strong>Settings</strong> section and change <strong>Export Folder</strong> (see
+<a href="panneau.html#settings">Settings</a>).</p>
+<h2 id="the-project-report">The project report</h2>
+<p>Just under the project name, the <strong>Project Report</strong> explains what the add-on understood and what may make the
+result different from EmberGen. It is written in the language chosen in the add-on preferences (French by
+default). A text copy is also written next to the project (<code>&lt;project&gt;.jfxb_report.txt</code>).</p>
+<figure><a href="../images/pp-03-rapport.png"><img alt="The project report" src="../images/pp-03-rapport.png" loading="lazy"></a><figcaption>The project report</figcaption></figure>
+<p>It is split into parts:</p>
+<ul>
+<li><strong>Understood</strong>: what the project contains (smoke, flames, particles, ground, number of exported frames).</li>
+<li><strong>Affects the render</strong>: the points that make Blender's render differ from EmberGen's, most
+  serious first. The icon shows the severity (red cross: problem; triangle: warning). When a fix exists,
+  a button appears right below (for example <strong>Optimize VDB Files</strong> or <strong>Auto Match to EmberGen</strong>). If all
+  is well, the line says "Nothing found".</li>
+<li><strong>Uncertain and notes</strong> (collapsed): what the add-on could not settle, and plain information.</li>
+<li><strong>Detail: plan decisions and sources of findings</strong> (collapsed): each decision made at opening, with
+  where the value comes from. Useful for understanding, not needed day to day.</li>
+</ul>
+<figure><a href="../images/pp-04-incertitudes.png"><img alt="Uncertain and notes expanded" src="../images/pp-04-incertitudes.png" loading="lazy"></a><figcaption>Uncertain and notes expanded</figcaption></figure>
+<p>Click the <strong>Project Report</strong> title to collapse the report: a single line remains, with the number of
+findings by severity.</p>
+<h2 id="whats-next">What's next</h2>
+<ul>
+<li>Discover each section of the panel: <a href="panneau.html">The JangaFX panel</a>.</li>
+<li>Compare your render with EmberGen's: <a href="verifier-et-auto-match.html">Check and Auto Match</a>.</li>
+<li>Put the effect in another scene: <a href="export.html">Export the effect to .blend</a>.</li>
+</ul>
+</article>
+<nav class="pager">
+<a class="prev" href="installation.html"><span>Previous</span>Installation</a>
+<a class="next" href="panneau.html"><span>Next</span>The JangaFX panel</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#open-the-jangafx-panel">Open the JangaFX panel</a></li>
+<li><a href="#open-an-embergen-or-liquigen-project">Open an EmberGen or LiquiGen project</a></li>
+<li><a href="#what-appears-in-the-scene">What appears in the scene</a></li>
+<li><a href="#the-exports-folder">The exports folder</a></li>
+<li><a href="#the-project-report">The project report</a></li>
+<li><a href="#whats-next">What's next</a></li></ul></aside>
+</div>
+</body>
+</html>

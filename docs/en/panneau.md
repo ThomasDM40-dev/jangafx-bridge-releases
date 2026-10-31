@@ -177,7 +177,7 @@ The **Liquid** section appears with a LiquiGen project.
   shiny matcap, foam in white, more smoothing).
 - A **Check against LiquiGen** box with **LiquiGen Capture** and **At Frame** (see
   [Check a LiquiGen project](verifier-et-auto-match.md#check-a-liquigen-project)).
-- **Surface Foam**: foam painted on the surface (on/off in the viewport and in the render), its **Shader** (empty: built-in
+- **Surface Foam**: foam painted on the surface, off after import (the foam comes from the particles); on/off in the viewport and in the render, its **Shader** (empty: built-in
   white foam), its amount and shape: **Coverage**, **Threshold**, **Softness**, **Lace Scale**, **Lace
   Width**, **Lace Amount**, **Distortion**, **Foam Height**, and for the froth **Bubble Size**, **Bubble
   Variation**, **Bubble Relief**, **Translucency**, **Color**. These values are choices made by the add-on, not read from

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exporter l&#x27;effet en .blend — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/export.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html" aria-current="page">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="exporter-leffet-en-blend">Exporter l'effet en .blend</h1>
+<p>Cas typique : vous avez réglé des étincelles EmberGen dans un fichier de travail, et vous voulez les ajouter à la
+scène de votre voiture de Formule 1. La section <strong>Export to .blend</strong> écrit l'effet dans un fichier <code>.blend</code>
+autonome que vous ajoutez ensuite à n'importe quelle scène, <strong>même sur un ordinateur sans l'add-on</strong>.</p>
+<h2 id="exporter-leffet-en-blend-1">Exporter l'effet en .blend</h2>
+<p>Dans le fichier où le projet est ouvert :</p>
+<ol>
+<li>sélectionnez un objet de l'effet (ou la ligne de l'export dans la liste) : la section <strong>Export to .blend</strong>
+   affiche le nom du projet ;</li>
+<li>cochez les parties à écrire :<ul>
+<li><strong>Sparks</strong> (LiquiGen : <strong>Liquid</strong>) : les particules avec leurs Geometry Nodes et leur matériau ;</li>
+<li><strong>Smoke / Fire</strong> (LiquiGen : <strong>Volumes</strong>) : les volumes VDB avec le look EmberGen et ses lueurs ;</li>
+<li><strong>Embers</strong> (LiquiGen : <strong>Bubbles</strong>) : les objets ajoutés par l'assistant IA (grisé s'il n'y en a pas) ;</li>
+<li><strong>Lights</strong> : les lumières du projet (soleil, points, spots) ;</li>
+</ul>
+</li>
+<li>réglez <strong>Starts at Frame</strong> (voir plus bas) ;</li>
+<li>cliquez sur <strong>Export to .blend...</strong> et choisissez où enregistrer le fichier.</li>
+</ol>
+<figure><a href="images/exp-01-panneau.png"><img alt="La section Export to .blend" src="images/exp-01-panneau.png" loading="lazy"></a><figcaption>La section Export to .blend</figcaption></figure>
+<p>Le fichier est terminé par un Blender d'arrière-plan : la ligne « Exporting in the background... » s'affiche (la
+croix l'annule, rien n'est écrit). À la fin, la ligne verte dit « Exported <projet> to <fichier> ». Votre fichier
+de travail, lui, n'est pas modifié.</p>
+<figure><a href="images/exp-02-termine.png"><img alt="Export terminé" src="images/exp-02-termine.png" loading="lazy"></a><figcaption>Export terminé</figcaption></figure>
+<p>Si vous décochez <strong>Sparks</strong> alors que la lueur des étincelles dans la fumée en a besoin, les étincelles sont quand
+même écrites, mais cachées : la fumée reste éclairée pareil.</p>
+<p><strong>Le soleil</strong> éclaire aussi toute la scène qui reçoit l'effet. Pour garder seulement l'éclairage de la scène de la
+voiture, décochez <strong>Lights</strong>.</p>
+<h2 id="choisir-la-frame-de-départ">Choisir la frame de départ</h2>
+<p><strong>Starts at Frame</strong> est l'image du fichier qui reçoit l'effet où joue sa première image. Par défaut, c'est celle
+de l'export dans votre fichier de travail. Le décalage s'applique aux VDB, aux caches Alembic, aux clés du look et
+aux naissances des étincelles, <strong>dans le fichier écrit seulement</strong>.</p>
+<p>Exemple : la voiture passe devant la caméra à l'image 120 et les étincelles doivent jaillir à ce moment-là : mettez
+120.</p>
+<h2 id="ce-qui-est-figé">Ce qui est figé</h2>
+<p>Le fichier écrit est <strong>figé</strong> : toutes les valeurs restent celles calculées depuis le projet à l'import (la largeur
+des étincelles, par exemple, a été calculée d'après la résolution de rendu de votre fichier de travail). Rien n'est
+recalculé d'après la résolution, la caméra, la cadence ou l'étalonnage du fichier qui le reçoit, et l'add-on de ce
+fichier ne le modifie jamais, sauf si vous cliquez <strong>Make Editable</strong> (voir plus bas).</p>
+<p>Le fichier contient :</p>
+<ul>
+<li>une <strong>collection</strong> au nom du projet, marquée comme <strong>asset</strong> ;</li>
+<li>un <strong>parent commun</strong>, l'objet « <projet> · Root », pour tout déplacer d'un coup ;</li>
+<li>des <strong>noms préfixés</strong> par le projet (« <projet> · <nom> ») : rien ne se mélange avec un autre effet.</li>
+</ul>
+<p><strong>Les fichiers VDB ne sont pas copiés</strong> : ils restent sur le disque, à leur chemin complet (la copie optimisée
+si <strong>Optimize VDB Files</strong> a été utilisé). Ne déplacez pas et ne supprimez pas le dossier des exports tant que vous
+utilisez l'effet.</p>
+<h2 id="ajouter-leffet-dans-une-autre-scène">Ajouter l'effet dans une autre scène</h2>
+<p>Ouvrez la scène qui doit recevoir l'effet (la voiture), puis au choix :</p>
+<p><strong>Avec File &gt; Append</strong> : <strong>File &gt; Append</strong>, choisissez le fichier <code>.blend</code> exporté, entrez dans le dossier
+<strong>Collection</strong> et choisissez la collection au nom du projet.</p>
+<p><strong>Avec l'Asset Browser</strong> : ajoutez le dossier du fichier exporté comme bibliothèque d'assets (**Edit &gt; Preferences</p>
+<blockquote>
+<p>File Paths &gt; Asset Libraries**, ou <strong>Asset Libraries</strong> selon la version), ouvrez un éditeur <strong>Asset Browser</strong>,
+choisissez cette bibliothèque, puis glissez l'effet dans la vue 3D.</p>
+</blockquote>
+<figure><a href="images/exp-03-asset-browser.png"><img alt="L'effet exporté dans l'Asset Browser" src="images/exp-03-asset-browser.png" loading="lazy"></a><figcaption>L'effet exporté dans l'Asset Browser</figcaption></figure>
+<h2 id="modifier-leffet-dans-la-scène-qui-le-reçoit">Modifier l'effet dans la scène qui le reçoit</h2>
+<p>Sélectionnez un objet de l'effet, puis cliquez <strong>Make Editable</strong> dans la section <strong>Export to .blend</strong> du panneau
+JangaFX. L'effet n'est plus figé : ses exports reviennent dans la liste de l'add-on avec leurs réglages (look,
+corrections d'Auto Match, frame de départ), et se règlent ou se rechargent comme un import fait dans ce fichier.
+Le projet et les fichiers d'export doivent toujours être sur le disque.</p>
+<p>Un effet exporté avant la version 0.15.0 n'a pas gardé ses réglages : ses exports sont retrouvés dans le dossier du
+projet, et les réglages de l'add-on (look, corrections d'Auto Match) reprennent leurs valeurs par défaut au prochain
+<strong>Reload</strong>. Un effet déjà importé dans la scène ne peut pas être rendu modifiable une deuxième fois.</p>
+<h2 id="poser-leffet-sur-lobjet-émetteur">Poser l'effet sur l'objet émetteur</h2>
+<p>Si l'émetteur du projet a la forme d'un objet exporté depuis Blender (nœud <strong>Import</strong> branché sur <strong>Shape</strong>) :
+sélectionnez cet objet dans Blender, puis cliquez <strong>Snap to Emitter Object</strong> dans le panneau de l'export. Le parent
+« <projet> Root » est posé sur l'objet, et l'origine de chaque partie de l'effet (étincelles, fumée) est mise sur
+l'émetteur (modificateur « JangaFX Pivot », juste après le cache) : le décalage de l'Import dans EmberGen est corrigé,
+et déplacer, tourner ou mettre à l'échelle le parent ou une partie garde l'effet sur l'objet. Si l'objet bouge,
+recliquez : l'objet émetteur est retenu, pas besoin de le resélectionner.</p>
+<h2 id="animer-le-temps-de-leffet">Animer le temps de l'effet</h2>
+<p>Dans le panneau de l'export, sous <strong>Starts at Frame</strong>, cliquez <strong>Animate Effect Time</strong>. Une valeur <strong>Effect Frame</strong>
+apparaît : c'est la frame de la simulation montrée (le numéro des fichiers exportés). Elle est posée sur le parent
+« <projet> Root » et pilote <strong>en même temps</strong> la fumée, les particules, l'âge des étincelles et le look animé.</p>
+<p>Au départ, elle suit la lecture normale (deux keyframes, prolongées en ligne droite). Mettez vos propres keyframes
+dessus (survolez la valeur, touche <strong>I</strong>) :</p>
+<ul>
+<li><strong>déplacer</strong> l'effet : décalez les keyframes dans la timeline ;</li>
+<li><strong>ralentir / accélérer</strong> : écartez ou rapprochez les keyframes ;</li>
+<li><strong>figer</strong> : deux keyframes avec la même valeur ;</li>
+<li><strong>inverser</strong> : une valeur qui descend.</li>
+</ul>
+<p><strong>Cadence différente</strong> (projet EmberGen à 60 fps, scène à 30 fps) : une séquence VDB a un fichier par frame du
+projet, elle serait jouée deux fois trop lentement à côté des étincelles (l'Alembic, lui, est en secondes). Le
+bouton s'appelle alors <strong>Convert 60 fps to 30 fps</strong> : Effect Frame avance de deux fichiers par frame de la scène,
+la fumée et les étincelles restent ensemble en temps réel, sans changer la cadence de la scène.</p>
+<p><strong>Override Frame</strong> (réglage du cache Alembic, onglet du modificateur Mesh Sequence Cache) : coché par Effect Frame,
+il fait lire au cache la frame donnée par son champ <strong>Frame</strong> (piloté) au lieu de la frame de la scène. N'y touchez
+pas : le <strong>X</strong> d'Effect Frame le décoche.</p>
+<p>Hors des fichiers exportés, la fumée est cachée. Effect Frame est gardée à l'export en <code>.blend</code> (elle marche sans
+l'add-on). Le <strong>X</strong> revient à la lecture normale. Tant qu'elle est active, <strong>Starts at Frame</strong> et <strong>Skip Invisible
+Frames</strong> sont désactivés, et la visibilité (rendu / vue) de la fumée est pilotée par Effect Frame. Les braises et
+bulles ajoutées par l'assistant restent sur le temps de la scène.</p>
+<h2 id="déplacer-leffet">Déplacer l'effet</h2>
+<p>Sélectionnez l'objet <strong>« <projet> · Root »</strong> (dans l'Outliner) et déplacez-le, tournez-le ou changez son échelle :
+tout l'effet suit, soleil compris.</p>
+<h2 id="ce-qui-reste-celui-de-la-scène-qui-reçoit">Ce qui reste celui de la scène qui reçoit</h2>
+<p>L'effet apporte ses objets, ses matériaux et ses lumières, mais <strong>pas les réglages de la scène</strong>. Ceux-ci restent
+ceux de la scène de la voiture, et l'add-on n'y touche pas :</p>
+<ul>
+<li>l'étalonnage des couleurs (<strong>Color Management</strong> : View Transform, Look, exposition, courbe) ;</li>
+<li>la cadence (images par seconde) ;</li>
+<li>les réglages de rendu Cycles : pas et rebonds dans les volumes, rebonds de lumière ;</li>
+<li>le flou de mouvement ;</li>
+<li>le film transparent ;</li>
+<li>le post-traitement fait dans le compositing (halo, saturation, vignette…) ;</li>
+<li>le monde (<strong>World</strong>) ;</li>
+<li>la caméra : celle du projet n'est pas exportée, l'effet est vu par la caméra de la scène qui le reçoit.</li>
+</ul>
+<p>Le résultat peut donc être différent de votre fichier de travail. Pour vous prévenir, la section <strong>Export to
+.blend</strong> de la scène qui reçoit affiche une ligne par différence (rien n'est corrigé automatiquement) :</p>
+<ul>
+<li>« <effet>: colour settings differ from the source file, the effect may look different » : l'étalonnage
+  diffère ;</li>
+<li>« <effet>: made at 60 fps, this scene plays it at another speed » : la cadence diffère ;</li>
+<li>« <effet>: render settings differ from the source file: volume step, bounces, motion blur, post-FX, world » :
+  la liste dit quels réglages de rendu diffèrent.</li>
+</ul>
+<figure><a href="images/exp-04-notes.png"><img alt="Les lignes d'information dans la scène qui reçoit l'effet" src="images/exp-04-notes.png" loading="lazy"></a><figcaption>Les lignes d'information dans la scène qui reçoit l'effet</figcaption></figure>
+<p>Que faire : voir <a href="depannage.html#les-couleurs-changent-après-lajout">Les couleurs changent après l'ajout</a> et
+<a href="depannage.html#la-vitesse-nest-pas-la-bonne">La vitesse n'est pas la bonne</a>.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="verifier-et-auto-match.html"><span>Précédent</span>Vérifier contre EmberGen et Auto Match</a>
+<a class="next" href="assistant-ia.html"><span>Suivant</span>L&#x27;assistant IA</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#exporter-leffet-en-blend-1">Exporter l'effet en .blend</a></li>
+<li><a href="#choisir-la-frame-de-départ">Choisir la frame de départ</a></li>
+<li><a href="#ce-qui-est-figé">Ce qui est figé</a></li>
+<li><a href="#ajouter-leffet-dans-une-autre-scène">Ajouter l'effet dans une autre scène</a></li>
+<li><a href="#modifier-leffet-dans-la-scène-qui-le-reçoit">Modifier l'effet dans la scène qui le reçoit</a></li>
+<li><a href="#poser-leffet-sur-lobjet-émetteur">Poser l'effet sur l'objet émetteur</a></li>
+<li><a href="#animer-le-temps-de-leffet">Animer le temps de l'effet</a></li>
+<li><a href="#déplacer-leffet">Déplacer l'effet</a></li>
+<li><a href="#ce-qui-reste-celui-de-la-scène-qui-reçoit">Ce qui reste celui de la scène qui reçoit</a></li></ul></aside>
+</div>
+</body>
+</html>

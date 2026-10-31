@@ -1,3 +1,5 @@
+*[English version](en/index.md)*
+
 # JangaFX Bridge — documentation
 
 JangaFX Bridge est un module complémentaire (add-on) pour Blender 4.5 et plus. Il fait le lien entre

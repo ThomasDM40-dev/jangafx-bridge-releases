@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le panneau JangaFX — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/panneau.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html" aria-current="page">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="le-panneau-jangafx">Le panneau JangaFX</h1>
+<p>Le panneau JangaFX (touche <strong>N</strong> dans la vue 3D, onglet <strong>JangaFX</strong>) est découpé en sections que vous pouvez
+replier (clic sur le titre) ou réordonner (glisser la poignée <code>::::</code> à droite du titre). Une section n'apparaît que
+si elle sert : par exemple <strong>Sparks</strong> seulement si le projet a des étincelles.</p>
+<p>Partout, le bouton <strong>?</strong> à côté d'un réglage explique ce qu'il fait et d'où vient sa valeur (lue dans le projet,
+mesurée, ou choisie par l'add-on). Survolez-le pour une bulle d'aide, cliquez dessus pour une fenêtre qui reste
+ouverte, avec le lien <strong>En savoir plus</strong> vers cette documentation.</p>
+<figure><a href="images/pan-04-aide.png"><img alt="La fenêtre d'aide d'un bouton ?" src="images/pan-04-aide.png" loading="lazy"></a><figcaption>La fenêtre d'aide d'un bouton ?</figcaption></figure>
+<p>Les réglages des étincelles, du liquide et du rendu affichent aussi leur explication quand vous les survolez.</p>
+<h2 id="projet-et-liste-des-exports">Projet et liste des exports</h2>
+<p>La première section, <strong>JangaFX Bridge</strong>, montre le projet ouvert :</p>
+<ul>
+<li>le <strong>nom du projet</strong> et le bouton dossier (à droite) pour <strong>ouvrir un autre projet</strong> ;</li>
+<li><strong>Watching Exports / Watch Exports</strong> : allume ou coupe la surveillance du dossier des exports ;</li>
+<li>le dossier surveillé (en gris) ;</li>
+<li>le <a href="premiers-pas.html#le-rapport-du-projet">rapport du projet</a>.</li>
+</ul>
+<p>En dessous, la <strong>liste des exports</strong> trouvés : une ligne par export, avec une icône selon son rôle (fumée,
+étincelles, liquide) et son état à droite :</p>
+<ul>
+<li>coche : importé et à jour ;</li>
+<li>flèches : le fichier a changé sur le disque, il faut le recharger ;</li>
+<li>triangle rouge : des fichiers manquent ;</li>
+<li>ligne grisée : pas encore importé.</li>
+</ul>
+<p>Les boutons à droite de la liste :</p>
+<ul>
+<li><strong>Rescan</strong> (flèches) : relit le dossier des exports tout de suite ;</li>
+<li><strong>Remove from Library</strong> (−) : retire l'export sélectionné de la liste et son objet de la scène (les fichiers
+  restent sur le disque) ;</li>
+<li><strong>Show Removed</strong> : fait revenir les exports retirés.</li>
+</ul>
+<figure><a href="images/pan-01-projet.png"><img alt="Le projet, la liste des exports et l'export sélectionné" src="images/pan-01-projet.png" loading="lazy"></a><figcaption>Le projet, la liste des exports et l'export sélectionné</figcaption></figure>
+<h2 id="export-sélectionné">Export sélectionné</h2>
+<p>La section <strong>Export</strong> décrit la ligne choisie dans la liste : son rôle et son nom, les images (<strong>Frames</strong>), la
+taille sur le disque (<strong>Size</strong>), l'état (<strong>Status</strong>) et les images manquantes s'il y en a.</p>
+<ul>
+<li>Export pas encore importé : <strong>Import</strong> l'ajoute à la scène, le bouton dossier ouvre son dossier.</li>
+<li>Export importé :<ul>
+<li><strong>Reload</strong> : le recharge depuis le disque ;</li>
+<li>bouton dossier : ouvre son dossier dans l'explorateur ;</li>
+<li>corbeille (<strong>Remove</strong>) : supprime l'objet importé (les fichiers restent sur le disque).</li>
+</ul>
+</li>
+<li><strong>Slow to read: no grid index</strong> et <strong>Optimize VDB Files</strong> : les VDB d'EmberGen n'ont pas de table des grilles,
+  Blender relit tout le fichier pour chaque grille à chaque image. <strong>Optimize VDB Files</strong> écrit une copie indexée
+  (mêmes grilles, mêmes valeurs, sans perte) dans un sous-dossier <code>JangaFX Optimized</code> et l'utilise. La taille
+  approximative de la copie est indiquée dessous. Une fois fait, la ligne devient <strong>Optimized VDB copy in use</strong>.</li>
+<li><strong>Starts at Frame</strong> : image de la scène où joue la première image de l'export. Le bouton à droite (<strong>Fit Scene
+  Range</strong>) cale la plage d'images de la scène sur celle de l'export.</li>
+</ul>
+<p>Deux sous-sections repliées :</p>
+<ul>
+<li><strong>Viewport Display</strong> (volumes) : <strong>Full</strong> affiche le volume, <strong>Bounds</strong> seulement sa boîte (le plus rapide) ;
+  <strong>Density</strong> change la densité dans la vue 3D seulement (pas au rendu).</li>
+<li><strong>File Details</strong> : source (EmberGen, LiquiGen), type de fichier, date de modification, dossier et liste des
+  grilles du VDB.</li>
+</ul>
+<figure><a href="images/pan-02-export.png"><img alt="La section Export avec ses sous-sections" src="images/pan-02-export.png" loading="lazy"></a><figcaption>La section Export avec ses sous-sections</figcaption></figure>
+<h2 id="look">Look</h2>
+<p>La section <strong>Look</strong> règle l'apparence du volume (fumée et feu). Elle suit l'export sélectionné ; si une autre ligne
+est choisie, elle montre le premier volume importé (son nom est rappelé en gris en haut).</p>
+<p>Le menu en haut choisit le <strong>préréglage</strong> :</p>
+<ul>
+<li><strong>EmberGen Look</strong> (par défaut) : reproduit le rendu du projet EmberGen (<code>.ember</code>) ; sans projet trouvé, ce sont
+  les valeurs par défaut d'EmberGen ;</li>
+<li><strong>Fire + Smoke</strong>, <strong>Smoke</strong>, <strong>Fire</strong> : des looks simples (voir plus bas).</li>
+</ul>
+<p>Le bouton flèche à droite (<strong>Apply Preset</strong>) reconstruit le matériau avec le préréglage choisi ; avec EmberGen Look,
+le projet est relu. Attention : vos retouches à la main sont remplacées.</p>
+<p>Avec <strong>EmberGen Look</strong>, un encadré propose :</p>
+<ul>
+<li><strong>Auto Match to EmberGen</strong> et la croix à droite (<strong>Reset Auto Match</strong>) ;</li>
+<li><strong>Check against EmberGen</strong> ;</li>
+<li><strong>Screenshot</strong> : une capture d'écran d'EmberGen à utiliser comme référence (facultatif), et <strong>At Frame</strong>,
+  l'image qu'elle montre.</li>
+</ul>
+<p>Ces outils sont expliqués dans <a href="verifier-et-auto-match.html">Vérifier et Auto Match</a>.</p>
+<figure><a href="images/pan-03-look.png"><img alt="La section Look avec Flammes et Fumée" src="images/pan-03-look.png" loading="lazy"></a><figcaption>La section Look avec Flammes et Fumée</figcaption></figure>
+<h3 id="looks-simples">Looks simples</h3>
+<p>Avec <strong>Fire + Smoke</strong>, <strong>Smoke</strong> ou <strong>Fire</strong>, le volume utilise un matériau simple de Blender (Principled Volume)
+dont les réglages sont affichés directement : densité, couleur, couleur d'absorption, direction de la diffusion
+(<strong>Anisotropy</strong>), force du feu (<strong>Blackbody Intensity</strong>), température, et les grilles du VDB utilisées pour la
+fumée (<strong>Density Grid</strong>) et pour le feu (<strong>Flame Grid</strong>). Ces valeurs viennent du préréglage, pas du projet.</p>
+<figure><a href="images/looks-simples.png"><img alt="Le look simple Fire + Smoke et ses réglages" src="images/looks-simples.png" loading="lazy"></a><figcaption>Le look simple Fire + Smoke et ses réglages</figcaption></figure>
+<h3 id="flammes">Flammes</h3>
+<p>Sous-section <strong>Flames</strong> (seulement si le projet a des flammes) :</p>
+<ul>
+<li><strong>Intensity</strong> : force de la lumière des flammes ;</li>
+<li><strong>Scatter Glow</strong> : lueur des flammes diffusée dans la fumée autour (lueur orange des explosions) ;</li>
+<li><strong>See-Through</strong> : amincit la fumée là où il y a des flammes pour qu'elle ne les cache pas ;</li>
+<li><strong>Temp Min (K)</strong> et <strong>Max (K)</strong> : températures du début et de la fin du dégradé de couleur des flammes ;</li>
+<li><strong>Gamma</strong> : courbe de ce dégradé (au-dessus de 1, les flammes restent plus longtemps dans le bas du dégradé) ;</li>
+<li><strong>Temp Scale</strong> : diviseur de la grille de température du VDB, mesuré à l'import ;</li>
+<li>le <strong>dégradé de couleur</strong> des flammes, lu dans le projet.</li>
+</ul>
+<h3 id="fumée">Fumée</h3>
+<p>Sous-section <strong>Smoke</strong> :</p>
+<ul>
+<li><strong>Density</strong> : épaisseur de la fumée ;</li>
+<li><strong>Min Density</strong> : en dessous de ce seuil, la fumée n'est pas dessinée ;</li>
+<li><strong>Tint Temp Min</strong> et <strong>Max (K)</strong> : quand la fumée est teintée par la température, températures du début et de
+  la fin de son dégradé ;</li>
+<li><strong>Spark Glow</strong> et <strong>Glow Color</strong> : lumière des étincelles diffusée dans la fumée, et sa couleur ;</li>
+<li>le <strong>dégradé de couleur</strong> de la fumée.</li>
+</ul>
+<h3 id="interaction-avec-la-lumière">Interaction avec la lumière</h3>
+<p>Sous-section <strong>Light Interaction</strong> (repliée) :</p>
+<ul>
+<li><strong>Extinction</strong> : teinte de la fumée vue par la caméra ;</li>
+<li><strong>Shadow Tint</strong> : teinte des ombres dans la fumée (seulement si le projet la règle à part) ;</li>
+<li><strong>Anisotropy</strong> : direction de la diffusion de la lumière (positive : la fumée s'éclaire à contre-jour).</li>
+</ul>
+<figure><a href="images/interaction-lumiere.png"><img alt="La sous-section Light Interaction (ici sans Shadow Tint)" src="images/interaction-lumiere.png" loading="lazy"></a><figcaption>La sous-section Light Interaction (ici sans Shadow Tint)</figcaption></figure>
+<h3 id="masquage-émissif">Masquage émissif</h3>
+<p>Sous-section <strong>Emissive Masking</strong> (repliée, absente quand les flammes sont en « corps noir », sur lesquelles elle
+n'agit pas) : éteint les flammes là où la fumée a une certaine densité, comme EmberGen.</p>
+<ul>
+<li><strong>Density Ref</strong> : densité autour de laquelle les flammes sont éteintes ;</li>
+<li><strong>Width</strong> : largeur de la transition ;</li>
+<li><strong>Ramp</strong> : courbe du masque ;</li>
+<li><strong>Intensity</strong> : force du masque (à 1, les flammes sont complètement éteintes à la densité de référence).</li>
+</ul>
+<p>Ces réglages peuvent être animés si le projet les anime (losange de clé à droite).</p>
+<h2 id="étincelles">Étincelles</h2>
+<p>La section <strong>Sparks</strong> apparaît quand le projet a des particules (export Alembic). Elle reste visible quelle que soit
+la ligne choisie dans la liste. En haut, l'objet des étincelles avec deux boutons : visible dans la vue 3D (écran)
+et au rendu (appareil photo).</p>
+<ul>
+<li><strong>Shape</strong> : forme des traînées. <strong>Streaks</strong> (traînées alignées sur la vitesse ; décoché : des points ronds),
+  <strong>Streak Time</strong>, <strong>Width</strong>, <strong>Min Width px</strong> (largeur minimale à l'écran, en pixels), <strong>Min Length</strong>, <strong>Max
+  Length</strong>, <strong>Width Random</strong>, <strong>Length Random</strong>, <strong>Min Speed</strong> (cache les particules plus lentes, par exemple
+  posées au sol).</li>
+<li><strong>Look</strong> : <strong>Fade Time</strong>, <strong>Color Tint</strong> (multiplie la couleur), puis <strong>Intensity</strong> (luminosité), <strong>Edge
+  Softness</strong> (douceur des bords) et <strong>Tail Fade</strong> (extinction de la queue des traînées).</li>
+<li><strong>Optimization</strong> (repliée) : affichage dans la vue 3D et au rendu, <strong>Points in Viewport</strong> (des points au lieu des
+  traînées dans la vue, le rendu garde les traînées), <strong>Resolution</strong> (segments des traînées) et <strong>Seed</strong>.</li>
+</ul>
+<p>Survolez un réglage pour lire d'où vient sa valeur.</p>
+<figure><a href="images/pan-05-etincelles.png"><img alt="La section Sparks" src="images/pan-05-etincelles.png" loading="lazy"></a><figcaption>La section Sparks</figcaption></figure>
+<p>Si la section affiche « Older spark setup: reload the export to get every setting », rechargez l'export
+(<strong>Reload</strong>) pour avoir tous les réglages.</p>
+<h2 id="liquide">Liquide</h2>
+<p>La section <strong>Liquid</strong> apparaît avec un projet LiquiGen.</p>
+<ul>
+<li>Le menu <strong>LiquiGen Look</strong> choisit le matériau du liquide : l'apparence du projet LiquiGen, ou l'un de vos
+  matériaux d'eau trouvés dans vos bibliothèques d'assets (ajouté une fois, textures reliées).</li>
+<li>Le bouton à droite (<strong>Detail Preview</strong>) règle la vue 3D pour bien lire les détails du liquide (mode Solid,
+  matcap brillant, écume en blanc, plus de lissage).</li>
+<li>Un encadré <strong>Check against LiquiGen</strong> avec <strong>LiquiGen Capture</strong> et <strong>At Frame</strong> (voir
+  <a href="verifier-et-auto-match.html#vérifier-un-projet-liquigen">Vérifier un projet LiquiGen</a>).</li>
+<li><strong>Surface Foam</strong> : écume peinte sur la surface (on/off dans la vue et au rendu), son <strong>Shader</strong> (vide : écume
+  blanche intégrée), sa quantité et sa forme : <strong>Coverage</strong>, <strong>Threshold</strong>, <strong>Softness</strong>, <strong>Lace Scale</strong>, <strong>Lace
+  Width</strong>, <strong>Lace Amount</strong>, <strong>Distortion</strong>, <strong>Foam Height</strong>, et pour la mousse <strong>Bubble Size</strong>, <strong>Bubble
+  Variation</strong>, <strong>Bubble Relief</strong>, <strong>Translucency</strong>, <strong>Color</strong>. Ces valeurs sont des choix de l'add-on, pas lus dans
+  le projet.</li>
+<li><strong>Smooth Exported Mesh</strong> : lissage du maillage exporté par LiquiGen.</li>
+<li><strong>Surface from Particles</strong> : surface reconstruite à partir des particules (cachée quand le maillage exporté est
+  utilisé).</li>
+<li>Une boîte par type de particules blanches (écume, embruns, bulles), avec son bouton de rendu.</li>
+</ul>
+<figure><a href="images/liquide.png"><img alt="La section Liquid d'un projet LiquiGen avec maillage exporté, sans capture choisie" src="images/liquide.png" loading="lazy"></a><figcaption>La section Liquid d'un projet LiquiGen avec maillage exporté, sans capture choisie</figcaption></figure>
+<h2 id="scène-du-projet">Scène du projet</h2>
+<p>La section <strong>Project Scene</strong> recrée l'ambiance du projet :</p>
+<ul>
+<li><strong>Tonemapping</strong> : <strong>EmberGen</strong> (la courbe du projet, comme EmberGen), <strong>Filmic</strong> (hautes lumières douces, les
+  flammes deviennent jaune pâle), <strong>AgX</strong> (celui de Blender) ou <strong>Realistic</strong> (comme une photo d'explosion : corps
+  orange, cœur jaune-blanc) ;</li>
+<li><strong>Exposure</strong> : exposition en plus de ce réglage, en stops ;</li>
+<li><strong>Recreate from the Project</strong> : ce que <strong>Apply Project Scene</strong> doit recréer :<ul>
+<li><strong>Camera</strong> : la caméra d'EmberGen (champ de vision, orbite, distance) ;</li>
+<li><strong>Ground</strong> : le sol du projet, pour que l'effet l'éclaire et s'y reflète ;</li>
+<li><strong>Frame Rate</strong> : la cadence du projet ;</li>
+<li><strong>Post FX</strong> : le post-traitement du projet ;</li>
+</ul>
+</li>
+<li><strong>Apply Project Scene</strong> : recrée les lumières, le tonemapping, le post-traitement, la qualité de rendu et,
+  si coché, la caméra ;</li>
+<li><strong>Sun Strength</strong> et <strong>Sun Color</strong> : force et couleur du soleil du projet.</li>
+</ul>
+<figure><a href="images/pan-06-scene.png"><img alt="Les sections Project Scene et Post-Processing" src="images/pan-06-scene.png" loading="lazy"></a><figcaption>Les sections Project Scene et Post-Processing</figcaption></figure>
+<h3 id="post-traitement">Post-traitement</h3>
+<p>Sous-section <strong>Post-Processing</strong> (repliée), quand le projet a un post-traitement. Il est refait dans le
+compositing de Blender :</p>
+<ul>
+<li><strong>Glow</strong>, <strong>Size</strong>, <strong>Threshold</strong> : force et taille du halo autour des zones lumineuses, et luminosité à partir
+  de laquelle il apparaît ;</li>
+<li><strong>Saturation</strong>, <strong>Brightness</strong>, <strong>Contrast</strong> : couleurs de l'image finale ;</li>
+<li><strong>Vignette</strong> : assombrissement des bords ;</li>
+<li>une ligne « Channel swap … (from the project) » si le projet échange les canaux de couleur.</li>
+</ul>
+<h2 id="rendu">Rendu</h2>
+<p>La section <strong>Render</strong> :</p>
+<ul>
+<li><strong>Draft / Preview / Final / Ultra</strong> : qualité du rendu Cycles. Draft est le plus rapide (pour le timing et le
+  cadrage), Preview pour juger le look, Final pour la production, Ultra sans limite de temps. La ligne grise dessous
+  résume les échantillons, le pas du volume et les rebonds de lumière.</li>
+<li><strong>Motion Blur</strong> : flou de mouvement calculé avec la vitesse exportée (Cycles).</li>
+<li><strong>Skip Invisible Frames</strong> : ne rend pas l'effet aux images où la caméra active ne le voit pas (pas encore
+  simulé, hors champ ou réduit à quelques pixels) ; relancez-le après avoir changé la caméra ou la plage d'images.
+  Le bouton œil à côté (<strong>Render All Frames</strong>) annule cela.</li>
+</ul>
+<h2 id="export-en-blend">Export en .blend</h2>
+<p>La section <strong>Export to .blend</strong> écrit l'effet dans un fichier <code>.blend</code> à ajouter dans une autre scène. Tout est
+expliqué dans <a href="export.html">Exporter l'effet en .blend</a>.</p>
+<h2 id="réglages">Réglages</h2>
+<p>La section <strong>Settings</strong> (repliée) :</p>
+<ul>
+<li><strong>Export Folder</strong> : le dossier où EmberGen et LiquiGen écrivent leurs exports (rempli par Open Project) ;</li>
+<li><strong>Sub-Folder Depth</strong> : nombre de niveaux de sous-dossiers parcourus ;</li>
+<li><strong>Scan Every</strong> : temps entre deux lectures du dossier (quand la surveillance est allumée) ;</li>
+<li><strong>Auto Reload</strong> : recharge tout seul un export importé quand ses fichiers changent ;</li>
+<li><strong>Apply Project on Import</strong> : à l'import d'un export qui a son projet à côté, applique tout seul ses lumières,
+  son tonemapping, son post-traitement et sa qualité de rendu ;</li>
+<li><strong>Documentation</strong> : ouvre cette documentation dans votre navigateur.</li>
+</ul>
+<figure><a href="images/pan-07-rendu-reglages.png"><img alt="Les sections Render, Export to .blend et Settings" src="images/pan-07-rendu-reglages.png" loading="lazy"></a><figcaption>Les sections Render, Export to .blend et Settings</figcaption></figure>
+</article>
+<nav class="pager">
+<a class="prev" href="premiers-pas.html"><span>Précédent</span>Premiers pas</a>
+<a class="next" href="verifier-et-auto-match.html"><span>Suivant</span>Vérifier contre EmberGen et Auto Match</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#projet-et-liste-des-exports">Projet et liste des exports</a></li>
+<li><a href="#export-sélectionné">Export sélectionné</a></li>
+<li><a href="#look">Look</a></li>
+<li><a href="#étincelles">Étincelles</a></li>
+<li><a href="#liquide">Liquide</a></li>
+<li><a href="#scène-du-projet">Scène du projet</a></li>
+<li><a href="#rendu">Rendu</a></li>
+<li><a href="#export-en-blend">Export en .blend</a></li>
+<li><a href="#réglages">Réglages</a></li></ul></aside>
+</div>
+</body>
+</html>

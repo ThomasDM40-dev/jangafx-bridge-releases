@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troubleshooting — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../depannage.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html">The AI assistant</a></li>
+<li><a href="depannage.html" aria-current="page">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>The most common problems and what to do. Also remember to read the
+<a href="premiers-pas.html#the-project-report">project report</a>: it flags many of these cases and often offers
+the right button.</p>
+<h2 id="vdbs-are-slow-to-read">VDBs are slow to read</h2>
+<p><strong>What you see</strong>: Blender takes a long time to change frame; the <strong>Export</strong> section shows "Slow to read: no
+grid index" and the report says "The VDBs have no grid table: slow reading".</p>
+<p><strong>Why</strong>: the VDBs written by EmberGen have no grid table. Blender re-reads the whole file for
+each grid, at every frame.</p>
+<p><strong>What to do</strong>: click <strong>Optimize VDB Files</strong> (<strong>Export</strong> section, or directly in the report). The add-on
+writes an indexed, lossless copy (same grids, same values) in a <code>JangaFX Optimized</code> subfolder next to
+the export, then uses it: the line becomes "Optimized VDB copy in use". Allow for the disk space
+(the size is shown under the button). Esc during the conversion cancels it (files already converted are
+kept).</p>
+<figure><a href="../images/pan-02-export.png"><img alt="Optimize VDB Files in the Export section" src="../images/pan-02-export.png" loading="lazy"></a><figcaption>Optimize VDB Files in the Export section</figcaption></figure>
+<h2 id="the-material-comes-from-an-older-version">The material comes from an older version</h2>
+<p><strong>What you see</strong>: the report says "The material was built by another version of the EmberGen look".</p>
+<p><strong>Why</strong>: the add-on was updated since the import; your file's material dates from the old version.</p>
+<p><strong>What to do</strong>: click the button offered in the report, <strong>Rebuild Material (Reload)</strong>, or <strong>Reload</strong>
+in the <strong>Export</strong> section. The material is rebuilt from the project.</p>
+<h2 id="colours-change-after-adding-the-effect">Colours change after adding the effect</h2>
+<p><strong>What you see</strong>: after adding an effect exported as <code>.blend</code> to another scene, it does not have the
+same colours; the <strong>Export to .blend</strong> section shows "colour settings differ from the source file, the effect
+may look different" or "render settings differ from the source file".</p>
+<p><strong>Why</strong>: colour grading, render settings, post-processing and the world stay those of the
+scene that receives the effect (see <a href="export.html#what-stays-with-the-receiving-scene">What stays with the receiving scene</a>).
+The add-on never changes them for you.</p>
+<p><strong>What to do</strong>:</p>
+<ul>
+<li>in the receiving scene, compare <strong>Render Properties &gt; Color Management</strong> with the working file's;
+  choose to keep the scene's (and tweak the effect) or to change it for the whole scene;</li>
+<li>the render settings line says which ones differ (volume step, bounces, motion blur,
+  post-processing, world): align the ones that matter to you.</li>
+</ul>
+<h2 id="the-speed-is-wrong">The speed is wrong</h2>
+<p><strong>What you see</strong>: the effect plays too fast or too slowly; the <strong>Export to .blend</strong> section shows
+"made at 60 fps, this scene plays it at another speed".</p>
+<p><strong>Why</strong>: the effect was made at a different frame rate than the scene that receives it. A VDB sequence has one file
+per project frame.</p>
+<p><strong>What to do</strong>: set the scene's frame rate (<strong>Output Properties &gt; Frame Rate</strong>) to the effect's, or
+accept the difference. In a project opened with the add-on, <strong>Frame Rate</strong> in
+<a href="panneau.html#project-scene">Project scene</a> sets the scene's frame rate to the project's.</p>
+<h2 id="files-are-missing">Files are missing</h2>
+<p><strong>What you see</strong>: in the list, the export has a red triangle ("Files missing"), or the <strong>Export</strong> section
+shows "… missing frame(s)"; or an effect added from a <code>.blend</code> does not appear.</p>
+<p><strong>Why</strong>: export files were moved, deleted, or the export is not finished. An effect
+exported as <code>.blend</code> reads its VDBs and caches at their original path.</p>
+<p><strong>What to do</strong>:</p>
+<ul>
+<li>re-run the export from EmberGen or LiquiGen, then click <strong>Rescan</strong> or <strong>Reload</strong>;</li>
+<li>if you moved the exports folder, change <strong>Export Folder</strong> in <strong>Settings</strong>;</li>
+<li>do not move the exports folder of an effect you added as <code>.blend</code>;</li>
+<li>if Open Project says "No export of this project was found on disk", export from EmberGen first.</li>
+</ul>
+<h2 id="the-graphics-card-is-not-used">The graphics card is not used</h2>
+<p><strong>What you see</strong>: checks and Auto Match are very slow, or the AI assistant answers "No graphics card
+is enabled for Cycles".</p>
+<p><strong>Why</strong>: the background Blender uses the graphics card chosen for Cycles in Blender's
+preferences. If none is chosen, it renders with the processor.</p>
+<p><strong>What to do</strong>:</p>
+<ol>
+<li>open <strong>Edit &gt; Preferences &gt; System</strong>;</li>
+<li>in <strong>Cycles Render Devices</strong>, choose <strong>CUDA</strong> or <strong>OptiX</strong> (NVIDIA), <strong>HIP</strong> (AMD), <strong>oneAPI</strong> (Intel) or
+   <strong>Metal</strong> (Mac), then tick your card;</li>
+<li>in the add-on preferences, leave <strong>GPU for Background Renders</strong> ticked.</li>
+</ol>
+<figure><a href="../images/dep-01-gpu.png"><img alt="Cycles Render Devices in Preferences &gt; System" src="../images/dep-01-gpu.png" loading="lazy"></a><figcaption>Cycles Render Devices in Preferences &gt; System</figcaption></figure>
+<p>The background render shares the card's memory with your session: on a small card, close other
+demanding programs during a check.</p>
+<h2 id="a-check-refuses-to-start">A check refuses to start</h2>
+<ul>
+<li>"Fix the scene first (… problem(s) in the project report)": first fix what the report says (for
+  example a missing project light: <strong>Apply Project Scene</strong>).</li>
+<li>"A background check or Auto Match is already running": wait for the current job to finish, or stop it
+  with the cross.</li>
+<li>"Needs the EmberGen project (.ember) of this export": the export has no <code>.ember</code> project next to it; open it
+  with <strong>Open Project</strong>.</li>
+<li>"EmberGen only saved a thumbnail in the project": add a screenshot in <strong>Screenshot</strong> (see
+  <a href="verifier-et-auto-match.html#the-reference-what-embergen-rendered">The reference</a>).</li>
+</ul>
+</article>
+<nav class="pager">
+<a class="prev" href="assistant-ia.html"><span>Previous</span>The AI assistant</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#vdbs-are-slow-to-read">VDBs are slow to read</a></li>
+<li><a href="#the-material-comes-from-an-older-version">The material comes from an older version</a></li>
+<li><a href="#colours-change-after-adding-the-effect">Colours change after adding the effect</a></li>
+<li><a href="#the-speed-is-wrong">The speed is wrong</a></li>
+<li><a href="#files-are-missing">Files are missing</a></li>
+<li><a href="#the-graphics-card-is-not-used">The graphics card is not used</a></li>
+<li><a href="#a-check-refuses-to-start">A check refuses to start</a></li></ul></aside>
+</div>
+</body>
+</html>

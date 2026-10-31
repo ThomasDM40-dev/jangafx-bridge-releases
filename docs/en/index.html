@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JangaFX Bridge — documentation — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../index.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html" aria-current="page">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html">The AI assistant</a></li>
+<li><a href="depannage.html">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="jangafx-bridge--documentation">JangaFX Bridge — documentation</h1>
+<p>JangaFX Bridge is an add-on for Blender 4.5 and later. It links
+<strong>EmberGen</strong> (smoke, fire, sparks) or <strong>LiquiGen</strong> (liquids) with Blender:</p>
+<ul>
+<li>you open your EmberGen (<code>.ember</code>) or LiquiGen (<code>.liquigen</code>) project directly in Blender;</li>
+<li>the add-on automatically finds the exported files (VDB, Alembic), imports them and rebuilds the project's render:
+  materials, lights, camera, ground, post-processing, frame rate and frame range;</li>
+<li>it watches the exports folder: when you re-export from EmberGen, Blender updates;</li>
+<li>it compares Blender's render to EmberGen's and can match the look on its own (<strong>Auto Match</strong>);</li>
+<li>it exports the finished effect as a standalone <code>.blend</code>, to add to any other scene (for example sparks in a
+  Formula 1 scene);</li>
+<li>an AI assistant, running on your computer, can tweak the look on request.</li>
+</ul>
+<figure><a href="../images/pp-02-scene.png"><img alt="The JangaFX tab after opening a project" src="../images/pp-02-scene.png" loading="lazy"></a><figcaption>The JangaFX tab after opening a project</figcaption></figure>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="installation.html">Installation</a> — install the add-on and receive updates automatically.</li>
+<li><a href="premiers-pas.html">Getting started</a> — open a project, what appears in the scene, read the report.</li>
+<li><a href="panneau.html">The JangaFX panel</a> — every section of the panel, setting by setting.</li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a> — compare with EmberGen and match the look.</li>
+<li><a href="export.html">Export the effect to .blend</a> — put the effect in another scene.</li>
+<li><a href="assistant-ia.html">The AI assistant</a> — install Ollama and ask for tweaks.</li>
+<li><a href="depannage.html">Troubleshooting</a> — common problems and their solutions.</li>
+</ol>
+<h2 id="where-to-find-the-add-on-in-blender">Where to find the add-on in Blender</h2>
+<p>In the 3D viewport, press <strong>N</strong> to open the sidebar, then click the <strong>JangaFX</strong> tab (the <strong>JangaFX AI</strong> tab
+contains the AI assistant). Button labels are in English, like the rest of Blender; this
+documentation gives their exact name in <strong>bold</strong>.</p>
+<p>The <strong>Documentation</strong> button, at the bottom of the <strong>Settings</strong> section, opens this page. In the help popups of the
+<strong>?</strong> buttons, the <strong>Learn more</strong> link opens the right section directly.</p>
+</article>
+<nav class="pager">
+<a class="next" href="installation.html"><span>Next</span>Installation</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#contents">Contents</a></li>
+<li><a href="#where-to-find-the-add-on-in-blender">Where to find the add-on in Blender</a></li></ul></aside>
+</div>
+</body>
+</html>

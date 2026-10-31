@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export the effect to .blend — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../export.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html" aria-current="page">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html">The AI assistant</a></li>
+<li><a href="depannage.html">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="export-the-effect-to-blend">Export the effect to .blend</h1>
+<p>Typical case: you tuned EmberGen sparks in a working file, and you want to add them to your Formula 1 car's
+scene. The <strong>Export to .blend</strong> section writes the effect into a standalone <code>.blend</code> file that you then add to any
+scene, <strong>even on a computer without the add-on</strong>.</p>
+<h2 id="export-the-effect-to-blend-1">Export the effect to .blend</h2>
+<p>In the file where the project is open:</p>
+<ol>
+<li>select an object of the effect (or the export's row in the list): the <strong>Export to .blend</strong> section
+   shows the project name;</li>
+<li>tick the parts to write:<ul>
+<li><strong>Sparks</strong> (LiquiGen: <strong>Liquid</strong>): the particles with their Geometry Nodes and their material;</li>
+<li><strong>Smoke / Fire</strong> (LiquiGen: <strong>Volumes</strong>): the VDB volumes with the EmberGen look and its glows;</li>
+<li><strong>Embers</strong> (LiquiGen: <strong>Bubbles</strong>): the objects added by the AI assistant (greyed out if there are none);</li>
+<li><strong>Lights</strong>: the project's lights (sun, points, spots);</li>
+</ul>
+</li>
+<li>set <strong>Starts at Frame</strong> (see below);</li>
+<li>click <strong>Export to .blend...</strong> and choose where to save the file.</li>
+</ol>
+<figure><a href="../images/exp-01-panneau.png"><img alt="The Export to .blend section" src="../images/exp-01-panneau.png" loading="lazy"></a><figcaption>The Export to .blend section</figcaption></figure>
+<p>The file is finished by a background Blender: the line "Exporting in the background..." is displayed (the cross
+cancels it, nothing is written). At the end, the green line says "Exported <project> to <file>". Your working
+file is not modified.</p>
+<figure><a href="../images/exp-02-termine.png"><img alt="Export finished" src="../images/exp-02-termine.png" loading="lazy"></a><figcaption>Export finished</figcaption></figure>
+<p>If you untick <strong>Sparks</strong> while the sparks' glow in the smoke needs them, the sparks are still
+written, but hidden: the smoke stays lit the same.</p>
+<p><strong>The sun</strong> also lights the whole scene that receives the effect. To keep only the car scene's lighting,
+untick <strong>Lights</strong>.</p>
+<h2 id="choose-the-start-frame">Choose the start frame</h2>
+<p><strong>Starts at Frame</strong> is the frame of the receiving file where the effect's first frame plays. By default, it is the export's
+frame in your working file. The offset applies to the VDBs, the Alembic caches, the look's keys and
+the sparks' births, <strong>in the written file only</strong>.</p>
+<p>Example: the car passes in front of the camera at frame 120 and the sparks must burst out at that moment: enter
+120.</p>
+<h2 id="what-is-frozen">What is frozen</h2>
+<p>The written file is <strong>frozen</strong>: all values stay those computed from the project at import (the sparks'
+width, for example, was computed from the render resolution of your working file). Nothing is
+recomputed from the resolution, camera, frame rate or colour grading of the receiving file, and the add-on in that
+file never modifies it, unless you click <strong>Make Editable</strong> (see below).</p>
+<p>The file contains:</p>
+<ul>
+<li>a <strong>collection</strong> named after the project, marked as an <strong>asset</strong>;</li>
+<li>a <strong>common parent</strong>, the "<project> · Root" object, to move everything at once;</li>
+<li><strong>names prefixed</strong> with the project ("<project> · <name>"): nothing gets mixed with another effect.</li>
+</ul>
+<p><strong>The VDB files are not copied</strong>: they stay on disk, at their full path (the optimized copy
+if <strong>Optimize VDB Files</strong> was used). Do not move or delete the exports folder as long as you
+use the effect.</p>
+<h2 id="add-the-effect-to-another-scene">Add the effect to another scene</h2>
+<p>Open the scene that is to receive the effect (the car), then either:</p>
+<p><strong>With File &gt; Append</strong>: <strong>File &gt; Append</strong>, choose the exported <code>.blend</code> file, go into the
+<strong>Collection</strong> folder and choose the collection named after the project.</p>
+<p><strong>With the Asset Browser</strong>: add the exported file's folder as an asset library (**Edit &gt; Preferences</p>
+<blockquote>
+<p>File Paths &gt; Asset Libraries**, or <strong>Asset Libraries</strong> depending on the version), open an <strong>Asset Browser</strong> editor,
+choose this library, then drag the effect into the 3D viewport.</p>
+</blockquote>
+<figure><a href="../images/exp-03-asset-browser.png"><img alt="The exported effect in the Asset Browser" src="../images/exp-03-asset-browser.png" loading="lazy"></a><figcaption>The exported effect in the Asset Browser</figcaption></figure>
+<h2 id="edit-the-effect-in-the-receiving-scene">Edit the effect in the receiving scene</h2>
+<p>Select an object of the effect, then click <strong>Make Editable</strong> in the <strong>Export to .blend</strong> section of the JangaFX
+panel. The effect is no longer frozen: its exports come back in the add-on's list with their settings (look,
+Auto Match corrections, start frame), and are adjusted or reloaded like an import done in this file.
+The project and the export files must still be on disk.</p>
+<p>An effect exported before version 0.15.0 did not keep its settings: its exports are found again in the project
+folder, and the add-on's settings (look, Auto Match corrections) go back to their default values at the next
+<strong>Reload</strong>. An effect already imported in the scene cannot be made editable a second time.</p>
+<h2 id="place-the-effect-on-the-emitter-object">Place the effect on the emitter object</h2>
+<p>If the project's emitter has the shape of an object exported from Blender (<strong>Import</strong> node plugged into <strong>Shape</strong>):
+select that object in Blender, then click <strong>Snap to Emitter Object</strong> in the export panel. The
+"<project> Root" parent is placed on the object, and the origin of each part of the effect (sparks, smoke) is set to
+the emitter ("JangaFX Pivot" modifier, right after the cache): the Import offset in EmberGen is corrected,
+and moving, rotating or scaling the parent or a part keeps the effect on the object. If the object moves,
+click again: the emitter object is remembered, no need to reselect it.</p>
+<h2 id="animate-the-effects-time">Animate the effect's time</h2>
+<p>In the export panel, under <strong>Starts at Frame</strong>, click <strong>Animate Effect Time</strong>. An <strong>Effect Frame</strong> value
+appears: it is the simulation frame shown (the number of the exported files). It is placed on the
+"<project> Root" parent and drives the smoke, the particles, the sparks' age and the animated look <strong>all at once</strong>.</p>
+<p>At first, it follows normal playback (two keyframes, extended in a straight line). Put your own keyframes
+on it (hover over the value, <strong>I</strong> key):</p>
+<ul>
+<li><strong>move</strong> the effect: shift the keyframes in the timeline;</li>
+<li><strong>slow down / speed up</strong>: move the keyframes apart or closer together;</li>
+<li><strong>freeze</strong>: two keyframes with the same value;</li>
+<li><strong>reverse</strong>: a value that goes down.</li>
+</ul>
+<p><strong>Different frame rate</strong> (EmberGen project at 60 fps, scene at 30 fps): a VDB sequence has one file per project
+frame, so it would play twice too slowly next to the sparks (the Alembic, on the other hand, is in seconds). The
+button is then called <strong>Convert 60 fps to 30 fps</strong>: Effect Frame advances two files per scene frame,
+and the smoke and sparks stay together in real time, without changing the scene's frame rate.</p>
+<p><strong>Override Frame</strong> (Alembic cache setting, Mesh Sequence Cache modifier tab): ticked by Effect Frame,
+it makes the cache read the frame given by its <strong>Frame</strong> field (driven) instead of the scene's frame. Do not touch
+it: the <strong>X</strong> of Effect Frame unticks it.</p>
+<p>Outside the exported files, the smoke is hidden. Effect Frame is kept in the <code>.blend</code> export (it works without
+the add-on). The <strong>X</strong> returns to normal playback. While it is active, <strong>Starts at Frame</strong> and <strong>Skip Invisible
+Frames</strong> are disabled, and the smoke's visibility (render / viewport) is driven by Effect Frame. The embers and
+bubbles added by the assistant stay on the scene's time.</p>
+<h2 id="move-the-effect">Move the effect</h2>
+<p>Select the <strong>"<project> · Root"</strong> object (in the Outliner) and move, rotate or scale it:
+the whole effect follows, sun included.</p>
+<h2 id="what-stays-with-the-receiving-scene">What stays with the receiving scene</h2>
+<p>The effect brings its objects, materials and lights, but <strong>not the scene settings</strong>. Those stay
+the car scene's, and the add-on does not touch them:</p>
+<ul>
+<li>colour grading (<strong>Color Management</strong>: View Transform, Look, exposure, curve);</li>
+<li>the frame rate (frames per second);</li>
+<li>Cycles render settings: step and bounces in volumes, light bounces;</li>
+<li>motion blur;</li>
+<li>transparent film;</li>
+<li>post-processing done in compositing (glow, saturation, vignette…);</li>
+<li>the world (<strong>World</strong>);</li>
+<li>the camera: the project's is not exported, the effect is seen through the receiving scene's camera.</li>
+</ul>
+<p>The result can therefore differ from your working file. To warn you, the <strong>Export to
+.blend</strong> section of the receiving scene shows one line per difference (nothing is fixed automatically):</p>
+<ul>
+<li>"<effect>: colour settings differ from the source file, the effect may look different": the colour grading
+  differs;</li>
+<li>"<effect>: made at 60 fps, this scene plays it at another speed": the frame rate differs;</li>
+<li>"<effect>: render settings differ from the source file: volume step, bounces, motion blur, post-FX, world":
+  the list says which render settings differ.</li>
+</ul>
+<figure><a href="../images/exp-04-notes.png"><img alt="The information lines in the receiving scene" src="../images/exp-04-notes.png" loading="lazy"></a><figcaption>The information lines in the receiving scene</figcaption></figure>
+<p>What to do: see <a href="depannage.html#colours-change-after-adding-the-effect">Colours change after adding the effect</a> and
+<a href="depannage.html#the-speed-is-wrong">The speed is wrong</a>.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="verifier-et-auto-match.html"><span>Previous</span>Check against EmberGen and Auto Match</a>
+<a class="next" href="assistant-ia.html"><span>Next</span>The AI assistant</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#export-the-effect-to-blend-1">Export the effect to .blend</a></li>
+<li><a href="#choose-the-start-frame">Choose the start frame</a></li>
+<li><a href="#what-is-frozen">What is frozen</a></li>
+<li><a href="#add-the-effect-to-another-scene">Add the effect to another scene</a></li>
+<li><a href="#edit-the-effect-in-the-receiving-scene">Edit the effect in the receiving scene</a></li>
+<li><a href="#place-the-effect-on-the-emitter-object">Place the effect on the emitter object</a></li>
+<li><a href="#animate-the-effects-time">Animate the effect's time</a></li>
+<li><a href="#move-the-effect">Move the effect</a></li>
+<li><a href="#what-stays-with-the-receiving-scene">What stays with the receiving scene</a></li></ul></aside>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vérifier contre EmberGen et Auto Match — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/verifier-et-auto-match.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html" aria-current="page">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="vérifier-contre-embergen-et-auto-match">Vérifier contre EmberGen et Auto Match</h1>
+<p>Ces outils se trouvent dans la section <strong>Look</strong> du panneau, quand le préréglage est <strong>EmberGen Look</strong> et que le
+projet <code>.ember</code> est connu.</p>
+<figure><a href="images/ver-01-boutons.png"><img alt="Les boutons Auto Match, Check et Screenshot" src="images/ver-01-boutons.png" loading="lazy"></a><figcaption>Les boutons Auto Match, Check et Screenshot</figcaption></figure>
+<p>Les deux travaillent dans un <strong>Blender d'arrière-plan</strong> : votre session reste utilisable et ne rend rien
+elle-même. Ce Blender d'arrière-plan rend avec Cycles et utilise la carte graphique choisie dans
+<strong>Preferences &gt; System</strong> (voir <a href="depannage.html#la-carte-graphique-nest-pas-utilisée">Dépannage</a>). Un seul travail
+à la fois : pendant une vérification ou un Auto Match, la ligne « Checking in the background... » ou « Auto Match
+in the background... » remplace les boutons, et la croix à droite (<strong>Cancel Check</strong>) l'arrête.</p>
+<h2 id="la-référence--ce-quembergen-a-rendu">La référence : ce qu'EmberGen a rendu</h2>
+<p>Pour comparer, il faut une image d'EmberGen :</p>
+<ul>
+<li><strong>le rendu enregistré dans le projet</strong> : EmberGen garde dans le <code>.ember</code> un petit film de la simulation ; il est
+  utilisé tout seul quand il montre des images qui ont été exportées ;</li>
+<li><strong>ou une capture d'écran</strong> : choisissez-la dans <strong>Screenshot</strong> (fenêtre entière d'EmberGen ou seulement sa vue
+  3D) et indiquez dans <strong>At Frame</strong> l'image de la timeline d'EmberGen qu'elle montre.</li>
+</ul>
+<p>Si EmberGen n'a enregistré qu'une vignette, le rapport le dit (« EmberGen n'a enregistré qu'une vignette dans le
+projet : aucun rendu de référence à comparer ») et propose d'ajouter une capture. Si le film enregistré ne montre
+aucune image exportée, réexportez depuis EmberGen la plage d'images que vous regardez.</p>
+<h2 id="vérifier-contre-embergen">Vérifier contre EmberGen</h2>
+<p><strong>Check against EmberGen</strong> rend, dans le Blender d'arrière-plan, les images exportées que montre la référence,
+puis les compare à EmberGen zone par zone (cœur des flammes, flammes, fumée éclairée, fumée dans l'ombre…). Sur un
+gros projet, comptez plusieurs minutes (le travail est arrêté au bout de 15 minutes).</p>
+<p>Avant de lancer, l'add-on vérifie la scène : s'il manque quelque chose (par exemple une lumière du projet), il
+répond « Fix the scene first (… problem(s) in the project report) » et le rapport dit quoi corriger.</p>
+<p>À la fin :</p>
+<ul>
+<li>l'image <strong>EmberGen | Blender</strong> apparaît sous le bouton, côte à côte ;</li>
+<li>les différences mesurées s'ajoutent au <a href="premiers-pas.html#le-rapport-du-projet">rapport du projet</a>, par exemple
+  « La fumée éclairée est plus sombre » ou « L'effet est moins étendu que dans EmberGen » ;</li>
+<li>si les couleurs sont proches partout : « Couleurs proches d'EmberGen dans toutes les zones mesurées » ;</li>
+<li>si un Auto Match peut aider, le rapport le propose avec son bouton.</li>
+</ul>
+<p>Quand le rendu ne se superpose pas à la référence (autre instant, autre cadrage), seules les couleurs sont
+comparées, et le rapport le dit.</p>
+<h2 id="auto-match">Auto Match</h2>
+<p><strong>Auto Match to EmberGen</strong> cale le look de Blender sur la référence, sans intervention :</p>
+<ol>
+<li>il rend quelques images en basse résolution dans le Blender d'arrière-plan (le sol de l'add-on est caché, car
+   EmberGen n'en dessine pas) ;</li>
+<li>il ajuste les corrections du look une par une, en mesurant l'écart avec EmberGen sur plusieurs images ;</li>
+<li>il vérifie le résultat sur <strong>d'autres images</strong>, jamais utilisées pendant la recherche : les corrections ne sont
+   gardées que si elles y font mieux que le look de départ.</li>
+</ol>
+<p><strong>Durée</strong> : de 1 à 5 minutes en général, jusqu'à 30 minutes sur un projet lourd (arrêt forcé au bout de
+40 minutes).</p>
+<p><strong>Le résultat</strong> s'affiche sous le bouton :</p>
+<ul>
+<li>coche : « Calé sur le rendu EmberGen : écart 0,300 -&gt; 0,200 » (l'écart a baissé, les corrections sont
+  appliquées) ;</li>
+<li>icône d'information : « <strong>Aucune correction gardée</strong> : aucune ne fait mieux que le look actuel sur des frames
+  hors recherche ». Cela veut dire que les corrections trouvées amélioraient les images de la recherche mais pas
+  les autres : le look actuel est déjà le meilleur, rien n'a été changé. Ce n'est pas une erreur.</li>
+</ul>
+<p>La mention « couleurs seules : autre instant » indique que la référence ne se superposait pas au rendu : seules
+les couleurs ont été calées.</p>
+<p>Ce qui est appris est gardé sur l'export et réutilisé pour vos projets suivants. La croix à droite du bouton
+(<strong>Reset Auto Match</strong>) oublie les corrections de cet export et reconstruit le look depuis le projet.</p>
+<h2 id="vérifier-tout-seul-après-limport">Vérifier tout seul après l'import</h2>
+<p>Dans les préférences de l'add-on (<strong>Edit &gt; Preferences &gt; Add-ons &gt; JangaFX Bridge</strong>), la case <strong>Vérifier contre
+EmberGen après l'import</strong> lance <strong>Check against EmberGen</strong> tout seul après <strong>Open Project</strong> ou <strong>Import</strong> d'un
+projet EmberGen, quand une référence est utilisable (rendu enregistré qui montre des images exportées, ou capture
+choisie).</p>
+<p>Elle est <strong>décochée par défaut</strong> : le rendu d'arrière-plan partage la carte graphique avec votre session. Elle ne
+fait rien pour LiquiGen, ni pendant une autre vérification ou un Auto Match.</p>
+<h2 id="vérifier-un-projet-liquigen">Vérifier un projet LiquiGen</h2>
+<p>LiquiGen n'enregistre aucun rendu dans son projet : il faut une capture. Dans la section <strong>Liquid</strong> :</p>
+<ol>
+<li>faites une capture dans LiquiGen (un rendu, ou la vue 3D seule), <strong>vue par la caméra du projet</strong> ;</li>
+<li>choisissez-la dans <strong>LiquiGen Capture</strong> ; <strong>At Frame</strong> prend l'image courante de la scène, corrigez-la si besoin
+   pour qu'elle corresponde à l'image de la capture ;</li>
+<li>cliquez sur <strong>Check against LiquiGen</strong>.</li>
+</ol>
+<p>Le bouton reste grisé tant qu'il n'y a pas de capture ; la raison est écrite dessous. La comparaison porte sur la
+forme, la luminosité, les couleurs et les reflets, et les différences s'ajoutent au rapport. Les seuils de cette
+comparaison sont <strong>provisoires</strong> (pas encore mesurés sur des captures LiquiGen) ; il n'y a pas d'Auto Match pour
+LiquiGen.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="panneau.html"><span>Précédent</span>Le panneau JangaFX</a>
+<a class="next" href="export.html"><span>Suivant</span>Exporter l&#x27;effet en .blend</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#la-référence--ce-quembergen-a-rendu">La référence : ce qu'EmberGen a rendu</a></li>
+<li><a href="#vérifier-contre-embergen">Vérifier contre EmberGen</a></li>
+<li><a href="#auto-match">Auto Match</a></li>
+<li><a href="#vérifier-tout-seul-après-limport">Vérifier tout seul après l'import</a></li>
+<li><a href="#vérifier-un-projet-liquigen">Vérifier un projet LiquiGen</a></li></ul></aside>
+</div>
+</body>
+</html>

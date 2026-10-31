@@ -177,7 +177,7 @@ La section **Liquid** apparaît avec un projet LiquiGen.
   matcap brillant, écume en blanc, plus de lissage).
 - Un encadré **Check against LiquiGen** avec **LiquiGen Capture** et **At Frame** (voir
   [Vérifier un projet LiquiGen](verifier-et-auto-match.md#vérifier-un-projet-liquigen)).
-- **Surface Foam** : écume peinte sur la surface (on/off dans la vue et au rendu), son **Shader** (vide : écume
+- **Surface Foam** : écume peinte sur la surface, éteinte à l'import (l'écume vient des particules) ; on/off dans la vue et au rendu, son **Shader** (vide : écume
   blanche intégrée), sa quantité et sa forme : **Coverage**, **Threshold**, **Softness**, **Lace Scale**, **Lace
   Width**, **Lace Amount**, **Distortion**, **Foam Height**, et pour la mousse **Bubble Size**, **Bubble
   Variation**, **Bubble Relief**, **Translucency**, **Color**. Ces valeurs sont des choix de l'add-on, pas lus dans

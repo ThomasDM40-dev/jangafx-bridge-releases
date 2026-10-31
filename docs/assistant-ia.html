@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L&#x27;assistant IA — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/assistant-ia.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html" aria-current="page">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="lassistant-ia">L'assistant IA</h1>
+<p>L'onglet <strong>JangaFX AI</strong> du panneau latéral (touche <strong>N</strong>) contient un assistant qui comprend vos demandes en
+français, par exemple « rends la fumée plus dense », et propose les changements correspondants. Il tourne <strong>sur
+votre ordinateur</strong> grâce au programme gratuit <strong>Ollama</strong> : rien n'est envoyé sur Internet. L'add-on fonctionne
+très bien sans lui.</p>
+<p>Il faut une carte graphique avec au moins 8 Go de mémoire.</p>
+<h2 id="installer-ollama-et-le-modèle">Installer Ollama et le modèle</h2>
+<p>L'onglet vous guide pas à pas. Tant qu'Ollama ne répond pas, il affiche :</p>
+<ol>
+<li><strong>Installez Ollama (gratuit)</strong> : le bouton <strong>Installer Ollama (ollama.com)</strong> ouvre la page de téléchargement
+   officielle (<a href="https://ollama.com/download">https://ollama.com/download</a>) dans votre navigateur. L'add-on n'installe rien lui-même :
+   téléchargez et installez Ollama comme un programme ordinaire.</li>
+<li><strong>Lancez Ollama, puis cliquez sur Actualiser</strong> (le bouton flèches à droite de la ligne d'état).</li>
+</ol>
+<figure><a href="images/ai-01-installer.png"><img alt="Ollama n'est pas encore installé" src="images/ai-01-installer.png" loading="lazy"></a><figcaption>Ollama n'est pas encore installé</figcaption></figure>
+<p>Quand Ollama répond, la ligne dit « Ollama … actif ». <strong>Dernière étape</strong> : téléchargez le modèle de l'assistant
+avec le bouton <strong>Télécharger le modèle …</strong>. Le modèle recommandé dépend de la mémoire de votre carte graphique. Le
+téléchargement fait plusieurs Go et ne se fait qu'une fois ; Blender reste utilisable pendant ce temps, une barre
+montre l'avancement et <strong>Annuler le téléchargement</strong> l'arrête.</p>
+<figure><a href="images/ai-02-modele.png"><img alt="Ollama est actif, le modèle reste à télécharger" src="images/ai-02-modele.png" loading="lazy"></a><figcaption>Ollama est actif, le modèle reste à télécharger</figcaption></figure>
+<p>La ligne d'état indique ensuite si le modèle est <strong>chargé</strong> (avec la mémoire graphique qu'il occupe) ou
+<strong>déchargé</strong> (installé mais pas en mémoire). Le modèle est toujours déchargé avant un rendu, une vérification ou un
+Auto Match, pour libérer la carte graphique.</p>
+<h2 id="les-deux-modes">Les deux modes</h2>
+<p>Sous la ligne d'état, choisissez comment l'assistant applique ses changements :</p>
+<ul>
+<li><strong>Avant / après</strong> (par défaut) : l'assistant prépare ses changements sans toucher à la scène. Vous voyez la
+  liste des changements, et un rendu avant / après à côté de la référence EmberGen, puis vous appliquez ou
+  refusez.</li>
+<li><strong>Direct</strong> : les changements sont appliqués tout de suite ; <strong>Annuler</strong> (ou Ctrl+Z) les retire.</li>
+</ul>
+<p>Le petit bouton fenêtre au bout de la ligne ouvre la conversation en grand (voir plus bas).</p>
+<h2 id="poser-une-question">Poser une question</h2>
+<p>Dans la partie <strong>Demande</strong> :</p>
+<ol>
+<li>tapez votre demande dans le champ <strong>Votre demande</strong> (par exemple « rends la fumée plus dense et plus chaude ») ;</li>
+<li>appuyez sur <strong>Entrée</strong> ou cliquez sur <strong>Envoyer</strong>.</li>
+</ol>
+<p><strong>Arrêter</strong> interrompt la réponse en cours (et la vérification ou l'Auto Match qu'elle attend).</p>
+<p>Les <strong>demandes rapides</strong> envoient une phrase toute prête, comme si vous l'aviez tapée : <strong>Plus réaliste</strong>, <strong>Plus
+rapide à rendre</strong>, <strong>Plus clair</strong>, <strong>Comparer à EmberGen</strong> (lance une vérification et dit ce qui diffère le plus).</p>
+<p>La partie <strong>Réponse</strong> montre votre dernière question (en gris) et la réponse de l'assistant ; <strong>Historique</strong> garde
+les échanges précédents.</p>
+<h2 id="appliquer-refuser-annuler">Appliquer, refuser, annuler</h2>
+<p>Chaque proposition arrive dans la partie <strong>Changements</strong>, sous forme de <strong>lot</strong> : une ligne par réglage, avec
+l'ancienne et la nouvelle valeur, et en petit la <strong>source</strong> de la valeur (votre demande, ou la mesure d'un outil).</p>
+<figure><a href="images/ai-03-conversation.png"><img alt="Un lot de changements en attente" src="images/ai-03-conversation.png" loading="lazy"></a><figcaption>Un lot de changements en attente</figcaption></figure>
+<p>En mode <strong>Avant / après</strong> :</p>
+<ul>
+<li><strong>Voir avant / après</strong> ouvre l'image (avant | après | référence EmberGen) dans une fenêtre, quand l'aperçu est
+  prêt ;</li>
+<li><strong>Appliquer</strong> écrit les changements dans la scène (vous pouvez l'annuler) ;</li>
+<li><strong>Refuser</strong> les abandonne : rien n'a été touché ;</li>
+<li><strong>Vérifier contre EmberGen</strong> lance une <a href="verifier-et-auto-match.html#vérifier-contre-embergen">vérification</a> sur ce
+  lot dans un Blender d'arrière-plan (plusieurs minutes sur un gros projet) et dit si le lot éloigne le rendu
+  d'EmberGen. Rien n'est annulé automatiquement : vous décidez.</li>
+</ul>
+<p>Après application :</p>
+<ul>
+<li><strong>Annuler</strong> remet les valeurs d'avant le dernier lot appliqué (réglages, préréglage et objets ajoutés) ;
+  le Ctrl+Z de Blender marche aussi ;</li>
+<li><strong>Revenir à cet état</strong>, sur un lot plus ancien, revient à l'état laissé par ce lot.</li>
+</ul>
+<p>Dans la partie <strong>Outils</strong> :</p>
+<ul>
+<li><strong>Effacer les réglages IA</strong> retire tout ce que l'assistant a changé sur l'import actif (annulable) ;</li>
+<li><strong>Effacer la conversation</strong> vide l'historique des messages ; les réglages déjà appliqués restent.</li>
+</ul>
+<h2 id="ouvrir-en-grand">Ouvrir en grand</h2>
+<p><strong>Ouvrir en grand</strong> (partie <strong>Historique</strong> ou <strong>Outils</strong>, ou le bouton fenêtre en haut) ouvre une grande fenêtre
+avec toute la conversation, en lecture seule. Sa barre latérale (touche <strong>N</strong>, onglet <strong>JangaFX AI</strong>) garde les
+changements et le champ de demande. Si la fenêtre est déjà ouverte, elle est seulement mise à jour. Quand une
+réponse est trop longue pour le panneau, le lien <strong>… voir tout</strong> ouvre aussi cette fenêtre.</p>
+<h2 id="réglages-de-lassistant">Réglages de l'assistant</h2>
+<p>Dans <strong>Edit &gt; Preferences &gt; Add-ons &gt; JangaFX Bridge</strong>, le bloc <strong>Assistant IA (Ollama)</strong> reprend l'état d'Ollama
+et le téléchargement du modèle, plus trois réglages :</p>
+<ul>
+<li><strong>Modèle imposé</strong> : le modèle Ollama à utiliser (par exemple <code>qwen3.5:4b</code>). Vide : choix automatique parmi les
+  modèles installés, selon la mémoire graphique libre.</li>
+<li><strong>Garder le modèle chargé (min)</strong> : minutes pendant lesquelles Ollama garde le modèle en mémoire après le dernier
+  message (0 : déchargé aussitôt).</li>
+<li><strong>Serveur Ollama</strong> : adresse du serveur (par défaut <code>http://127.0.0.1:11434</code>). Ne changez rien si Ollama tourne
+  sur cet ordinateur avec ses réglages par défaut.</li>
+</ul>
+<p>Si l'onglet affiche « Assistant IA indisponible (voir la console de Blender) », l'assistant n'a pas pu se charger ;
+le reste de l'add-on fonctionne normalement.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="export.html"><span>Précédent</span>Exporter l&#x27;effet en .blend</a>
+<a class="next" href="depannage.html"><span>Suivant</span>Dépannage</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#installer-ollama-et-le-modèle">Installer Ollama et le modèle</a></li>
+<li><a href="#les-deux-modes">Les deux modes</a></li>
+<li><a href="#poser-une-question">Poser une question</a></li>
+<li><a href="#appliquer-refuser-annuler">Appliquer, refuser, annuler</a></li>
+<li><a href="#ouvrir-en-grand">Ouvrir en grand</a></li>
+<li><a href="#réglages-de-lassistant">Réglages de l'assistant</a></li></ul></aside>
+</div>
+</body>
+</html>

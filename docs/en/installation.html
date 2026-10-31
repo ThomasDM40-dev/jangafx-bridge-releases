@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation — JangaFX Bridge</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="../installation.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html" aria-current="page">Installation</a></li>
+<li><a href="premiers-pas.html">Getting started</a></li>
+<li><a href="panneau.html">The JangaFX panel</a></li>
+<li><a href="verifier-et-auto-match.html">Check against EmberGen and Auto Match</a></li>
+<li><a href="export.html">Export the effect to .blend</a></li>
+<li><a href="assistant-ia.html">The AI assistant</a></li>
+<li><a href="depannage.html">Troubleshooting</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="installation">Installation</h1>
+<p>JangaFX Bridge works with <strong>Blender 4.5 or newer</strong> (tested with 4.5 and 5.2). There are two ways to
+install it: from the online repository (recommended, updates arrive on their own) or from a
+<code>.zip</code> file.</p>
+<p>The screenshots below come from Blender 5.2; in Blender 4.5 the windows are almost identical.</p>
+<h2 id="install-from-the-online-repository">Install from the online repository</h2>
+<p>This is the recommended method: at every startup, Blender checks whether a new version of the add-on exists.</p>
+<h3 id="1-allow-internet-access">1. Allow Internet access</h3>
+<p>Open <strong>Edit &gt; Preferences</strong>, then the <strong>Get Extensions</strong> section. If Blender shows
+the message below, click <strong>Allow Online Access</strong>. Without it, Blender can
+download neither the add-on nor its updates.</p>
+<figure><a href="../images/inst-01-acces-en-ligne.png"><img alt="Get Extensions: allow online access" src="../images/inst-01-acces-en-ligne.png" loading="lazy"></a><figcaption>Get Extensions: allow online access</figcaption></figure>
+<h3 id="2-open-the-repository-list">2. Open the repository list</h3>
+<p>Still in <strong>Get Extensions</strong>, click the <strong>Repositories</strong> menu (top right). The repository list
+opens; click the <strong>+</strong> button to the right of the list, then choose <strong>Add Remote Repository</strong>.</p>
+<figure><a href="../images/inst-02-depots.png"><img alt="The repository list and the + button" src="../images/inst-02-depots.png" loading="lazy"></a><figcaption>The repository list and the + button</figcaption></figure>
+<h3 id="3-add-the-jangafx-bridge-repository">3. Add the JangaFX Bridge repository</h3>
+<p>In the <strong>Add New Extension Repository</strong> window:</p>
+<ol>
+<li>paste this address into the <strong>URL</strong> field:</li>
+</ol>
+<p><code>https://raw.githubusercontent.com/ThomasDM40-dev/jangafx-bridge-releases/main/index.json</code></p>
+<ol start="2">
+<li>tick <strong>Check for Updates on Startup</strong>;</li>
+<li>leave the rest as is and click <strong>Create</strong>.</li>
+</ol>
+<figure><a href="../images/inst-03-ajouter-depot.png"><img alt="Add the JangaFX Bridge repository" src="../images/inst-03-ajouter-depot.png" loading="lazy"></a><figcaption>Add the JangaFX Bridge repository</figcaption></figure>
+<h3 id="4-install-the-add-on">4. Install the add-on</h3>
+<p>Type <code>JangaFX</code> in the <strong>Get Extensions</strong> search bar: <strong>JangaFX Bridge</strong> appears in the <strong>Available</strong> part.
+Click <strong>Install</strong>.</p>
+<figure><a href="../images/inst-04-installer.png"><img alt="JangaFX Bridge ready to install" src="../images/inst-04-installer.png" loading="lazy"></a><figcaption>JangaFX Bridge ready to install</figcaption></figure>
+<p>Once installed, it moves to the <strong>Installed</strong> part and is enabled.</p>
+<figure><a href="../images/inst-05-installe.png"><img alt="JangaFX Bridge installed" src="../images/inst-05-installe.png" loading="lazy"></a><figcaption>JangaFX Bridge installed</figcaption></figure>
+<p>If the <strong>Save Preferences</strong> button (bottom left) shows a star, click it to keep the repository next
+time (unless auto-save preferences is enabled).</p>
+<h2 id="receiving-updates">Receiving updates</h2>
+<p>With <strong>Check for Updates on Startup</strong> ticked, Blender checks at startup whether a new version exists. When
+there is one, the <strong>Get Extensions</strong> section offers to update it (<strong>Update</strong> button, or <strong>Install
+Available Updates</strong> in the menu at the top right). Restart Blender after an update.</p>
+<h2 id="install-from-a-zip-file">Install from a zip file</h2>
+<p>Without Internet, or to install a specific version:</p>
+<ol>
+<li>download the <code>jangafx_bridge-&lt;version&gt;.zip</code> file from the releases page:
+   <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases">https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases</a> (do not unzip it);</li>
+<li>in <strong>Edit &gt; Preferences &gt; Get Extensions</strong>, open the small menu at the very top right (the <strong>v</strong> arrow);</li>
+<li>choose <strong>Install from Disk...</strong> and select the <code>.zip</code> file.</li>
+</ol>
+<figure><a href="../images/inst-06-depuis-le-disque.png"><img alt="The Install from Disk menu" src="../images/inst-06-depuis-le-disque.png" loading="lazy"></a><figcaption>The Install from Disk menu</figcaption></figure>
+<p>With this method, updates are not automatic: repeat the same steps with the new <code>.zip</code>.</p>
+<h2 id="check-that-the-add-on-is-active">Check that the add-on is active</h2>
+<p>In <strong>Edit &gt; Preferences &gt; Add-ons</strong>, search for <code>JangaFX</code>: the checkbox of <strong>JangaFX Bridge</strong> must be ticked.
+Expand the row to see its preferences:</p>
+<ul>
+<li><strong>French / English</strong>: language of the project report and the help popups;</li>
+<li><strong>GPU for Background Renders</strong>: checks and Auto Match use the graphics card chosen in
+  <strong>Preferences &gt; System</strong> (see <a href="depannage.html#the-graphics-card-is-not-used">Troubleshooting</a>);</li>
+<li><strong>Check against EmberGen after import</strong>: see
+  <a href="verifier-et-auto-match.html#check-automatically-after-import">Check automatically after import</a>;</li>
+<li><strong>AI assistant (Ollama)</strong>: see <a href="assistant-ia.html">The AI assistant</a>.</li>
+</ul>
+<figure><a href="../images/prefs-01-addon.png"><img alt="The add-on preferences" src="../images/prefs-01-addon.png" loading="lazy"></a><figcaption>The add-on preferences</figcaption></figure>
+<p>Next, move on to <a href="premiers-pas.html">Getting started</a>.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="index.html"><span>Previous</span>JangaFX Bridge — documentation</a>
+<a class="next" href="premiers-pas.html"><span>Next</span>Getting started</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#install-from-the-online-repository">Install from the online repository</a></li>
+<li><a href="#receiving-updates">Receiving updates</a></li>
+<li><a href="#install-from-a-zip-file">Install from a zip file</a></li>
+<li><a href="#check-that-the-add-on-is-active">Check that the add-on is active</a></li></ul></aside>
+</div>
+</body>
+</html>

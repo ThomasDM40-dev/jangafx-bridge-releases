@@ -1,3 +1,5 @@
+*[English version](en/panneau.md)*
+
 # Le panneau JangaFX
 
 Le panneau JangaFX (touche **N** dans la vue 3D, onglet **JangaFX**) est découpé en sections que vous pouvez

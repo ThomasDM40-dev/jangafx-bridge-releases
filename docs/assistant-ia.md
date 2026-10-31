@@ -1,3 +1,5 @@
+*[English version](en/assistant-ia.md)*
+
 # L'assistant IA
 
 L'onglet **JangaFX AI** du panneau latéral (touche **N**) contient un assistant qui comprend vos demandes en

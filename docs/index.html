@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JangaFX Bridge — documentation — JangaFX Bridge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>JangaFX Bridge <em>Documentation</em></a>
+  <a class="lang" href="en/index.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html" aria-current="page">JangaFX Bridge — documentation</a></li>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="premiers-pas.html">Premiers pas</a></li>
+<li><a href="panneau.html">Le panneau JangaFX</a></li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a></li>
+<li><a href="export.html">Exporter l&#x27;effet en .blend</a></li>
+<li><a href="assistant-ia.html">L&#x27;assistant IA</a></li>
+<li><a href="depannage.html">Dépannage</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="jangafx-bridge--documentation">JangaFX Bridge — documentation</h1>
+<p>JangaFX Bridge est un module complémentaire (add-on) pour Blender 4.5 et plus. Il fait le lien entre
+<strong>EmberGen</strong> (fumée, feu, étincelles) ou <strong>LiquiGen</strong> (liquides) et Blender :</p>
+<ul>
+<li>vous ouvrez votre projet EmberGen (<code>.ember</code>) ou LiquiGen (<code>.liquigen</code>) directement dans Blender ;</li>
+<li>l'add-on retrouve tout seul les fichiers exportés (VDB, Alembic), les importe et reconstruit le rendu du projet :
+  matériaux, lumières, caméra, sol, post-traitement, cadence et plage d'images ;</li>
+<li>il surveille le dossier des exports : quand vous réexportez depuis EmberGen, Blender se met à jour ;</li>
+<li>il compare le rendu de Blender à celui d'EmberGen et peut caler le look tout seul (<strong>Auto Match</strong>) ;</li>
+<li>il exporte l'effet terminé en <code>.blend</code> autonome, à ajouter dans n'importe quelle autre scène (par exemple des
+  étincelles dans une scène de Formule 1) ;</li>
+<li>un assistant IA, qui tourne sur votre ordinateur, peut retoucher le look à votre demande.</li>
+</ul>
+<figure><a href="images/pp-02-scene.png"><img alt="L'onglet JangaFX après l'ouverture d'un projet" src="images/pp-02-scene.png" loading="lazy"></a><figcaption>L'onglet JangaFX après l'ouverture d'un projet</figcaption></figure>
+<h2 id="sommaire">Sommaire</h2>
+<ol>
+<li><a href="installation.html">Installation</a> — installer l'add-on et recevoir les mises à jour automatiquement.</li>
+<li><a href="premiers-pas.html">Premiers pas</a> — ouvrir un projet, ce qui apparaît dans la scène, lire le rapport.</li>
+<li><a href="panneau.html">Le panneau JangaFX</a> — chaque section du panneau, réglage par réglage.</li>
+<li><a href="verifier-et-auto-match.html">Vérifier contre EmberGen et Auto Match</a> — comparer à EmberGen et caler le look.</li>
+<li><a href="export.html">Exporter l'effet en .blend</a> — mettre l'effet dans une autre scène.</li>
+<li><a href="assistant-ia.html">L'assistant IA</a> — installer Ollama et demander des retouches.</li>
+<li><a href="depannage.html">Dépannage</a> — les problèmes courants et leurs solutions.</li>
+</ol>
+<h2 id="où-trouver-ladd-on-dans-blender">Où trouver l'add-on dans Blender</h2>
+<p>Dans la vue 3D, appuyez sur <strong>N</strong> pour ouvrir le panneau latéral, puis cliquez sur l'onglet <strong>JangaFX</strong> (l'onglet
+<strong>JangaFX AI</strong> contient l'assistant IA). Les textes des boutons sont en anglais, comme le reste de Blender ; cette
+documentation donne leur nom exact en <strong>gras</strong>.</p>
+<p>Le bouton <strong>Documentation</strong>, en bas de la section <strong>Settings</strong>, ouvre cette page. Dans les fenêtres d'aide des
+boutons <strong>?</strong>, le lien <strong>En savoir plus</strong> ouvre directement la bonne section.</p>
+</article>
+<nav class="pager">
+<a class="next" href="installation.html"><span>Suivant</span>Installation</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#où-trouver-ladd-on-dans-blender">Où trouver l'add-on dans Blender</a></li></ul></aside>
+</div>
+</body>
+</html>

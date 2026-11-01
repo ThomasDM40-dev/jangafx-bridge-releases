@@ -1,11 +1,32 @@
 *[English version](en/index.md)*
 
-# JangaFX Bridge — documentation
+# JangaFX Bridge pour EmberGen
 
-JangaFX Bridge est un module complémentaire (add-on) pour Blender 4.5 et plus. Il fait le lien entre
-**EmberGen** (fumée, feu, étincelles) ou **LiquiGen** (liquides) et Blender :
+<div class="hero">
+<img src="logos/embergen.png" alt="Logo EmberGen">
+<div>
+<p class="kicker">Documentation · JangaFX Bridge pour Blender</p>
+<p class="name">Vos effets EmberGen, rendus dans Blender</p>
+<p class="tag">Ouvrez le projet <code>.ember</code> : la fumée, le feu, les étincelles, les lumières, la caméra et le
+sol sont prêts au rendu, avec le look d'EmberGen.</p>
+</div>
+</div>
 
-- vous ouvrez votre projet EmberGen (`.ember`) ou LiquiGen (`.liquigen`) directement dans Blender ;
+<div class="badges">
+<span><img src="logos/embergen.png" alt="">Projets .ember</span>
+<span><img src="logos/logo-bridge.png" alt="">Blender 4.5 et plus</span>
+<span>VDB et Alembic</span>
+<span>Rendu Cycles</span>
+</div>
+
+Cette documentation parle surtout d'**EmberGen** ; le sélecteur en haut de la page passe à la version
+**LiquiGen**.
+
+## Ce que fait l'add-on
+
+JangaFX Bridge fait le lien entre EmberGen (fumée, feu, étincelles) et Blender :
+
+- vous ouvrez votre projet EmberGen (`.ember`) directement dans Blender ;
 - l'add-on retrouve tout seul les fichiers exportés (VDB, Alembic), les importe et reconstruit le rendu du projet :
   matériaux, lumières, caméra, sol, post-traitement, cadence et plage d'images ;
 - il surveille le dossier des exports : quand vous réexportez depuis EmberGen, Blender se met à jour ;
@@ -16,9 +37,9 @@ JangaFX Bridge est un module complémentaire (add-on) pour Blender 4.5 et plus. 
 
 <p class="strip"><img src="showcase/embergen-explosion.png" alt="Une explosion EmberGen, du flash à la fumée"></p>
 
-![L'onglet JangaFX après l'ouverture d'un projet](images/pp-02-scene.png)
+<p class="gallery g3"><img src="showcase/embergen-fire.png" alt="Feu EmberGen"><img src="showcase/embergen-smoke.png" alt="Fumée d'explosion EmberGen"><img src="showcase/embergen-tornado.png" alt="Tornade EmberGen"></p>
 
-<a class="cross" href="liquigen/index.md"><img src="logos/liquigen.png" alt=""><span>Vous travaillez avec LiquiGen ?<small>Une version de cette documentation ne parle que de LiquiGen.</small></span></a>
+![L'onglet JangaFX après l'ouverture d'un projet](images/pp-02-scene.png)
 
 ## Sommaire
 

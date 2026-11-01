@@ -14,7 +14,11 @@ JangaFX Bridge is an add-on for Blender 4.5 and later. It links
   Formula 1 scene);
 - an AI assistant, running on your computer, can tweak the look on request.
 
+<p class="strip"><img src="../showcase/embergen-explosion.png" alt="An EmberGen explosion, from flash to smoke"></p>
+
 ![The JangaFX tab after opening a project](../images/pp-02-scene.png)
+
+<a class="cross" href="../liquigen/en/index.md"><img src="../logos/liquigen.png" alt=""><span>Working with LiquiGen?<small>A version of this documentation covers LiquiGen only.</small></span></a>
 
 ## Contents
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Liquid section — JangaFX Bridge · LiquiGen</title>
+<link rel="icon" href="../../logos/liquigen.png">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="lq">
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><img class="logo" src="../../logos/liquigen.png" alt="" width="28" height="28">JangaFX Bridge · LiquiGen <em>Documentation</em></a>
+  <a class="lang" href="../liquide.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html">JangaFX Bridge for LiquiGen</a></li>
+<li><a href="premiers-pas.html">Getting started with LiquiGen</a></li>
+<li><a href="liquide.html" aria-current="page">The Liquid section</a></li>
+<li><a href="verifier-et-exporter.html">Check and export</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="the-liquid-section">The Liquid section</h1>
+<p>The <strong>Liquid</strong> section of the JangaFX panel appears when a LiquiGen project is open. It sets everything about
+the liquid.</p>
+<figure><a href="../../images/liquide.png"><img alt="The Liquid section of a LiquiGen project with exported mesh, no capture chosen" src="../../images/liquide.png" loading="lazy"></a><figcaption>The Liquid section of a LiquiGen project with exported mesh, no capture chosen</figcaption></figure>
+<h2 id="the-liquid-look">The liquid look</h2>
+<p>The <strong>LiquiGen Look</strong> menu chooses the liquid material:</p>
+<ul>
+<li>the <strong>LiquiGen project appearance</strong> (default): colour, transparency and reflections read from the project;</li>
+<li>or one of your <strong>water materials</strong> found in your asset libraries: it is added once to the file, with its
+  textures linked.</li>
+</ul>
+<p>With a library material, the AI assistant does not change the liquid.</p>
+<p>The button to the right of the menu (<strong>Detail Preview</strong>) sets the 3D viewport to read the liquid details well:
+Solid mode, glossy matcap, foam in white, more smoothing.</p>
+<h2 id="surface-foam">Surface foam</h2>
+<p><strong>Surface Foam</strong> paints foam on the liquid surface. It is <strong>off on import</strong>: the foam comes from the particles
+exported by LiquiGen. Once on (in the viewport and in the render), you set:</p>
+<ul>
+<li>its <strong>Shader</strong> (empty: built-in white foam);</li>
+<li>its amount and shape: <strong>Coverage</strong>, <strong>Threshold</strong>, <strong>Softness</strong>, <strong>Lace Scale</strong>, <strong>Lace Width</strong>, <strong>Lace
+  Amount</strong>, <strong>Distortion</strong>, <strong>Foam Height</strong>;</li>
+<li>the froth: <strong>Bubble Size</strong>, <strong>Bubble Variation</strong>, <strong>Bubble Relief</strong>, <strong>Translucency</strong>, <strong>Color</strong>.</li>
+</ul>
+<blockquote>
+<p>These values are the add-on's choices: LiquiGen has no equivalent, nothing is read from the project.</p>
+</blockquote>
+<h2 id="the-liquid-surface">The liquid surface</h2>
+<ul>
+<li><strong>Smooth Exported Mesh</strong>: smoothing of the mesh exported by LiquiGen.</li>
+<li><strong>Surface from Particles</strong>: surface rebuilt from the liquid particles. This setting is hidden when the exported
+  mesh is used.</li>
+</ul>
+<h2 id="white-water-particles">White water particles</h2>
+<p>One box appears per type of white water particles the project simulates: <strong>foam</strong>, <strong>spray</strong> and <strong>bubbles</strong>.
+Each has its render button, to show or hide it in the render.</p>
+<p>Types the project does not simulate are not imported, even if LiquiGen wrote empty objects for them.</p>
+<h2 id="the-project-scene">The project scene</h2>
+<p>The <strong>Project Scene</strong> section recreates the project's setting: camera, sun, sky and ground. Each setting is
+described in <a href="../../en/panneau.html#project-scene">Project scene</a>.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="premiers-pas.html"><span>Previous</span>Getting started with LiquiGen</a>
+<a class="next" href="verifier-et-exporter.html"><span>Next</span>Check and export</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#the-liquid-look">The liquid look</a></li>
+<li><a href="#surface-foam">Surface foam</a></li>
+<li><a href="#the-liquid-surface">The liquid surface</a></li>
+<li><a href="#white-water-particles">White water particles</a></li>
+<li><a href="#the-project-scene">The project scene</a></li></ul></aside>
+</div>
+<footer class="foot">
+  <a href="../../en/index.html"><img src="../../logos/logo-bridge.png" alt="" width="20" height="20">JangaFX Bridge</a>
+  <a href="../../liquigen/en/index.html"><img src="../../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
+  <span><img src="../../logos/embergen.png" alt="" width="20" height="20"> EmberGen</span>
+  <span>v0.22.6</span>
+  <small>EmberGen and LiquiGen are trademarks of JangaFX; their logos here identify the software.</small>
+</footer>
+</body>
+</html>

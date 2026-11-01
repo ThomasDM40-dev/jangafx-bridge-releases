@@ -1,0 +1,21 @@
+name: Bug report to Discord
+on:
+  issues:
+    types: [opened]
+permissions: {}
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post to Discord forum
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_BUG_WEBHOOK }}
+          TITLE: ${{ github.event.issue.title }}
+          BODY: ${{ github.event.issue.body }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          URL: ${{ github.event.issue.html_url }}
+          NUM: ${{ github.event.issue.number }}
+        run: |
+          jq -n --arg t "#$NUM $TITLE" --arg b "$BODY" --arg a "$AUTHOR" --arg u "$URL" \
+            '{thread_name: $t[:100], content: ("**" + $a + "** : " + $u + "\n\n" + $b[:1700]), allowed_mentions: {parse: []}}' \
+          | curl -fsS -H "Content-Type: application/json" -d @- "$WEBHOOK"

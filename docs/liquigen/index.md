@@ -50,4 +50,4 @@ Dans la vue 3D, appuyez sur **N** pour ouvrir le panneau latéral, puis cliquez 
 textes des boutons sont en anglais, comme le reste de Blender ; cette documentation donne leur nom exact en
 **gras**.
 
-<a class="cross" href="../index.md"><img src="../logos/embergen.png" alt=""><span>Vous travaillez aussi avec EmberGen ?<small>La documentation complète couvre EmberGen et LiquiGen.</small></span></a>
+<a class="cross" href="../index.md"><img src="../logos/embergen.png" alt=""><span>Vous travaillez aussi avec EmberGen ?<small>Passez à la documentation EmberGen, la plus complète.</small></span></a>

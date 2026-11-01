@@ -37,15 +37,24 @@ open, with the <strong>Learn more</strong> link to this documentation.</p>
 <figure><a href="../images/pan-04-aide.png"><img alt="The help popup of a ? button" src="../images/pan-04-aide.png" loading="lazy"></a><figcaption>The help popup of a ? button</figcaption></figure>
 <p>The settings for sparks, liquid and render also show their explanation when you hover over them.</p>
 <h2 id="project-and-exports-list">Project and exports list</h2>
-<p>The first section, <strong>JangaFX Bridge</strong>, shows the open project:</p>
+<p>The first section, <strong>JangaFX Bridge</strong>, shows the active project in a card:</p>
 <ul>
-<li>the <strong>project name</strong> and the folder button (on the right) to <strong>open another project</strong>;</li>
+<li>the <strong>project name</strong> and the cross (on the right) to <strong>close the project</strong> (effects already imported stay in the
+  scene);</li>
 <li><strong>Watching Exports / Watch Exports</strong>: turns watching of the exports folder on or off;</li>
 <li>the watched folder (in grey);</li>
 <li>the <a href="premiers-pas.html#the-project-report">project report</a>.</li>
 </ul>
-<p>Below it, the <strong>exports list</strong> found: one row per export, with an icon according to its role (smoke,
-sparks, liquid) and its state on the right:</p>
+<p>A scene can hold <strong>several projects</strong>. Below the card, every other open project is a button: click it to make it
+active (its card and report come back), its cross closes it. VDB folders added by hand are listed there too, in
+grey.</p>
+<ul>
+<li><strong>+ Project</strong>: opens another EmberGen or LiquiGen project without closing this one;</li>
+<li><strong>+ VDB</strong>: imports a VDB sequence from any folder, even without a project, with the EmberGen look; its folder is
+  added to the watched sources.</li>
+</ul>
+<p>Below it, the <strong>exports list</strong> found, across all projects: one row per export, with an icon according to its role
+(smoke, fire, sparks, liquid) and its state on the right:</p>
 <ul>
 <li>tick: imported and up to date;</li>
 <li>arrows: the file changed on disk, it needs to be reloaded;</li>
@@ -77,6 +86,9 @@ the size on disk (<strong>Size</strong>), the state (<strong>Status</strong>) an
   of the copy is shown below. Once done, the line becomes <strong>Optimized VDB copy in use</strong>.</li>
 <li><strong>Starts at Frame</strong>: the scene frame where the export's first frame plays. The button on the right (<strong>Fit Scene
   Range</strong>) sets the scene's frame range to the export's.</li>
+<li><strong>Animate Effect Time</strong>: drives the effect's time with an animatable value (<strong>Effect Frame</strong>) to slow it down,
+  speed it up, freeze it or change its frame rate; and <strong>Snap to Emitter Object</strong>: attaches the effect to an object
+  of the scene. Both are explained in <a href="export.html">Export the effect to .blend</a>.</li>
 </ul>
 <p>Two collapsed subsections:</p>
 <ul>
@@ -87,8 +99,12 @@ the size on disk (<strong>Size</strong>), the state (<strong>Status</strong>) an
 </ul>
 <figure><a href="../images/pan-02-export.png"><img alt="The Export section with its subsections" src="../images/pan-02-export.png" loading="lazy"></a><figcaption>The Export section with its subsections</figcaption></figure>
 <h2 id="look">Look</h2>
-<p>The <strong>Look</strong> section sets the appearance of the volume (smoke and fire). It follows the selected export; if another row
-is chosen, it shows the first imported volume (its name is shown in grey at the top).</p>
+<p>The <strong>Look</strong> section sets the appearance of the volume (smoke and fire).</p>
+<p>When the scene has <strong>several volumes</strong> (several projects, copies, manual imports), it lists them all at the top:
+click a row to set that volume, the screen icon on the right hides or shows it in the 3D viewport. A volume that
+does not come from the open project has a grey label: <strong>Copy</strong> (copy of an export, Shift+D), <strong>Bridge</strong> (the
+add-on's look) or <strong>Manual</strong> (imported by hand); for it, only the material settings are shown.
+With a single volume, its name is shown in grey at the top.</p>
 <p>The menu at the top chooses the <strong>preset</strong>:</p>
 <ul>
 <li><strong>EmberGen Look</strong> (default): reproduces the render of the EmberGen project (<code>.ember</code>); with no project found, these are
@@ -113,7 +129,8 @@ whose settings are shown directly: density, colour, absorption colour, scatterin
 smoke (<strong>Density Grid</strong>) and for fire (<strong>Flame Grid</strong>). These values come from the preset, not from the project.</p>
 <figure><a href="../images/looks-simples.png"><img alt="The simple Fire + Smoke look and its settings" src="../images/looks-simples.png" loading="lazy"></a><figcaption>The simple Fire + Smoke look and its settings</figcaption></figure>
 <h3 id="flames">Flames</h3>
-<p><strong>Flames</strong> subsection (only if the project has flames):</p>
+<p><strong>Flames</strong> subsection (only if the project has fire: a non-empty <code>flames</code> grid and an emitter that emits temperature
+or fuel; a smoke-only project has no such subsection, even when EmberGen exported a <code>flames</code> grid):</p>
 <ul>
 <li><strong>Intensity</strong>: strength of the flames' light;</li>
 <li><strong>Scatter Glow</strong>: glow of the flames scattered into the surrounding smoke (orange glow of explosions);</li>
@@ -161,7 +178,9 @@ and in the render (camera).</p>
   Length</strong>, <strong>Width Random</strong>, <strong>Length Random</strong>, <strong>Min Speed</strong> (hides slower particles, for example
   resting on the ground).</li>
 <li><strong>Look</strong>: <strong>Fade Time</strong>, <strong>Color Tint</strong> (multiplies the colour), then <strong>Intensity</strong> (brightness), <strong>Edge
-  Softness</strong> (softness of the edges) and <strong>Tail Fade</strong> (fading of the streaks' tail).</li>
+  Softness</strong> (softness of the edges) and <strong>Tail Fade</strong> (fading of the streaks' tail). The <strong>Solid Points</strong> button
+  replaces the additive glow with opaque emissive points, ten times thinner: Cycles renders about ten times faster,
+  without black holes where many particles overlap.</li>
 <li><strong>Optimization</strong> (collapsed): display in the 3D viewport and in the render, <strong>Points in Viewport</strong> (dots instead of
   streaks in the viewport, the render keeps the streaks), <strong>Resolution</strong> (streak segments) and <strong>Seed</strong>.</li>
 </ul>
@@ -199,12 +218,17 @@ and in the render (camera).</p>
 <li><strong>Recreate from the Project</strong>: what <strong>Apply Project Scene</strong> should recreate:<ul>
 <li><strong>Camera</strong>: EmberGen's camera (field of view, orbit, distance);</li>
 <li><strong>Ground</strong>: the project's ground, so that the effect lights it and is reflected in it;</li>
+<li><strong>Lights</strong>: the project's lights (sun, point and spot lights);</li>
+<li><strong>Sky</strong>: the project's world (sky and ambient light); unticked, your world or HDRI is kept;</li>
+<li><strong>Color Management</strong>: the view transform and look (EmberGen tonemapping); unticked, your scene's colours are
+kept;</li>
+<li><strong>Render Settings</strong>: Cycles samples, volume step and motion blur from the chosen quality (Render section);
+unticked, yours are kept;</li>
 <li><strong>Frame Rate</strong>: the project's frame rate;</li>
 <li><strong>Post FX</strong>: the project's post-processing;</li>
 </ul>
 </li>
-<li><strong>Apply Project Scene</strong>: recreates the lights, tonemapping, post-processing, render quality and,
-  if ticked, the camera;</li>
+<li><strong>Apply Project Scene</strong>: recreates what is ticked above;</li>
 <li><strong>Sun Strength</strong> and <strong>Sun Color</strong>: strength and colour of the project's sun.</li>
 </ul>
 <figure><a href="../images/pan-06-scene.png"><img alt="The Project Scene and Post-Processing sections" src="../images/pan-06-scene.png" loading="lazy"></a><figcaption>The Project Scene and Post-Processing sections</figcaption></figure>

@@ -9,6 +9,9 @@
   }
 }
 * { box-sizing: border-box; }
+/* Pas de sélection de texte (demande de l'utilisateur), sauf le code à copier (adresse du dépôt). */
+body { user-select: none; -webkit-user-select: none; }
+pre, code { user-select: text; -webkit-user-select: text; }
 html { scroll-padding-top: 76px; }
 body {
   margin: 0; background: var(--bg); color: var(--text);

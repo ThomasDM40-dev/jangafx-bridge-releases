@@ -1,11 +1,32 @@
 *[Version française](../index.md)*
 
-# JangaFX Bridge — documentation
+# JangaFX Bridge for EmberGen
 
-JangaFX Bridge is an add-on for Blender 4.5 and later. It links
-**EmberGen** (smoke, fire, sparks) or **LiquiGen** (liquids) with Blender:
+<div class="hero">
+<img src="../logos/embergen.png" alt="EmberGen logo">
+<div>
+<p class="kicker">Documentation · JangaFX Bridge for Blender</p>
+<p class="name">Your EmberGen effects, rendered in Blender</p>
+<p class="tag">Open the <code>.ember</code> project: smoke, fire, sparks, lights, camera and ground are ready to
+render, with the EmberGen look.</p>
+</div>
+</div>
 
-- you open your EmberGen (`.ember`) or LiquiGen (`.liquigen`) project directly in Blender;
+<div class="badges">
+<span><img src="../logos/embergen.png" alt="">.ember projects</span>
+<span><img src="../logos/logo-bridge.png" alt="">Blender 4.5 and later</span>
+<span>VDB and Alembic</span>
+<span>Cycles render</span>
+</div>
+
+This documentation mainly covers **EmberGen**; the switch at the top of the page goes to the **LiquiGen**
+version.
+
+## What the add-on does
+
+JangaFX Bridge links EmberGen (smoke, fire, sparks) with Blender:
+
+- you open your EmberGen (`.ember`) project directly in Blender;
 - the add-on automatically finds the exported files (VDB, Alembic), imports them and rebuilds the project's render:
   materials, lights, camera, ground, post-processing, frame rate and frame range;
 - it watches the exports folder: when you re-export from EmberGen, Blender updates;
@@ -16,9 +37,9 @@ JangaFX Bridge is an add-on for Blender 4.5 and later. It links
 
 <p class="strip"><img src="../showcase/embergen-explosion.png" alt="An EmberGen explosion, from flash to smoke"></p>
 
-![The JangaFX tab after opening a project](../images/pp-02-scene.png)
+<p class="gallery g3"><img src="../showcase/embergen-fire.png" alt="EmberGen fire"><img src="../showcase/embergen-smoke.png" alt="EmberGen explosion smoke"><img src="../showcase/embergen-tornado.png" alt="EmberGen tornado"></p>
 
-<a class="cross" href="../liquigen/en/index.md"><img src="../logos/liquigen.png" alt=""><span>Working with LiquiGen?<small>A version of this documentation covers LiquiGen only.</small></span></a>
+![The JangaFX tab after opening a project](../images/pp-02-scene.png)
 
 ## Contents
 

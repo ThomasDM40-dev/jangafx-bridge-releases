@@ -19,6 +19,8 @@
 </header>
 <div class="layout">
   <nav class="side">
+    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.22.6/jangafx_bridge-0.22.6.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Drag this button into a Blender 4.5+ window to install the add-on (a click downloads the .zip)."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3v14m0 0-5-5m5 5 5-5M4 21h16"/></svg>Drag into Blender</a>
+    <p class="drop-hint">Drag this button into a Blender 4.5+ window to install the add-on (a click downloads the .zip). <a href="../en/installation.html#drag-into-blender">How it works</a></p>
     <details open><summary>Contents</summary><ul>
 <li><a href="index.html">JangaFX Bridge for EmberGen</a></li>
 <li><a href="installation.html" aria-current="page">Installation</a></li>
@@ -33,10 +35,22 @@
   <main id="content">
 <article>
 <h1 id="installation">Installation</h1>
-<p>JangaFX Bridge works with <strong>Blender 4.5 or newer</strong> (tested with 4.5 and 5.2). There are two ways to
-install it: from the online repository (recommended, updates arrive on their own) or from a
-<code>.zip</code> file.</p>
+<p>JangaFX Bridge works with <strong>Blender 4.5 or newer</strong> (tested with 4.5 and 5.2). There are three ways to
+install it: by dragging a button into Blender (quickest), from the online repository (updates arrive on their own
+with both of these) or from a <code>.zip</code> file.</p>
 <p>The screenshots below come from Blender 5.2; in Blender 4.5 the windows are almost identical.</p>
+<h2 id="drag-into-blender">Drag into Blender</h2>
+<p>The quickest way, with Blender open next to the browser:</p>
+<ol>
+<li>drag the <strong>Drag into Blender</strong> button (top left of every page of this documentation) and drop it on the
+   Blender window;</li>
+<li>the first time, Blender answers "The dropped extension comes from an unknown repository": click <strong>Add
+   Repository...</strong>, the repository address is already filled in; check <strong>Check for Updates on Startup</strong> and confirm;</li>
+<li>drag the button a second time: Blender asks "Do you want to install the following add-on?"; click <strong>OK</strong>.</li>
+</ol>
+<p>The repository stays added: updates then arrive on their own, as with the method below. If Blender asks for
+online access, allow it (see step 1 below). A plain click on the button downloads the <code>.zip</code> file (see
+<a href="#install-from-a-zip-file">Install from a zip file</a>).</p>
 <h2 id="install-from-the-online-repository">Install from the online repository</h2>
 <p>This is the recommended method: at every startup, Blender checks whether a new version of the add-on exists.</p>
 <h3 id="1-allow-internet-access">1. Allow Internet access</h3>
@@ -100,7 +114,8 @@ Expand the row to see its preferences:</p>
 <a class="next" href="premiers-pas.html"><span>Next</span>Getting started</a>
 </nav>
   </main>
-  <aside class="toc"><p>On this page</p><ul><li><a href="#install-from-the-online-repository">Install from the online repository</a></li>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#drag-into-blender">Drag into Blender</a></li>
+<li><a href="#install-from-the-online-repository">Install from the online repository</a></li>
 <li><a href="#receiving-updates">Receiving updates</a></li>
 <li><a href="#install-from-a-zip-file">Install from a zip file</a></li>
 <li><a href="#check-that-the-add-on-is-active">Check that the add-on is active</a></li></ul></aside>

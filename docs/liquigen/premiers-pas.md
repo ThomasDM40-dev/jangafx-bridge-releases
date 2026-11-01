@@ -2,7 +2,8 @@
 
 # Premiers pas avec LiquiGen
 
-> Si l'add-on n'est pas encore installé, suivez d'abord la page [Installation](../installation.md).
+> Si l'add-on n'est pas encore installé : glissez le bouton **Glisser-déposer dans Blender** (en haut à gauche de
+> la page) dans la fenêtre de Blender, ou suivez la page [Installation](../installation.md#glisser-dans-blender).
 
 ## Avant de commencer
 

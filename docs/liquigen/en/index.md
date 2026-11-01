@@ -48,4 +48,4 @@ JangaFX Bridge links LiquiGen with Blender:
 In the 3D viewport, press **N** to open the sidebar, then click the **JangaFX** tab. This documentation gives
 the exact button names in **bold**.
 
-<a class="cross" href="../../en/index.md"><img src="../../logos/embergen.png" alt=""><span>Working with EmberGen too?<small>The full documentation covers EmberGen and LiquiGen.</small></span></a>
+<a class="cross" href="../../en/index.md"><img src="../../logos/embergen.png" alt=""><span>Working with EmberGen too?<small>Switch to the EmberGen documentation, the most complete one.</small></span></a>

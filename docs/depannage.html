@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dépannage — JangaFX Bridge</title>
 <link rel="icon" href="logos/embergen.png">
-<link rel="stylesheet" href="style.css?v=0.23.0">
+<link rel="stylesheet" href="style.css?v=0.24.0">
 </head>
 <body class="eg">
 <a class="skip" href="#content">Aller au contenu</a>
@@ -19,8 +19,8 @@
 </header>
 <div class="layout">
   <nav class="side">
-    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.23.0/jangafx_bridge-0.23.0.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Glissez ce bouton dans une fenêtre de Blender 4.5+" draggable="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Glisser-déposer dans Blender</a>
-    <p class="drop-hint">…ou <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.23.0/jangafx_bridge-0.23.0.zip">télécharger</a> et <a href="installation.html#installer-depuis-un-fichier-zip">Install from Disk</a></p>
+    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.24.0/jangafx_bridge-0.24.0.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Glissez ce bouton dans une fenêtre de Blender 4.5+" draggable="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Glisser-déposer dans Blender</a>
+    <p class="drop-hint">…ou <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.24.0/jangafx_bridge-0.24.0.zip">télécharger</a> et <a href="installation.html#installer-depuis-un-fichier-zip">Install from Disk</a></p>
     <details open><summary>Sommaire</summary><ul>
 <li><a href="index.html">JangaFX Bridge pour EmberGen</a></li>
 <li><a href="installation.html">Installation</a></li>
@@ -114,6 +114,18 @@ programmes gourmands pendant une vérification.</p>
 <li>« EmberGen n'a enregistré qu'une vignette dans le projet » : ajoutez une capture dans <strong>Screenshot</strong> (voir
   <a href="verifier-et-auto-match.html#la-référence--ce-quembergen-a-rendu">La référence</a>).</li>
 </ul>
+<h2 id="signaler-un-bug">Signaler un bug</h2>
+<p>Dans le panneau <strong>Settings</strong>, cliquez sur <strong>Report a Bug</strong>. Une capture de la fenêtre Blender est prise au moment du
+clic, puis une fenêtre s'ouvre : donnez un titre, décrivez ce qui s'est passé et comment le reproduire, ajoutez si
+besoin jusqu'à deux images. Les versions (add-on, Blender, système, carte graphique) et les dernières erreurs
+Python affichées par Blender sont jointes automatiquement ; vous pouvez les décocher. <strong>Send Report</strong> envoie le tout : pas besoin de compte
+GitHub.</p>
+<ul>
+<li>Le rapport devient une issue <strong>publique</strong> sur GitHub : vérifiez que la capture ne montre rien de privé (l'œil à
+  côté de la case l'ouvre). Votre dossier personnel est remplacé par <code>~</code> dans le texte.</li>
+<li>L'envoi demande <strong>Allow Online Access</strong> (Preferences &gt; System).</li>
+<li>Le lien vers l'issue s'affiche sous le bouton une fois l'envoi terminé.</li>
+</ul>
 </article>
 <nav class="pager">
 <a class="prev" href="assistant-ia.html"><span>Précédent</span>L&#x27;assistant IA</a>
@@ -125,7 +137,8 @@ programmes gourmands pendant une vérification.</p>
 <li><a href="#la-vitesse-nest-pas-la-bonne">La vitesse n'est pas la bonne</a></li>
 <li><a href="#des-fichiers-manquent">Des fichiers manquent</a></li>
 <li><a href="#la-carte-graphique-nest-pas-utilisée">La carte graphique n'est pas utilisée</a></li>
-<li><a href="#une-vérification-refuse-de-démarrer">Une vérification refuse de démarrer</a></li></ul></aside>
+<li><a href="#une-vérification-refuse-de-démarrer">Une vérification refuse de démarrer</a></li>
+<li><a href="#signaler-un-bug">Signaler un bug</a></li></ul></aside>
 </div>
 <script>
 // Glisser le bouton = son lien (Blender lit l'URL du zip) ; un clic ne télécharge rien, comme sur extensions.blender.org.
@@ -141,7 +154,7 @@ document.querySelectorAll(".drop").forEach(function (a) {
   <a href="index.html"><img src="logos/embergen.png" alt="" width="20" height="20">EmberGen</a>
   <a href="liquigen/index.html"><img src="logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
   <span><img src="logos/logo-bridge.png" alt="" width="20" height="20"> JangaFX Bridge</span>
-  <span>v0.23.0</span>
+  <span>v0.24.0</span>
   <small>EmberGen et LiquiGen sont des marques de JangaFX ; leurs logos désignent ici les logiciels.</small>
 </footer>
 </body>

@@ -105,3 +105,16 @@ demanding programs during a check.
   with **Open Project**.
 - "EmberGen only saved a thumbnail in the project": add a screenshot in **Screenshot** (see
   [The reference](verifier-et-auto-match.md#the-reference-what-embergen-rendered)).
+
+
+## Reporting a bug
+
+In the **Settings** panel, click **Report a Bug**. A screenshot of the Blender window is taken when you click, then a
+window opens: give a title, describe what happened and how to reproduce it, and add up to two images if needed. The
+versions (add-on, Blender, system, graphics card) and the last Python errors printed by Blender are attached automatically; you can
+untick them. **Send Report** sends everything: no GitHub account needed.
+
+- The report becomes a **public** GitHub issue: check that the screenshot shows nothing private (the eye next to the
+  checkbox opens it). Your home folder is replaced by `~` in the text.
+- Sending needs **Allow Online Access** (Preferences > System).
+- The link to the issue appears under the button once the report is sent.

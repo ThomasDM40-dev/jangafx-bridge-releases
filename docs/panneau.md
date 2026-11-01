@@ -16,15 +16,24 @@ Les réglages des étincelles, du liquide et du rendu affichent aussi leur expli
 
 ## Projet et liste des exports
 
-La première section, **JangaFX Bridge**, montre le projet ouvert :
+La première section, **JangaFX Bridge**, montre le projet actif dans une carte :
 
-- le **nom du projet** et le bouton dossier (à droite) pour **ouvrir un autre projet** ;
+- le **nom du projet** et la croix (à droite) pour **fermer le projet** (les effets déjà importés restent dans la
+  scène) ;
 - **Watching Exports / Watch Exports** : allume ou coupe la surveillance du dossier des exports ;
 - le dossier surveillé (en gris) ;
 - le [rapport du projet](premiers-pas.md#le-rapport-du-projet).
 
-En dessous, la **liste des exports** trouvés : une ligne par export, avec une icône selon son rôle (fumée,
-étincelles, liquide) et son état à droite :
+Une scène peut avoir **plusieurs projets**. Sous la carte, chaque autre projet ouvert est un bouton : cliquez-le
+pour le rendre actif (sa carte et son rapport reviennent), sa croix le ferme. Les dossiers de VDB ajoutés à la main
+s'y affichent aussi, en gris.
+
+- **+ Project** : ouvre un autre projet EmberGen ou LiquiGen, sans fermer celui-ci ;
+- **+ VDB** : importe une séquence VDB de n'importe quel dossier, même sans projet, avec le look EmberGen ; son
+  dossier est ajouté aux sources surveillées.
+
+En dessous, la **liste des exports** trouvés, tous projets confondus : une ligne par export, avec une icône selon
+son rôle (fumée, feu, étincelles, liquide) et son état à droite :
 
 - coche : importé et à jour ;
 - flèches : le fichier a changé sur le disque, il faut le recharger ;
@@ -56,6 +65,9 @@ taille sur le disque (**Size**), l'état (**Status**) et les images manquantes s
   approximative de la copie est indiquée dessous. Une fois fait, la ligne devient **Optimized VDB copy in use**.
 - **Starts at Frame** : image de la scène où joue la première image de l'export. Le bouton à droite (**Fit Scene
   Range**) cale la plage d'images de la scène sur celle de l'export.
+- **Animate Effect Time** : pilote le temps de l'effet par une valeur animable (**Effect Frame**) pour le
+  ralentir, l'accélérer, le figer ou changer sa cadence ; et **Snap to Emitter Object** : accroche l'effet à un objet
+  de la scène. Les deux sont expliqués dans [Exporter l'effet en .blend](export.md).
 
 Deux sous-sections repliées :
 
@@ -68,8 +80,13 @@ Deux sous-sections repliées :
 
 ## Look
 
-La section **Look** règle l'apparence du volume (fumée et feu). Elle suit l'export sélectionné ; si une autre ligne
-est choisie, elle montre le premier volume importé (son nom est rappelé en gris en haut).
+La section **Look** règle l'apparence du volume (fumée et feu).
+
+Quand la scène a **plusieurs volumes** (plusieurs projets, copies, imports à la main), elle les liste tous en haut :
+cliquez une ligne pour régler ce volume, l'icône écran à droite le cache ou l'affiche dans la vue 3D. Un volume qui
+ne vient pas du projet ouvert porte une étiquette grise : **Copy** (copie d'un export, Shift+D), **Bridge** (look
+de l'add-on) ou **Manual** (importé à la main) ; pour lui, seuls les réglages du matériau sont affichés.
+Avec un seul volume, son nom est rappelé en gris en haut.
 
 Le menu en haut choisit le **préréglage** :
 
@@ -102,7 +119,9 @@ fumée (**Density Grid**) et pour le feu (**Flame Grid**). Ces valeurs viennent 
 
 ### Flammes
 
-Sous-section **Flames** (seulement si le projet a des flammes) :
+Sous-section **Flames** (seulement si le projet a du feu : une grille `flames` non vide et un émetteur qui émet de
+la température ou du combustible ; un projet de fumée seule n'a pas cette sous-section, même si EmberGen a exporté
+une grille `flames`) :
 
 - **Intensity** : force de la lumière des flammes ;
 - **Scatter Glow** : lueur des flammes diffusée dans la fumée autour (lueur orange des explosions) ;
@@ -156,7 +175,9 @@ et au rendu (appareil photo).
   Length**, **Width Random**, **Length Random**, **Min Speed** (cache les particules plus lentes, par exemple
   posées au sol).
 - **Look** : **Fade Time**, **Color Tint** (multiplie la couleur), puis **Intensity** (luminosité), **Edge
-  Softness** (douceur des bords) et **Tail Fade** (extinction de la queue des traînées).
+  Softness** (douceur des bords) et **Tail Fade** (extinction de la queue des traînées). Le bouton **Solid Points**
+  remplace la lueur additive par des points opaques émissifs dix fois plus fins : le rendu Cycles est environ dix
+  fois plus rapide, sans trous noirs là où beaucoup de particules se superposent.
 - **Optimization** (repliée) : affichage dans la vue 3D et au rendu, **Points in Viewport** (des points au lieu des
   traînées dans la vue, le rendu garde les traînées), **Resolution** (segments des traînées) et **Seed**.
 
@@ -200,10 +221,15 @@ La section **Project Scene** recrée l'ambiance du projet :
 - **Recreate from the Project** : ce que **Apply Project Scene** doit recréer :
   - **Camera** : la caméra d'EmberGen (champ de vision, orbite, distance) ;
   - **Ground** : le sol du projet, pour que l'effet l'éclaire et s'y reflète ;
+  - **Lights** : les lumières du projet (soleil, lumières ponctuelles et spots) ;
+  - **Sky** : le monde (ciel et lumière ambiante) du projet ; décoché, votre monde ou votre HDRI est gardé ;
+  - **Color Management** : la transformation d'affichage et le look (tonemapping d'EmberGen) ; décoché, les
+    couleurs de votre scène sont gardées ;
+  - **Render Settings** : échantillons Cycles, pas du volume et flou de mouvement selon la qualité choisie
+    (section Render) ; décoché, les vôtres sont gardés ;
   - **Frame Rate** : la cadence du projet ;
   - **Post FX** : le post-traitement du projet ;
-- **Apply Project Scene** : recrée les lumières, le tonemapping, le post-traitement, la qualité de rendu et,
-  si coché, la caméra ;
+- **Apply Project Scene** : recrée ce qui est coché ci-dessus ;
 - **Sun Strength** et **Sun Color** : force et couleur du soleil du projet.
 
 ![Les sections Project Scene et Post-Processing](images/pan-06-scene.png)

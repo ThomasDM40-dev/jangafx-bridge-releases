@@ -16,15 +16,24 @@ The settings for sparks, liquid and render also show their explanation when you 
 
 ## Project and exports list
 
-The first section, **JangaFX Bridge**, shows the open project:
+The first section, **JangaFX Bridge**, shows the active project in a card:
 
-- the **project name** and the folder button (on the right) to **open another project**;
+- the **project name** and the cross (on the right) to **close the project** (effects already imported stay in the
+  scene);
 - **Watching Exports / Watch Exports**: turns watching of the exports folder on or off;
 - the watched folder (in grey);
 - the [project report](premiers-pas.md#the-project-report).
 
-Below it, the **exports list** found: one row per export, with an icon according to its role (smoke,
-sparks, liquid) and its state on the right:
+A scene can hold **several projects**. Below the card, every other open project is a button: click it to make it
+active (its card and report come back), its cross closes it. VDB folders added by hand are listed there too, in
+grey.
+
+- **+ Project**: opens another EmberGen or LiquiGen project without closing this one;
+- **+ VDB**: imports a VDB sequence from any folder, even without a project, with the EmberGen look; its folder is
+  added to the watched sources.
+
+Below it, the **exports list** found, across all projects: one row per export, with an icon according to its role
+(smoke, fire, sparks, liquid) and its state on the right:
 
 - tick: imported and up to date;
 - arrows: the file changed on disk, it needs to be reloaded;
@@ -56,6 +65,9 @@ the size on disk (**Size**), the state (**Status**) and the missing frames if th
   of the copy is shown below. Once done, the line becomes **Optimized VDB copy in use**.
 - **Starts at Frame**: the scene frame where the export's first frame plays. The button on the right (**Fit Scene
   Range**) sets the scene's frame range to the export's.
+- **Animate Effect Time**: drives the effect's time with an animatable value (**Effect Frame**) to slow it down,
+  speed it up, freeze it or change its frame rate; and **Snap to Emitter Object**: attaches the effect to an object
+  of the scene. Both are explained in [Export the effect to .blend](export.md).
 
 Two collapsed subsections:
 
@@ -68,8 +80,13 @@ Two collapsed subsections:
 
 ## Look
 
-The **Look** section sets the appearance of the volume (smoke and fire). It follows the selected export; if another row
-is chosen, it shows the first imported volume (its name is shown in grey at the top).
+The **Look** section sets the appearance of the volume (smoke and fire).
+
+When the scene has **several volumes** (several projects, copies, manual imports), it lists them all at the top:
+click a row to set that volume, the screen icon on the right hides or shows it in the 3D viewport. A volume that
+does not come from the open project has a grey label: **Copy** (copy of an export, Shift+D), **Bridge** (the
+add-on's look) or **Manual** (imported by hand); for it, only the material settings are shown.
+With a single volume, its name is shown in grey at the top.
 
 The menu at the top chooses the **preset**:
 
@@ -102,7 +119,8 @@ smoke (**Density Grid**) and for fire (**Flame Grid**). These values come from t
 
 ### Flames
 
-**Flames** subsection (only if the project has flames):
+**Flames** subsection (only if the project has fire: a non-empty `flames` grid and an emitter that emits temperature
+or fuel; a smoke-only project has no such subsection, even when EmberGen exported a `flames` grid):
 
 - **Intensity**: strength of the flames' light;
 - **Scatter Glow**: glow of the flames scattered into the surrounding smoke (orange glow of explosions);
@@ -156,7 +174,9 @@ and in the render (camera).
   Length**, **Width Random**, **Length Random**, **Min Speed** (hides slower particles, for example
   resting on the ground).
 - **Look**: **Fade Time**, **Color Tint** (multiplies the colour), then **Intensity** (brightness), **Edge
-  Softness** (softness of the edges) and **Tail Fade** (fading of the streaks' tail).
+  Softness** (softness of the edges) and **Tail Fade** (fading of the streaks' tail). The **Solid Points** button
+  replaces the additive glow with opaque emissive points, ten times thinner: Cycles renders about ten times faster,
+  without black holes where many particles overlap.
 - **Optimization** (collapsed): display in the 3D viewport and in the render, **Points in Viewport** (dots instead of
   streaks in the viewport, the render keeps the streaks), **Resolution** (streak segments) and **Seed**.
 
@@ -200,10 +220,15 @@ The **Project Scene** section recreates the project's atmosphere:
 - **Recreate from the Project**: what **Apply Project Scene** should recreate:
   - **Camera**: EmberGen's camera (field of view, orbit, distance);
   - **Ground**: the project's ground, so that the effect lights it and is reflected in it;
+  - **Lights**: the project's lights (sun, point and spot lights);
+  - **Sky**: the project's world (sky and ambient light); unticked, your world or HDRI is kept;
+  - **Color Management**: the view transform and look (EmberGen tonemapping); unticked, your scene's colours are
+    kept;
+  - **Render Settings**: Cycles samples, volume step and motion blur from the chosen quality (Render section);
+    unticked, yours are kept;
   - **Frame Rate**: the project's frame rate;
   - **Post FX**: the project's post-processing;
-- **Apply Project Scene**: recreates the lights, tonemapping, post-processing, render quality and,
-  if ticked, the camera;
+- **Apply Project Scene**: recreates what is ticked above;
 - **Sun Strength** and **Sun Color**: strength and colour of the project's sun.
 
 ![The Project Scene and Post-Processing sections](../images/pan-06-scene.png)

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premiers pas avec LiquiGen — JangaFX Bridge · LiquiGen</title>
+<link rel="icon" href="../logos/liquigen.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="lq">
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><img class="logo" src="../logos/liquigen.png" alt="" width="28" height="28">JangaFX Bridge · LiquiGen <em>Documentation</em></a>
+  <a class="lang" href="en/premiers-pas.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge pour LiquiGen</a></li>
+<li><a href="premiers-pas.html" aria-current="page">Premiers pas avec LiquiGen</a></li>
+<li><a href="liquide.html">La section Liquid</a></li>
+<li><a href="verifier-et-exporter.html">Vérifier et exporter</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="premiers-pas-avec-liquigen">Premiers pas avec LiquiGen</h1>
+<blockquote>
+<p>Si l'add-on n'est pas encore installé, suivez d'abord la page <a href="../installation.html">Installation</a>.</p>
+</blockquote>
+<h2 id="avant-de-commencer">Avant de commencer</h2>
+<p>Dans LiquiGen :</p>
+<ol>
+<li>exportez la simulation avec les nœuds d'export du projet (le liquide, et l'écume, les embruns ou les bulles si
+   le projet les simule) ;</li>
+<li>enregistrez le projet (<code>.liquigen</code>).</li>
+</ol>
+<p>L'add-on retrouve les exports grâce aux nœuds d'export enregistrés dans le projet : un export fait avant le
+dernier changement de chemin ne sera pas trouvé.</p>
+<h2 id="ouvrir-le-panneau-jangafx">Ouvrir le panneau JangaFX</h2>
+<p>Dans la vue 3D, appuyez sur <strong>N</strong> : le panneau latéral s'ouvre. Cliquez sur l'onglet <strong>JangaFX</strong> (sur le bord
+droit du panneau). Tant qu'aucun projet n'est ouvert, il ne montre que le bouton <strong>Open Project</strong>, le bouton
+<strong>+ VDB</strong>, la section <strong>Render</strong> et la section <strong>Settings</strong> (repliée).</p>
+<figure><a href="../images/pp-01-ouvrir-projet.png"><img alt="L'onglet JangaFX avant d'ouvrir un projet" src="../images/pp-01-ouvrir-projet.png" loading="lazy"></a><figcaption>L'onglet JangaFX avant d'ouvrir un projet</figcaption></figure>
+<h2 id="ouvrir-un-projet-liquigen">Ouvrir un projet LiquiGen</h2>
+<ol>
+<li>Cliquez sur <strong>Open Project</strong>.</li>
+<li>Choisissez le fichier <code>.liquigen</code>.</li>
+</ol>
+<p>Vous pouvez aussi <strong>glisser le fichier du projet</strong> depuis l'explorateur de fichiers directement dans la vue 3D.</p>
+<p>L'add-on lit le projet, importe les exports et règle le reste automatiquement. Un projet lourd peut prendre
+quelques secondes.</p>
+<p>Si rien n'est trouvé, Blender affiche « No export of this project was found on disk (export it from EmberGen
+first) » : faites d'abord l'export depuis LiquiGen (le message cite EmberGen, il vaut aussi pour LiquiGen).</p>
+<p>Pour mettre <strong>plusieurs effets</strong> dans la même scène, cliquez <strong>+ Project</strong> sous la carte du projet (voir <a href="../panneau.html#projet-et-liste-des-exports">Projet
+et liste des exports</a>).</p>
+<h2 id="ce-qui-apparaît-dans-la-scène">Ce qui apparaît dans la scène</h2>
+<p>Après l'ouverture, la scène contient :</p>
+<ul>
+<li>une collection <strong>JangaFX Bridge</strong> avec le liquide (le maillage exporté, ou une surface reconstruite à partir des
+  particules) et les particules blanches que le projet simule : écume, embruns, bulles ;</li>
+<li>la caméra du projet, le soleil et le ciel du projet, et le sol si le nœud Ground du projet est actif ;</li>
+<li>la plage d'images et la cadence de la scène calées sur celles de l'export.</li>
+</ul>
+<p>Pour regarder le rendu dans la vue 3D, passez en mode d'affichage <strong>Material Preview</strong> ou <strong>Rendered</strong> (en haut à
+droite de la vue 3D). Le rendu final se fait avec <strong>Cycles</strong>.</p>
+<h2 id="le-dossier-des-exports">Le dossier des exports</h2>
+<p>À l'ouverture, l'add-on prend comme <strong>dossier des exports</strong> le dossier où les nœuds d'export du projet écrivent
+leurs fichiers ; il est affiché sous le nom du projet. Le bouton <strong>Watching Exports</strong> (œil) indique que ce dossier
+est surveillé : quand vous réexportez depuis LiquiGen, la liste se met à jour et le liquide déjà importé est
+rechargé (si <strong>Auto Reload</strong> est coché).</p>
+<p>Pour surveiller un autre dossier, changez <strong>Export Folder</strong> dans la section <strong>Settings</strong> (voir
+<a href="../panneau.html#réglages">Réglages</a>).</p>
+<h2 id="le-rapport-du-projet">Le rapport du projet</h2>
+<p>Juste sous le nom du projet, le <strong>Project Report</strong> explique ce que l'add-on a compris du projet et ce qui peut
+rendre le résultat différent de LiquiGen, le plus grave d'abord. Une copie texte est écrite à côté du projet
+(<code>&lt;projet&gt;.jfxb_report.txt</code>).</p>
+<figure><a href="../images/pp-03-rapport.png"><img alt="Le rapport du projet" src="../images/pp-03-rapport.png" loading="lazy"></a><figcaption>Le rapport du projet</figcaption></figure>
+<p>Le détail de chaque partie du rapport est dans <a href="../premiers-pas.html#le-rapport-du-projet">Premiers pas</a> de la
+documentation complète.</p>
+<h2 id="et-ensuite">Et ensuite</h2>
+<ul>
+<li>Réglez le liquide : <a href="liquide.html">La section Liquid</a>.</li>
+<li>Comparez à LiquiGen ou exportez : <a href="verifier-et-exporter.html">Vérifier et exporter</a>.</li>
+</ul>
+</article>
+<nav class="pager">
+<a class="prev" href="index.html"><span>Précédent</span>JangaFX Bridge pour LiquiGen</a>
+<a class="next" href="liquide.html"><span>Suivant</span>La section Liquid</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#avant-de-commencer">Avant de commencer</a></li>
+<li><a href="#ouvrir-le-panneau-jangafx">Ouvrir le panneau JangaFX</a></li>
+<li><a href="#ouvrir-un-projet-liquigen">Ouvrir un projet LiquiGen</a></li>
+<li><a href="#ce-qui-apparaît-dans-la-scène">Ce qui apparaît dans la scène</a></li>
+<li><a href="#le-dossier-des-exports">Le dossier des exports</a></li>
+<li><a href="#le-rapport-du-projet">Le rapport du projet</a></li>
+<li><a href="#et-ensuite">Et ensuite</a></li></ul></aside>
+</div>
+<footer class="foot">
+  <a href="../index.html"><img src="../logos/logo-bridge.png" alt="" width="20" height="20">JangaFX Bridge</a>
+  <a href="../liquigen/index.html"><img src="../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
+  <span><img src="../logos/embergen.png" alt="" width="20" height="20"> EmberGen</span>
+  <span>v0.22.6</span>
+  <small>EmberGen et LiquiGen sont des marques de JangaFX ; leurs logos désignent ici les logiciels.</small>
+</footer>
+</body>
+</html>

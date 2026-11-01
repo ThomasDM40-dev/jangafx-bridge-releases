@@ -3,20 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JangaFX Bridge — documentation — JangaFX Bridge</title>
-<link rel="icon" href="../logos/logo-bridge.png">
+<title>JangaFX Bridge for EmberGen — JangaFX Bridge</title>
+<link rel="icon" href="../logos/embergen.png">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body class="">
+<body class="eg">
 <a class="skip" href="#content">Skip to content</a>
 <header class="top">
-  <a class="brand" href="index.html"><img class="logo" src="../logos/logo-bridge.png" alt="" width="28" height="28">JangaFX Bridge <em>Documentation</em></a>
+  <a class="brand" href="index.html"><img class="logo" src="../logos/embergen.png" alt="" width="28" height="28">JangaFX Bridge <em>Documentation</em></a>
+  <nav class="switch">
+<a href="../en/index.html" aria-current="page"><img src="../logos/embergen.png" alt="" width="20" height="20">EmberGen</a>
+<a href="../liquigen/en/index.html"><img src="../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
+  </nav>
   <a class="lang" href="../index.html">Français</a>
 </header>
 <div class="layout">
   <nav class="side">
     <details open><summary>Contents</summary><ul>
-<li><a href="index.html" aria-current="page">JangaFX Bridge — documentation</a></li>
+<li><a href="index.html" aria-current="page">JangaFX Bridge for EmberGen</a></li>
 <li><a href="installation.html">Installation</a></li>
 <li><a href="premiers-pas.html">Getting started</a></li>
 <li><a href="panneau.html">The JangaFX panel</a></li>
@@ -28,11 +32,30 @@
   </nav>
   <main id="content">
 <article>
-<h1 id="jangafx-bridge--documentation">JangaFX Bridge — documentation</h1>
-<p>JangaFX Bridge is an add-on for Blender 4.5 and later. It links
-<strong>EmberGen</strong> (smoke, fire, sparks) or <strong>LiquiGen</strong> (liquids) with Blender:</p>
+<h1 id="jangafx-bridge-for-embergen">JangaFX Bridge for EmberGen</h1>
+<div class="hero">
+<img src="../logos/embergen.png" alt="EmberGen logo">
+<div>
+<p class="kicker">Documentation · JangaFX Bridge for Blender</p>
+<p class="name">Your EmberGen effects, rendered in Blender</p>
+<p class="tag">Open the <code>.ember</code> project: smoke, fire, sparks, lights, camera and ground are ready to
+render, with the EmberGen look.</p>
+</div>
+</div>
+
+<div class="badges">
+<span><img src="../logos/embergen.png" alt="">.ember projects</span>
+<span><img src="../logos/logo-bridge.png" alt="">Blender 4.5 and later</span>
+<span>VDB and Alembic</span>
+<span>Cycles render</span>
+</div>
+
+<p>This documentation mainly covers <strong>EmberGen</strong>; the switch at the top of the page goes to the <strong>LiquiGen</strong>
+version.</p>
+<h2 id="what-the-add-on-does">What the add-on does</h2>
+<p>JangaFX Bridge links EmberGen (smoke, fire, sparks) with Blender:</p>
 <ul>
-<li>you open your EmberGen (<code>.ember</code>) or LiquiGen (<code>.liquigen</code>) project directly in Blender;</li>
+<li>you open your EmberGen (<code>.ember</code>) project directly in Blender;</li>
 <li>the add-on automatically finds the exported files (VDB, Alembic), imports them and rebuilds the project's render:
   materials, lights, camera, ground, post-processing, frame rate and frame range;</li>
 <li>it watches the exports folder: when you re-export from EmberGen, Blender updates;</li>
@@ -43,8 +66,9 @@
 </ul>
 <p class="strip"><img src="../showcase/embergen-explosion.png" alt="An EmberGen explosion, from flash to smoke"></p>
 
+<p class="gallery g3"><img src="../showcase/embergen-fire.png" alt="EmberGen fire"><img src="../showcase/embergen-smoke.png" alt="EmberGen explosion smoke"><img src="../showcase/embergen-tornado.png" alt="EmberGen tornado"></p>
+
 <figure><a href="../images/pp-02-scene.png"><img alt="The JangaFX tab after opening a project" src="../images/pp-02-scene.png" loading="lazy"></a><figcaption>The JangaFX tab after opening a project</figcaption></figure>
-<p><a class="cross" href="../liquigen/en/index.html"><img src="../logos/liquigen.png" alt=""><span>Working with LiquiGen?<small>A version of this documentation covers LiquiGen only.</small></span></a></p>
 <h2 id="contents">Contents</h2>
 <ol>
 <li><a href="installation.html">Installation</a> — install the add-on and receive updates automatically.</li>
@@ -66,13 +90,14 @@ documentation gives their exact name in <strong>bold</strong>.</p>
 <a class="next" href="installation.html"><span>Next</span>Installation</a>
 </nav>
   </main>
-  <aside class="toc"><p>On this page</p><ul><li><a href="#contents">Contents</a></li>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#what-the-add-on-does">What the add-on does</a></li>
+<li><a href="#contents">Contents</a></li>
 <li><a href="#where-to-find-the-add-on-in-blender">Where to find the add-on in Blender</a></li></ul></aside>
 </div>
 <footer class="foot">
-  <a href="../en/index.html"><img src="../logos/logo-bridge.png" alt="" width="20" height="20">JangaFX Bridge</a>
+  <a href="../en/index.html"><img src="../logos/embergen.png" alt="" width="20" height="20">EmberGen</a>
   <a href="../liquigen/en/index.html"><img src="../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
-  <span><img src="../logos/embergen.png" alt="" width="20" height="20"> EmberGen</span>
+  <span><img src="../logos/logo-bridge.png" alt="" width="20" height="20"> JangaFX Bridge</span>
   <span>v0.22.6</span>
   <small>EmberGen and LiquiGen are trademarks of JangaFX; their logos here identify the software.</small>
 </footer>

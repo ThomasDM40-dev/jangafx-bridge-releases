@@ -2,7 +2,8 @@
 
 # Getting started with LiquiGen
 
-> If the add-on is not installed yet, follow the [Installation](../../en/installation.md) page first.
+> If the add-on is not installed yet: drag the **Drag and Drop into Blender** button (top left of the page) into
+> the Blender window, or follow the [Installation](../../en/installation.md#drag-into-blender) page.
 
 ## Before you start
 

@@ -14,7 +14,11 @@ JangaFX Bridge est un module complémentaire (add-on) pour Blender 4.5 et plus. 
   étincelles dans une scène de Formule 1) ;
 - un assistant IA, qui tourne sur votre ordinateur, peut retoucher le look à votre demande.
 
+<p class="strip"><img src="showcase/embergen-explosion.png" alt="Une explosion EmberGen, du flash à la fumée"></p>
+
 ![L'onglet JangaFX après l'ouverture d'un projet](images/pp-02-scene.png)
+
+<a class="cross" href="liquigen/index.md"><img src="logos/liquigen.png" alt=""><span>Vous travaillez avec LiquiGen ?<small>Une version de cette documentation ne parle que de LiquiGen.</small></span></a>
 
 ## Sommaire
 

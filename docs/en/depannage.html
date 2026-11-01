@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Troubleshooting — JangaFX Bridge</title>
 <link rel="icon" href="../logos/embergen.png">
-<link rel="stylesheet" href="../style.css?v=0.23.0">
+<link rel="stylesheet" href="../style.css?v=0.24.0">
 </head>
 <body class="eg">
 <a class="skip" href="#content">Skip to content</a>
@@ -19,8 +19,8 @@
 </header>
 <div class="layout">
   <nav class="side">
-    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.23.0/jangafx_bridge-0.23.0.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Drag this button into a Blender 4.5+ window" draggable="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Drag and Drop into Blender</a>
-    <p class="drop-hint">…or <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.23.0/jangafx_bridge-0.23.0.zip">download</a> and <a href="../en/installation.html#install-from-a-zip-file">Install from Disk</a></p>
+    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.24.0/jangafx_bridge-0.24.0.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Drag this button into a Blender 4.5+ window" draggable="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Drag and Drop into Blender</a>
+    <p class="drop-hint">…or <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.24.0/jangafx_bridge-0.24.0.zip">download</a> and <a href="../en/installation.html#install-from-a-zip-file">Install from Disk</a></p>
     <details open><summary>Contents</summary><ul>
 <li><a href="index.html">JangaFX Bridge for EmberGen</a></li>
 <li><a href="installation.html">Installation</a></li>
@@ -114,6 +114,17 @@ demanding programs during a check.</p>
 <li>"EmberGen only saved a thumbnail in the project": add a screenshot in <strong>Screenshot</strong> (see
   <a href="verifier-et-auto-match.html#the-reference-what-embergen-rendered">The reference</a>).</li>
 </ul>
+<h2 id="reporting-a-bug">Reporting a bug</h2>
+<p>In the <strong>Settings</strong> panel, click <strong>Report a Bug</strong>. A screenshot of the Blender window is taken when you click, then a
+window opens: give a title, describe what happened and how to reproduce it, and add up to two images if needed. The
+versions (add-on, Blender, system, graphics card) and the last Python errors printed by Blender are attached automatically; you can
+untick them. <strong>Send Report</strong> sends everything: no GitHub account needed.</p>
+<ul>
+<li>The report becomes a <strong>public</strong> GitHub issue: check that the screenshot shows nothing private (the eye next to the
+  checkbox opens it). Your home folder is replaced by <code>~</code> in the text.</li>
+<li>Sending needs <strong>Allow Online Access</strong> (Preferences &gt; System).</li>
+<li>The link to the issue appears under the button once the report is sent.</li>
+</ul>
 </article>
 <nav class="pager">
 <a class="prev" href="assistant-ia.html"><span>Previous</span>The AI assistant</a>
@@ -125,7 +136,8 @@ demanding programs during a check.</p>
 <li><a href="#the-speed-is-wrong">The speed is wrong</a></li>
 <li><a href="#files-are-missing">Files are missing</a></li>
 <li><a href="#the-graphics-card-is-not-used">The graphics card is not used</a></li>
-<li><a href="#a-check-refuses-to-start">A check refuses to start</a></li></ul></aside>
+<li><a href="#a-check-refuses-to-start">A check refuses to start</a></li>
+<li><a href="#reporting-a-bug">Reporting a bug</a></li></ul></aside>
 </div>
 <script>
 // Glisser le bouton = son lien (Blender lit l'URL du zip) ; un clic ne télécharge rien, comme sur extensions.blender.org.
@@ -141,7 +153,7 @@ document.querySelectorAll(".drop").forEach(function (a) {
   <a href="../en/index.html"><img src="../logos/embergen.png" alt="" width="20" height="20">EmberGen</a>
   <a href="../liquigen/en/index.html"><img src="../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
   <span><img src="../logos/logo-bridge.png" alt="" width="20" height="20"> JangaFX Bridge</span>
-  <span>v0.23.0</span>
+  <span>v0.24.0</span>
   <small>EmberGen and LiquiGen are trademarks of JangaFX; their logos here identify the software.</small>
 </footer>
 </body>

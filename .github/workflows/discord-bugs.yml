@@ -15,7 +15,13 @@ jobs:
           AUTHOR: ${{ github.event.issue.user.login }}
           URL: ${{ github.event.issue.html_url }}
           NUM: ${{ github.event.issue.number }}
+        # Un post par issue (thread_name) ; la première image du rapport s'affiche dans le post.
         run: |
-          jq -n --arg t "#$NUM $TITLE" --arg b "$BODY" --arg a "$AUTHOR" --arg u "$URL" \
-            '{thread_name: $t[:100], content: ("**" + $a + "** : " + $u + "\n\n" + $b[:1700]), allowed_mentions: {parse: []}}' \
+          jq -n --arg t "#$NUM $TITLE" --arg b "$BODY" --arg a "$AUTHOR" --arg u "$URL" '
+            ([$b | match("!\\[[^\\]]*\\]\\((https://[^)\\s]+)\\)"; "g") | .captures[0].string] | first) as $img
+            | ($b | split("<details>")[0] | split("### Screenshots")[0]) as $text
+            | {thread_name: $t[:100],
+               content: ("**" + $a + "** : " + $u + "\n\n" + $text[:1700]),
+               allowed_mentions: {parse: []}}
+            + (if $img then {embeds: [{image: {url: $img}}]} else {} end)' \
           | curl -fsS -H "Content-Type: application/json" -d @- "$WEBHOOK"

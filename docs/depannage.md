@@ -105,3 +105,17 @@ programmes gourmands pendant une vérification.
   avec **Open Project**.
 - « EmberGen n'a enregistré qu'une vignette dans le projet » : ajoutez une capture dans **Screenshot** (voir
   [La référence](verifier-et-auto-match.md#la-référence--ce-quembergen-a-rendu)).
+
+
+## Signaler un bug
+
+Dans le panneau **Settings**, cliquez sur **Report a Bug**. Une capture de la fenêtre Blender est prise au moment du
+clic, puis une fenêtre s'ouvre : donnez un titre, décrivez ce qui s'est passé et comment le reproduire, ajoutez si
+besoin jusqu'à deux images. Les versions (add-on, Blender, système, carte graphique) et les dernières erreurs
+Python affichées par Blender sont jointes automatiquement ; vous pouvez les décocher. **Send Report** envoie le tout : pas besoin de compte
+GitHub.
+
+- Le rapport devient une issue **publique** sur GitHub : vérifiez que la capture ne montre rien de privé (l'œil à
+  côté de la case l'ouvre). Votre dossier personnel est remplacé par `~` dans le texte.
+- L'envoi demande **Allow Online Access** (Preferences > System).
+- Le lien vers l'issue s'affiche sous le bouton une fois l'envoi terminé.

@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/latest"><img src="https://img.shields.io/badge/version-0.23.0-1c7ed6" alt="Version 0.23.0"></a>
+  <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/latest"><img src="https://img.shields.io/badge/version-0.24.0-1c7ed6" alt="Version 0.24.0"></a>
   <img src="https://img.shields.io/badge/Blender-4.5%2B-e87d0d?logo=blender&logoColor=white" alt="Blender 4.5+">
   <img src="https://img.shields.io/badge/EmberGen-.ember-ff7a18" alt="EmberGen">
   <img src="https://img.shields.io/badge/LiquiGen-.liquigen-1c9be6" alt="LiquiGen">
@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.23.0/jangafx_bridge-0.23.0.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&blender_version_min=4.5.0"><img src="https://img.shields.io/badge/%E2%87%A9%20Glisser%20dans%20Blender-install-1c7ed6?style=for-the-badge&logo=blender&logoColor=white" alt="Glisser dans Blender"></a><br>
+  <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.24.0/jangafx_bridge-0.24.0.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&blender_version_min=4.5.0"><img src="https://img.shields.io/badge/%E2%87%A9%20Glisser%20dans%20Blender-install-1c7ed6?style=for-the-badge&logo=blender&logoColor=white" alt="Glisser dans Blender"></a><br>
   <sub>Glissez ce bouton dans la fenêtre de Blender 4.5+ : Blender propose d'ajouter le dépôt, puis installe l'add-on.</sub>
 </p>
 

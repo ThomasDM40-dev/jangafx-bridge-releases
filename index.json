@@ -9,7 +9,7 @@
                      "id":  "jangafx_bridge",
                      "name":  "JangaFX Bridge",
                      "tagline":  "Import and live-reload EmberGen and LiquiGen exports",
-                     "version":  "0.22.5",
+                     "version":  "0.22.6",
                      "type":  "add-on",
                      "maintainer":  "JangaFX Bridge Contributors",
                      "license":  [
@@ -24,9 +24,9 @@
                                   "Import-Export",
                                   "Physics"
                               ],
-                     "archive_url":  "https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.22.5/jangafx_bridge-0.22.5.zip",
-                     "archive_size":  443578,
-                     "archive_hash":  "sha256:53326d88cc9f85350ed7a93d0d847a7380532616099c551f2b5b54e1ebc43bcb"
+                     "archive_url":  "https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.22.6/jangafx_bridge-0.22.6.zip",
+                     "archive_size":  444027,
+                     "archive_hash":  "sha256:06c110faaeb1f4a1caa605847c591b7e880eef85734841ab1dc89f9a91de2ab1"
                  }
              ]
 }

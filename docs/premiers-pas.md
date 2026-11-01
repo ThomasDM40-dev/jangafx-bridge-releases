@@ -8,8 +8,8 @@ particules) ou depuis LiquiGen, et enregistrez le projet (`.ember` ou `.liquigen
 ## Ouvrir le panneau JangaFX
 
 Dans la vue 3D, appuyez sur **N** : le panneau latéral s'ouvre. Cliquez sur l'onglet **JangaFX** (sur le bord
-droit du panneau). Tant qu'aucun projet n'est ouvert, il ne montre que le bouton **Open Project**, la section
-**Render** et la section **Settings** (repliée).
+droit du panneau). Tant qu'aucun projet n'est ouvert, il ne montre que le bouton **Open Project**, le bouton
+**+ VDB** (importer une séquence VDB sans projet), la section **Render** et la section **Settings** (repliée).
 
 ![L'onglet JangaFX avant d'ouvrir un projet](images/pp-01-ouvrir-projet.png)
 
@@ -26,6 +26,10 @@ d'images de la scène. Un projet lourd peut prendre quelques secondes.
 
 Si rien n'est trouvé, Blender affiche « No export of this project was found on disk (export it from EmberGen
 first) » : faites d'abord l'export depuis EmberGen ou LiquiGen.
+
+Pour mettre **plusieurs effets** dans la même scène, cliquez **+ Project** sous la carte du projet : le premier
+projet reste ouvert, un clic sur son nom le rend de nouveau actif (voir [Projet et liste des
+exports](panneau.md#projet-et-liste-des-exports)).
 
 ## Ce qui apparaît dans la scène
 

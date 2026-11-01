@@ -26,6 +26,11 @@
   <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/latest"><b>Télécharger</b></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.22.6/jangafx_bridge-0.22.6.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&blender_version_min=4.5.0"><img src="https://img.shields.io/badge/%E2%87%A9%20Glisser%20dans%20Blender-install-1c7ed6?style=for-the-badge&logo=blender&logoColor=white" alt="Glisser dans Blender"></a><br>
+  <sub>Glissez ce bouton dans la fenêtre de Blender 4.5+ : Blender propose d'ajouter le dépôt, puis installe l'add-on.</sub>
+</p>
+
 <p align="center"><img src="docs/showcase/embergen-explosion.png" alt="Une explosion EmberGen, du flash à la fumée"></p>
 
 ## Ce que fait l'add-on

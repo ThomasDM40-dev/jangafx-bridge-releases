@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vérifier et exporter — JangaFX Bridge · LiquiGen</title>
+<link rel="icon" href="../logos/liquigen.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="lq">
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><img class="logo" src="../logos/liquigen.png" alt="" width="28" height="28">JangaFX Bridge · LiquiGen <em>Documentation</em></a>
+  <a class="lang" href="en/verifier-et-exporter.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html">JangaFX Bridge pour LiquiGen</a></li>
+<li><a href="premiers-pas.html">Premiers pas avec LiquiGen</a></li>
+<li><a href="liquide.html">La section Liquid</a></li>
+<li><a href="verifier-et-exporter.html" aria-current="page">Vérifier et exporter</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="vérifier-et-exporter">Vérifier et exporter</h1>
+<h2 id="vérifier-contre-une-capture-liquigen">Vérifier contre une capture LiquiGen</h2>
+<p>LiquiGen n'enregistre aucun rendu dans son projet : pour comparer, il faut une capture. Dans la section
+<strong>Liquid</strong> :</p>
+<ol>
+<li>faites une capture dans LiquiGen (un rendu, ou la vue 3D seule), <strong>vue par la caméra du projet</strong> ;</li>
+<li>choisissez-la dans <strong>LiquiGen Capture</strong> ; <strong>At Frame</strong> prend l'image courante de la scène, corrigez-la si besoin
+   pour qu'elle corresponde à l'image de la capture ;</li>
+<li>cliquez sur <strong>Check against LiquiGen</strong>.</li>
+</ol>
+<p>Le bouton reste grisé tant qu'il n'y a pas de capture ; la raison est écrite dessous. La comparaison porte sur la
+forme, la luminosité, les couleurs et les reflets, et les différences s'ajoutent au rapport du projet.</p>
+<blockquote>
+<p>Les seuils de cette comparaison sont <strong>provisoires</strong> (pas encore mesurés sur des captures LiquiGen). Il n'y a pas
+d'Auto Match pour LiquiGen.</p>
+</blockquote>
+<h2 id="exporter-le-liquide-en-blend">Exporter le liquide en .blend</h2>
+<p>La section <strong>Export to .blend</strong> écrit le liquide dans un fichier <code>.blend</code> autonome que vous ajoutez ensuite à
+n'importe quelle scène, <strong>même sur un ordinateur sans l'add-on</strong>.</p>
+<ol>
+<li>Sélectionnez un objet du liquide (ou la ligne de l'export dans la liste) : la section affiche le nom du
+   projet.</li>
+<li>Cochez les parties à écrire :<ul>
+<li><strong>Liquid</strong> : le liquide et ses particules blanches, avec leurs Geometry Nodes et leurs matériaux ;</li>
+<li><strong>Volumes</strong> : les volumes VDB du projet, s'il y en a ;</li>
+<li><strong>Bubbles</strong> : les bulles ajoutées par l'assistant IA (grisé s'il n'y en a pas) ;</li>
+<li><strong>Lights</strong> : le soleil du projet.</li>
+</ul>
+</li>
+<li>Réglez <strong>Starts at Frame</strong> : l'image du fichier qui reçoit le liquide où joue sa première image.</li>
+<li>Cliquez sur <strong>Export to .blend...</strong> et choisissez où enregistrer le fichier.</li>
+</ol>
+<figure><a href="../images/exp-01-panneau.png"><img alt="La section Export to .blend" src="../images/exp-01-panneau.png" loading="lazy"></a><figcaption>La section Export to .blend</figcaption></figure>
+<p>Le fichier est écrit par un Blender d'arrière-plan ; votre fichier de travail n'est pas modifié. Le soleil
+éclaire aussi toute la scène qui reçoit le liquide : décochez <strong>Lights</strong> pour garder seulement l'éclairage de
+cette scène.</p>
+<p>Les fichiers exportés par LiquiGen <strong>ne sont pas copiés</strong> : ils restent à leur chemin sur le disque. Ne déplacez
+pas le dossier des exports tant que vous utilisez le liquide.</p>
+<p>Pour ajouter le fichier à une autre scène (File &gt; Append ou Asset Browser) et pour le détail de ce qui est figé,
+voir <a href="../export.html">Exporter l'effet en .blend</a>.</p>
+<h2 id="en-cas-de-problème">En cas de problème</h2>
+<p>La page <a href="../depannage.html">Dépannage</a> liste les problèmes courants et leurs solutions.</p>
+</article>
+<nav class="pager">
+<a class="prev" href="liquide.html"><span>Précédent</span>La section Liquid</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#vérifier-contre-une-capture-liquigen">Vérifier contre une capture LiquiGen</a></li>
+<li><a href="#exporter-le-liquide-en-blend">Exporter le liquide en .blend</a></li>
+<li><a href="#en-cas-de-problème">En cas de problème</a></li></ul></aside>
+</div>
+<footer class="foot">
+  <a href="../index.html"><img src="../logos/logo-bridge.png" alt="" width="20" height="20">JangaFX Bridge</a>
+  <a href="../liquigen/index.html"><img src="../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
+  <span><img src="../logos/embergen.png" alt="" width="20" height="20"> EmberGen</span>
+  <span>v0.22.6</span>
+  <small>EmberGen et LiquiGen sont des marques de JangaFX ; leurs logos désignent ici les logiciels.</small>
+</footer>
+</body>
+</html>

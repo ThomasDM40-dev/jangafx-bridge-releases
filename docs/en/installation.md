@@ -2,11 +2,25 @@
 
 # Installation
 
-JangaFX Bridge works with **Blender 4.5 or newer** (tested with 4.5 and 5.2). There are two ways to
-install it: from the online repository (recommended, updates arrive on their own) or from a
-`.zip` file.
+JangaFX Bridge works with **Blender 4.5 or newer** (tested with 4.5 and 5.2). There are three ways to
+install it: by dragging a button into Blender (quickest), from the online repository (updates arrive on their own
+with both of these) or from a `.zip` file.
 
 The screenshots below come from Blender 5.2; in Blender 4.5 the windows are almost identical.
+
+## Drag into Blender
+
+The quickest way, with Blender open next to the browser:
+
+1. drag the **Drag into Blender** button (top left of every page of this documentation) and drop it on the
+   Blender window;
+2. the first time, Blender answers "The dropped extension comes from an unknown repository": click **Add
+   Repository...**, the repository address is already filled in; check **Check for Updates on Startup** and confirm;
+3. drag the button a second time: Blender asks "Do you want to install the following add-on?"; click **OK**.
+
+The repository stays added: updates then arrive on their own, as with the method below. If Blender asks for
+online access, allow it (see step 1 below). A plain click on the button downloads the `.zip` file (see
+[Install from a zip file](#install-from-a-zip-file)).
 
 ## Install from the online repository
 

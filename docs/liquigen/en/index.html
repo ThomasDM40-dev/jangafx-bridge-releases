@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JangaFX Bridge for LiquiGen — JangaFX Bridge · LiquiGen</title>
+<link rel="icon" href="../../logos/liquigen.png">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body class="lq">
+<a class="skip" href="#content">Skip to content</a>
+<header class="top">
+  <a class="brand" href="index.html"><img class="logo" src="../../logos/liquigen.png" alt="" width="28" height="28">JangaFX Bridge · LiquiGen <em>Documentation</em></a>
+  <a class="lang" href="../index.html">Français</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Contents</summary><ul>
+<li><a href="index.html" aria-current="page">JangaFX Bridge for LiquiGen</a></li>
+<li><a href="premiers-pas.html">Getting started with LiquiGen</a></li>
+<li><a href="liquide.html">The Liquid section</a></li>
+<li><a href="verifier-et-exporter.html">Check and export</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="jangafx-bridge-for-liquigen">JangaFX Bridge for LiquiGen</h1>
+<div class="hero">
+<img src="../../logos/liquigen.png" alt="LiquiGen logo">
+<div>
+<p class="kicker">Documentation · JangaFX Bridge for Blender</p>
+<p class="name">Your LiquiGen liquids, rendered in Blender</p>
+<p class="tag">Open the <code>.liquigen</code> project: the liquid, foam, spray, bubbles, camera, sun and ground are
+ready to render.</p>
+</div>
+</div>
+
+<div class="badges">
+<span><img src="../../logos/liquigen.png" alt="">LiquiGen 1.0 to 1.2</span>
+<span><img src="../../logos/logo-bridge.png" alt="">Blender 4.5 and later</span>
+<span>Alembic and VDB</span>
+<span>Cycles render</span>
+</div>
+
+<p>This version of the documentation covers <strong>LiquiGen</strong> only. For EmberGen (smoke, fire, sparks), see the
+<a href="../../en/index.html">full documentation</a>.</p>
+<h2 id="what-the-add-on-does">What the add-on does</h2>
+<p>JangaFX Bridge links LiquiGen with Blender:</p>
+<ul>
+<li>you open your LiquiGen project (<code>.liquigen</code>) directly in Blender;</li>
+<li>the add-on automatically finds the project's exports (the liquid, and the white water particles: foam, spray,
+  bubbles), imports them and rebuilds the scene: liquid material, sun, ground, camera, frame rate and frame range;</li>
+<li>it watches the exports folder: when you re-export from LiquiGen, Blender updates;</li>
+<li>it compares Blender's render to a LiquiGen capture and lists the differences;</li>
+<li>it exports the finished liquid as a standalone <code>.blend</code>, to add to any other scene.</li>
+</ul>
+<p class="gallery"><img src="../../showcase/liquigen-gold.png" alt="LiquiGen liquid gold"><img src="../../showcase/liquigen-whirlpool.png" alt="LiquiGen whirlpool and foam"></p>
+
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="../../en/installation.html">Installation</a> — install the add-on and receive updates (shared with EmberGen).</li>
+<li><a href="premiers-pas.html">Getting started with LiquiGen</a> — export from LiquiGen, open the project, read the report.</li>
+<li><a href="liquide.html">The Liquid section</a> — the liquid look, foam, smoothing, white water particles.</li>
+<li><a href="verifier-et-exporter.html">Check and export</a> — compare to a LiquiGen capture, export as <code>.blend</code>.</li>
+<li><a href="../../en/depannage.html">Troubleshooting</a> — common problems (shared with EmberGen).</li>
+</ol>
+<h2 id="where-to-find-the-add-on-in-blender">Where to find the add-on in Blender</h2>
+<p>In the 3D viewport, press <strong>N</strong> to open the sidebar, then click the <strong>JangaFX</strong> tab. This documentation gives
+the exact button names in <strong>bold</strong>.</p>
+<p><a class="cross" href="../../en/index.html"><img src="../../logos/embergen.png" alt=""><span>Working with EmberGen too?<small>The full documentation covers EmberGen and LiquiGen.</small></span></a></p>
+</article>
+<nav class="pager">
+<a class="next" href="premiers-pas.html"><span>Next</span>Getting started with LiquiGen</a>
+</nav>
+  </main>
+  <aside class="toc"><p>On this page</p><ul><li><a href="#what-the-add-on-does">What the add-on does</a></li>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#where-to-find-the-add-on-in-blender">Where to find the add-on in Blender</a></li></ul></aside>
+</div>
+<footer class="foot">
+  <a href="../../en/index.html"><img src="../../logos/logo-bridge.png" alt="" width="20" height="20">JangaFX Bridge</a>
+  <a href="../../liquigen/en/index.html"><img src="../../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
+  <span><img src="../../logos/embergen.png" alt="" width="20" height="20"> EmberGen</span>
+  <span>v0.22.6</span>
+  <small>EmberGen and LiquiGen are trademarks of JangaFX; their logos here identify the software.</small>
+</footer>
+</body>
+</html>

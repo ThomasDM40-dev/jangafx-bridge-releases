@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JangaFX Bridge pour LiquiGen — JangaFX Bridge · LiquiGen</title>
+<link rel="icon" href="../logos/liquigen.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="lq">
+<a class="skip" href="#content">Aller au contenu</a>
+<header class="top">
+  <a class="brand" href="index.html"><img class="logo" src="../logos/liquigen.png" alt="" width="28" height="28">JangaFX Bridge · LiquiGen <em>Documentation</em></a>
+  <a class="lang" href="en/index.html">English</a>
+</header>
+<div class="layout">
+  <nav class="side">
+    <details open><summary>Sommaire</summary><ul>
+<li><a href="index.html" aria-current="page">JangaFX Bridge pour LiquiGen</a></li>
+<li><a href="premiers-pas.html">Premiers pas avec LiquiGen</a></li>
+<li><a href="liquide.html">La section Liquid</a></li>
+<li><a href="verifier-et-exporter.html">Vérifier et exporter</a></li>
+    </ul></details>
+  </nav>
+  <main id="content">
+<article>
+<h1 id="jangafx-bridge-pour-liquigen">JangaFX Bridge pour LiquiGen</h1>
+<div class="hero">
+<img src="../logos/liquigen.png" alt="Logo LiquiGen">
+<div>
+<p class="kicker">Documentation · JangaFX Bridge pour Blender</p>
+<p class="name">Vos liquides LiquiGen, rendus dans Blender</p>
+<p class="tag">Ouvrez le projet <code>.liquigen</code> : le liquide, l'écume, les embruns, les bulles, la caméra, le
+soleil et le sol sont prêts au rendu.</p>
+</div>
+</div>
+
+<div class="badges">
+<span><img src="../logos/liquigen.png" alt="">LiquiGen 1.0 à 1.2</span>
+<span><img src="../logos/logo-bridge.png" alt="">Blender 4.5 et plus</span>
+<span>Alembic et VDB</span>
+<span>Rendu Cycles</span>
+</div>
+
+<p>Cette version de la documentation ne parle que de <strong>LiquiGen</strong>. Pour EmberGen (fumée, feu, étincelles), voir la
+<a href="../index.html">documentation complète</a>.</p>
+<h2 id="ce-que-fait-ladd-on">Ce que fait l'add-on</h2>
+<p>JangaFX Bridge fait le lien entre LiquiGen et Blender :</p>
+<ul>
+<li>vous ouvrez votre projet LiquiGen (<code>.liquigen</code>) directement dans Blender ;</li>
+<li>l'add-on retrouve tout seul les exports du projet (le liquide, et les particules blanches : écume, embruns,
+  bulles), les importe et reconstruit la scène : matériau du liquide, soleil, sol, caméra, cadence et plage
+  d'images ;</li>
+<li>il surveille le dossier des exports : quand vous réexportez depuis LiquiGen, Blender se met à jour ;</li>
+<li>il compare le rendu de Blender à une capture de LiquiGen et liste les différences ;</li>
+<li>il exporte le liquide terminé en <code>.blend</code> autonome, à ajouter dans n'importe quelle autre scène.</li>
+</ul>
+<p class="gallery"><img src="../showcase/liquigen-gold.png" alt="Or liquide LiquiGen"><img src="../showcase/liquigen-whirlpool.png" alt="Tourbillon et écume LiquiGen"></p>
+
+<h2 id="sommaire">Sommaire</h2>
+<ol>
+<li><a href="../installation.html">Installation</a> — installer l'add-on et recevoir les mises à jour (commune à EmberGen).</li>
+<li><a href="premiers-pas.html">Premiers pas avec LiquiGen</a> — exporter depuis LiquiGen, ouvrir le projet, lire le rapport.</li>
+<li><a href="liquide.html">La section Liquid</a> — le look du liquide, l'écume, le lissage, les particules blanches.</li>
+<li><a href="verifier-et-exporter.html">Vérifier et exporter</a> — comparer à une capture LiquiGen, exporter en <code>.blend</code>.</li>
+<li><a href="../depannage.html">Dépannage</a> — les problèmes courants (commun à EmberGen).</li>
+</ol>
+<h2 id="où-trouver-ladd-on-dans-blender">Où trouver l'add-on dans Blender</h2>
+<p>Dans la vue 3D, appuyez sur <strong>N</strong> pour ouvrir le panneau latéral, puis cliquez sur l'onglet <strong>JangaFX</strong>. Les
+textes des boutons sont en anglais, comme le reste de Blender ; cette documentation donne leur nom exact en
+<strong>gras</strong>.</p>
+<p><a class="cross" href="../index.html"><img src="../logos/embergen.png" alt=""><span>Vous travaillez aussi avec EmberGen ?<small>La documentation complète couvre EmberGen et LiquiGen.</small></span></a></p>
+</article>
+<nav class="pager">
+<a class="next" href="premiers-pas.html"><span>Suivant</span>Premiers pas avec LiquiGen</a>
+</nav>
+  </main>
+  <aside class="toc"><p>Sur cette page</p><ul><li><a href="#ce-que-fait-ladd-on">Ce que fait l'add-on</a></li>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#où-trouver-ladd-on-dans-blender">Où trouver l'add-on dans Blender</a></li></ul></aside>
+</div>
+<footer class="foot">
+  <a href="../index.html"><img src="../logos/logo-bridge.png" alt="" width="20" height="20">JangaFX Bridge</a>
+  <a href="../liquigen/index.html"><img src="../logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
+  <span><img src="../logos/embergen.png" alt="" width="20" height="20"> EmberGen</span>
+  <span>v0.22.6</span>
+  <small>EmberGen et LiquiGen sont des marques de JangaFX ; leurs logos désignent ici les logiciels.</small>
+</footer>
+</body>
+</html>

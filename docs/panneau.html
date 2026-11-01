@@ -37,15 +37,24 @@ ouverte, avec le lien <strong>En savoir plus</strong> vers cette documentation.<
 <figure><a href="images/pan-04-aide.png"><img alt="La fenêtre d'aide d'un bouton ?" src="images/pan-04-aide.png" loading="lazy"></a><figcaption>La fenêtre d'aide d'un bouton ?</figcaption></figure>
 <p>Les réglages des étincelles, du liquide et du rendu affichent aussi leur explication quand vous les survolez.</p>
 <h2 id="projet-et-liste-des-exports">Projet et liste des exports</h2>
-<p>La première section, <strong>JangaFX Bridge</strong>, montre le projet ouvert :</p>
+<p>La première section, <strong>JangaFX Bridge</strong>, montre le projet actif dans une carte :</p>
 <ul>
-<li>le <strong>nom du projet</strong> et le bouton dossier (à droite) pour <strong>ouvrir un autre projet</strong> ;</li>
+<li>le <strong>nom du projet</strong> et la croix (à droite) pour <strong>fermer le projet</strong> (les effets déjà importés restent dans la
+  scène) ;</li>
 <li><strong>Watching Exports / Watch Exports</strong> : allume ou coupe la surveillance du dossier des exports ;</li>
 <li>le dossier surveillé (en gris) ;</li>
 <li>le <a href="premiers-pas.html#le-rapport-du-projet">rapport du projet</a>.</li>
 </ul>
-<p>En dessous, la <strong>liste des exports</strong> trouvés : une ligne par export, avec une icône selon son rôle (fumée,
-étincelles, liquide) et son état à droite :</p>
+<p>Une scène peut avoir <strong>plusieurs projets</strong>. Sous la carte, chaque autre projet ouvert est un bouton : cliquez-le
+pour le rendre actif (sa carte et son rapport reviennent), sa croix le ferme. Les dossiers de VDB ajoutés à la main
+s'y affichent aussi, en gris.</p>
+<ul>
+<li><strong>+ Project</strong> : ouvre un autre projet EmberGen ou LiquiGen, sans fermer celui-ci ;</li>
+<li><strong>+ VDB</strong> : importe une séquence VDB de n'importe quel dossier, même sans projet, avec le look EmberGen ; son
+  dossier est ajouté aux sources surveillées.</li>
+</ul>
+<p>En dessous, la <strong>liste des exports</strong> trouvés, tous projets confondus : une ligne par export, avec une icône selon
+son rôle (fumée, feu, étincelles, liquide) et son état à droite :</p>
 <ul>
 <li>coche : importé et à jour ;</li>
 <li>flèches : le fichier a changé sur le disque, il faut le recharger ;</li>
@@ -77,6 +86,9 @@ taille sur le disque (<strong>Size</strong>), l'état (<strong>Status</strong>) 
   approximative de la copie est indiquée dessous. Une fois fait, la ligne devient <strong>Optimized VDB copy in use</strong>.</li>
 <li><strong>Starts at Frame</strong> : image de la scène où joue la première image de l'export. Le bouton à droite (<strong>Fit Scene
   Range</strong>) cale la plage d'images de la scène sur celle de l'export.</li>
+<li><strong>Animate Effect Time</strong> : pilote le temps de l'effet par une valeur animable (<strong>Effect Frame</strong>) pour le
+  ralentir, l'accélérer, le figer ou changer sa cadence ; et <strong>Snap to Emitter Object</strong> : accroche l'effet à un objet
+  de la scène. Les deux sont expliqués dans <a href="export.html">Exporter l'effet en .blend</a>.</li>
 </ul>
 <p>Deux sous-sections repliées :</p>
 <ul>
@@ -87,8 +99,12 @@ taille sur le disque (<strong>Size</strong>), l'état (<strong>Status</strong>) 
 </ul>
 <figure><a href="images/pan-02-export.png"><img alt="La section Export avec ses sous-sections" src="images/pan-02-export.png" loading="lazy"></a><figcaption>La section Export avec ses sous-sections</figcaption></figure>
 <h2 id="look">Look</h2>
-<p>La section <strong>Look</strong> règle l'apparence du volume (fumée et feu). Elle suit l'export sélectionné ; si une autre ligne
-est choisie, elle montre le premier volume importé (son nom est rappelé en gris en haut).</p>
+<p>La section <strong>Look</strong> règle l'apparence du volume (fumée et feu).</p>
+<p>Quand la scène a <strong>plusieurs volumes</strong> (plusieurs projets, copies, imports à la main), elle les liste tous en haut :
+cliquez une ligne pour régler ce volume, l'icône écran à droite le cache ou l'affiche dans la vue 3D. Un volume qui
+ne vient pas du projet ouvert porte une étiquette grise : <strong>Copy</strong> (copie d'un export, Shift+D), <strong>Bridge</strong> (look
+de l'add-on) ou <strong>Manual</strong> (importé à la main) ; pour lui, seuls les réglages du matériau sont affichés.
+Avec un seul volume, son nom est rappelé en gris en haut.</p>
 <p>Le menu en haut choisit le <strong>préréglage</strong> :</p>
 <ul>
 <li><strong>EmberGen Look</strong> (par défaut) : reproduit le rendu du projet EmberGen (<code>.ember</code>) ; sans projet trouvé, ce sont
@@ -113,7 +129,9 @@ dont les réglages sont affichés directement : densité, couleur, couleur d'abs
 fumée (<strong>Density Grid</strong>) et pour le feu (<strong>Flame Grid</strong>). Ces valeurs viennent du préréglage, pas du projet.</p>
 <figure><a href="images/looks-simples.png"><img alt="Le look simple Fire + Smoke et ses réglages" src="images/looks-simples.png" loading="lazy"></a><figcaption>Le look simple Fire + Smoke et ses réglages</figcaption></figure>
 <h3 id="flammes">Flammes</h3>
-<p>Sous-section <strong>Flames</strong> (seulement si le projet a des flammes) :</p>
+<p>Sous-section <strong>Flames</strong> (seulement si le projet a du feu : une grille <code>flames</code> non vide et un émetteur qui émet de
+la température ou du combustible ; un projet de fumée seule n'a pas cette sous-section, même si EmberGen a exporté
+une grille <code>flames</code>) :</p>
 <ul>
 <li><strong>Intensity</strong> : force de la lumière des flammes ;</li>
 <li><strong>Scatter Glow</strong> : lueur des flammes diffusée dans la fumée autour (lueur orange des explosions) ;</li>
@@ -161,7 +179,9 @@ et au rendu (appareil photo).</p>
   Length</strong>, <strong>Width Random</strong>, <strong>Length Random</strong>, <strong>Min Speed</strong> (cache les particules plus lentes, par exemple
   posées au sol).</li>
 <li><strong>Look</strong> : <strong>Fade Time</strong>, <strong>Color Tint</strong> (multiplie la couleur), puis <strong>Intensity</strong> (luminosité), <strong>Edge
-  Softness</strong> (douceur des bords) et <strong>Tail Fade</strong> (extinction de la queue des traînées).</li>
+  Softness</strong> (douceur des bords) et <strong>Tail Fade</strong> (extinction de la queue des traînées). Le bouton <strong>Solid Points</strong>
+  remplace la lueur additive par des points opaques émissifs dix fois plus fins : le rendu Cycles est environ dix
+  fois plus rapide, sans trous noirs là où beaucoup de particules se superposent.</li>
 <li><strong>Optimization</strong> (repliée) : affichage dans la vue 3D et au rendu, <strong>Points in Viewport</strong> (des points au lieu des
   traînées dans la vue, le rendu garde les traînées), <strong>Resolution</strong> (segments des traînées) et <strong>Seed</strong>.</li>
 </ul>
@@ -199,12 +219,17 @@ et au rendu (appareil photo).</p>
 <li><strong>Recreate from the Project</strong> : ce que <strong>Apply Project Scene</strong> doit recréer :<ul>
 <li><strong>Camera</strong> : la caméra d'EmberGen (champ de vision, orbite, distance) ;</li>
 <li><strong>Ground</strong> : le sol du projet, pour que l'effet l'éclaire et s'y reflète ;</li>
+<li><strong>Lights</strong> : les lumières du projet (soleil, lumières ponctuelles et spots) ;</li>
+<li><strong>Sky</strong> : le monde (ciel et lumière ambiante) du projet ; décoché, votre monde ou votre HDRI est gardé ;</li>
+<li><strong>Color Management</strong> : la transformation d'affichage et le look (tonemapping d'EmberGen) ; décoché, les
+couleurs de votre scène sont gardées ;</li>
+<li><strong>Render Settings</strong> : échantillons Cycles, pas du volume et flou de mouvement selon la qualité choisie
+(section Render) ; décoché, les vôtres sont gardés ;</li>
 <li><strong>Frame Rate</strong> : la cadence du projet ;</li>
 <li><strong>Post FX</strong> : le post-traitement du projet ;</li>
 </ul>
 </li>
-<li><strong>Apply Project Scene</strong> : recrée les lumières, le tonemapping, le post-traitement, la qualité de rendu et,
-  si coché, la caméra ;</li>
+<li><strong>Apply Project Scene</strong> : recrée ce qui est coché ci-dessus ;</li>
 <li><strong>Sun Strength</strong> et <strong>Sun Color</strong> : force et couleur du soleil du projet.</li>
 </ul>
 <figure><a href="images/pan-06-scene.png"><img alt="Les sections Project Scene et Post-Processing" src="images/pan-06-scene.png" loading="lazy"></a><figcaption>Les sections Project Scene et Post-Processing</figcaption></figure>

@@ -93,6 +93,13 @@ l'émetteur (modificateur « JangaFX Pivot », juste après le cache) : le déca
 et déplacer, tourner ou mettre à l'échelle le parent ou une partie garde l'effet sur l'objet. Si l'objet bouge,
 recliquez : l'objet émetteur est retenu, pas besoin de le resélectionner.
 
+Pour que l'effet suive l'objet tout seul, utilisez **Follow Object** : sélectionnez l'objet (ou son armature), puis
+cliquez. Le déplacer, le tourner ou le mettre à l'échelle emporte alors tout l'effet ; recliquez pour détacher. Si
+l'entrée **Transform** de l'export est branchée sur le nœud **Import** dans EmberGen, l'attache se fait toute seule à
+l'import, dès que l'objet est trouvé dans la scène (nom proche de celui du fichier, ou seul objet possible). Les os ne
+sont pas suivis : leur mouvement est déjà dans la simulation. Un objet animé (clés sur l'objet lui-même) n'est pas
+attaché automatiquement, son mouvement serait compté deux fois.
+
 ## Animer le temps de l'effet
 
 Dans le panneau de l'export, sous **Starts at Frame**, cliquez **Animate Effect Time**. Une valeur **Effect Frame**

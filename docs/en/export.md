@@ -93,6 +93,13 @@ the emitter ("JangaFX Pivot" modifier, right after the cache): the Import offset
 and moving, rotating or scaling the parent or a part keeps the effect on the object. If the object moves,
 click again: the emitter object is remembered, no need to reselect it.
 
+To make the effect follow the object on its own, use **Follow Object**: select the object (or its armature), then
+click. Moving, rotating or scaling it now carries the whole effect; click again to detach. If the export's
+**Transform** input is plugged into the **Import** node in EmberGen, this happens by itself at import, as soon as the
+object is found in the scene (name close to the file's, or the only possible object). Bones are not followed: their
+motion is already in the simulation. An object with keyframes on the object itself is not attached automatically: its
+motion would be counted twice.
+
 ## Animate the effect's time
 
 In the export panel, under **Starts at Frame**, click **Animate Effect Time**. An **Effect Frame** value

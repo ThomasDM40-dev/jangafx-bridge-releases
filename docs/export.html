@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Exporter l&#x27;effet en .blend — JangaFX Bridge</title>
 <link rel="icon" href="logos/embergen.png">
-<link rel="stylesheet" href="style.css?v=0.26.6">
+<link rel="stylesheet" href="style.css?v=0.26.7">
 </head>
 <body class="eg">
 <a class="skip" href="#content">Aller au contenu</a>
@@ -19,8 +19,8 @@
 </header>
 <div class="layout">
   <nav class="side">
-    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.26.6/jangafx_bridge-0.26.6.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Glissez ce bouton dans une fenêtre de Blender 4.5+" draggable="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Glisser-déposer dans Blender</a>
-    <p class="drop-hint">…ou <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.26.6/jangafx_bridge-0.26.6.zip">télécharger</a> et <a href="installation.html#installer-depuis-un-fichier-zip">Install from Disk</a></p>
+    <a class="drop" href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.26.7/jangafx_bridge-0.26.7.zip?repository=https%3A%2F%2Fraw.githubusercontent.com%2FThomasDM40-dev%2Fjangafx-bridge-releases%2Fmain%2Findex.json&amp;blender_version_min=4.5.0" title="Glissez ce bouton dans une fenêtre de Blender 4.5+" draggable="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Glisser-déposer dans Blender</a>
+    <p class="drop-hint">…ou <a href="https://github.com/ThomasDM40-dev/jangafx-bridge-releases/releases/download/v0.26.7/jangafx_bridge-0.26.7.zip">télécharger</a> et <a href="installation.html#installer-depuis-un-fichier-zip">Install from Disk</a></p>
     <details open><summary>Sommaire</summary><ul>
 <li><a href="index.html">JangaFX Bridge pour EmberGen</a></li>
 <li><a href="installation.html">Installation</a></li>
@@ -107,6 +107,12 @@ sélectionnez cet objet dans Blender, puis cliquez <strong>Snap to Emitter Objec
 l'émetteur (modificateur « JangaFX Pivot », juste après le cache) : le décalage de l'Import dans EmberGen est corrigé,
 et déplacer, tourner ou mettre à l'échelle le parent ou une partie garde l'effet sur l'objet. Si l'objet bouge,
 recliquez : l'objet émetteur est retenu, pas besoin de le resélectionner.</p>
+<p>Pour que l'effet suive l'objet tout seul, utilisez <strong>Follow Object</strong> : sélectionnez l'objet (ou son armature), puis
+cliquez. Le déplacer, le tourner ou le mettre à l'échelle emporte alors tout l'effet ; recliquez pour détacher. Si
+l'entrée <strong>Transform</strong> de l'export est branchée sur le nœud <strong>Import</strong> dans EmberGen, l'attache se fait toute seule à
+l'import, dès que l'objet est trouvé dans la scène (nom proche de celui du fichier, ou seul objet possible). Les os ne
+sont pas suivis : leur mouvement est déjà dans la simulation. Un objet animé (clés sur l'objet lui-même) n'est pas
+attaché automatiquement, son mouvement serait compté deux fois.</p>
 <h2 id="animer-le-temps-de-leffet">Animer le temps de l'effet</h2>
 <p>Dans le panneau de l'export, sous <strong>Starts at Frame</strong>, cliquez <strong>Animate Effect Time</strong>. Une valeur <strong>Effect Frame</strong>
 apparaît : c'est la frame de la simulation montrée (le numéro des fichiers exportés). Elle est posée sur le parent
@@ -188,7 +194,7 @@ document.querySelectorAll(".drop").forEach(function (a) {
   <a href="index.html"><img src="logos/embergen.png" alt="" width="20" height="20">EmberGen</a>
   <a href="liquigen/index.html"><img src="logos/liquigen.png" alt="" width="20" height="20">LiquiGen</a>
   <span><img src="logos/logo-bridge.png" alt="" width="20" height="20"> JangaFX Bridge</span>
-  <span>v0.26.6</span>
+  <span>v0.26.7</span>
   <small>EmberGen et LiquiGen sont des marques de JangaFX ; leurs logos désignent ici les logiciels.</small>
 </footer>
 </body>
